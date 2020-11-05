@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+caption{
+  font-family:Impact, sans-serif;
+  font-size:3em;
+  /*font-weight: bold;*/
+  background-color: silver;
+}
+
+table{
+    border:5px solid #a9a9a9;
+}
+
+td{
+    width:25%;
+    border:1px solid #a9a9a9;
+}
+
+img{
+  width:100%;
+}

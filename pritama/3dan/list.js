@@ -1,0 +1,3 @@
+function imgClick() {
+  alert("クリックされました");
+}
