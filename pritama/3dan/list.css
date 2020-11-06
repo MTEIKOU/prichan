@@ -1,10 +1,16 @@
 @charset "UTF-8";
 
+#icon{
+    width:1em;
+  	height:1em;
+}
+
 caption{
   font-family:Impact, sans-serif;
   font-size:3em;
   /*font-weight: bold;*/
-  background-color: silver;
+  background-color: pink;
+  /*background-image: url("..\..\common\PT_rarity_ER.png");*/
 }
 
 table{
