@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#icon{
+.icon{
     width:1em;
   	height:1em;
 }
@@ -13,8 +13,12 @@ caption{
   /*background-image: url("..\..\common\PT_rarity_ER.png");*/
 }
 
-table{
-    border:5px solid #a9a9a9;
+.cap{
+    width = 100%;
+}
+
+.table{
+    width: 100%;
 }
 
 td{
@@ -24,4 +28,8 @@ td{
 
 img{
   width:100%;
+}
+
+.have{
+  background-color: gray;
 }
