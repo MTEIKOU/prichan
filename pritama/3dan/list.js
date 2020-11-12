@@ -5,6 +5,8 @@ window.addEventListener('load', function(){makeTableSR()})
 window.addEventListener('load', function(){addEvent()} )
 window.addEventListener('load', function(){setColor()} )
 
+let rare = ["ER","FR","PR","SR","R","N"];
+
 let e=[
   [72511,3],
   [72514,3]
