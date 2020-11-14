@@ -2,7 +2,7 @@ window.addEventListener('load', function(){makeArray()})
 //window.addEventListener('load', function(){makeCaption()})
 window.addEventListener('load', function(){makeTable()})
 //window.addEventListener('load', function(){makeTableSR()})
-//window.addEventListener('load', function(){addEvent()} )
+window.addEventListener('load', function(){addEvent()} )
 window.addEventListener('load', function(){setColor()})
 
 let rare = ["ER","FR","PR","SR","R","N"];
@@ -13,8 +13,8 @@ let e=[
 ];
 
 let f=[
-  [72527,4],
-  [72531,4]
+  [72526,4],
+  [72530,4]
 ];
 
 let p=[
@@ -45,6 +45,9 @@ let r=[
 let n=[
   [72594,4],
   [72598,4],
+  [72602,4],
+  [72605,3],
+  [72607,2]
 ];
 
 let all =[];
@@ -174,9 +177,10 @@ function makeTable(){
     c += "<table id='" + rare[n] + "'class = 'table'></table>"
     body.innerHTML = c;
 
-      var tbl = document.getElementById(rare[n]);
+
 
     for(x = 0; x < all[n].length; x++){
+            var tbl = document.getElementById(rare[n]);
       t += "<tr>";
       for(y = 0;y < all[n][x].length; y++){
         t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>";
