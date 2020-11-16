@@ -8,8 +8,8 @@ window.addEventListener('load', function(){setColor()})
 let rare = ["ER","FR","PR","SR","R","N"];
 
 let e=[
-  [72513,3],
-  [72516,3]
+  [72511,3],
+  [72514,3]
 ];
 
 let f=[

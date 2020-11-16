@@ -33,3 +33,10 @@ img{
 .have{
   background-color: gray;
 }
+
+.item{
+  text-align: center;
+  font-weight: bold;
+  width:2em;
+  height:2em;
+}

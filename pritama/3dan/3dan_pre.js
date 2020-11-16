@@ -64,7 +64,6 @@ function makeArray(){
   }
   if (e.length) {all.push(er);}
 
-
   for(var i=0;i<f.length;i++){
     fr.push([f[i][0],f[i][0]-f[i][1]+1,f[i][0]-f[i][1]+2,f[i][0]-f[i][1]+3]);
   }
@@ -89,10 +88,9 @@ function makeArray(){
     no.push([n[i][0],n[i][0]-n[i][1]+1,n[i][0]-n[i][1]+2,n[i][0]-n[i][1]+3]);
   }
   if (n.length) {all.push(no);}
-
-
 }
 
+/*
 function makeArrayy(){
   for(var i=0;i<e.length;i++){
     er.push([e[i][0],e[i][0]-e[i][1]+1,e[i][0]-e[i][1]+2,e[i][0]-e[i][1]+3]);
@@ -114,7 +112,6 @@ function makeArrayy(){
   }
   all.push(sr);
 }
-
 function makeTablePR(){
   //Rare Array Loop
   var tbl = document.getElementById("PR");
@@ -134,7 +131,6 @@ function makeTablePR(){
   tbl.innerHTML = t;
 
 };
-
 function makeTableSR(){
   //Rare Array Loop
   var tbl = document.getElementById(rare[3]);
@@ -154,18 +150,10 @@ function makeTableSR(){
   tbl.innerHTML = t;
 
 };
+*/
 
 function makeTable(){
-  //Rare Array Loop
-  /*
-  let et = document.getElementById("ER");
-  let ft = document.getElementById("FR");
-  let pt = document.getElementById("PR");
-  let st = document.getElementById("SR");
-  */
 
-  var body = document.body;
-  //  表作成
   var x;
   var y;
   var t = '';
@@ -173,21 +161,28 @@ function makeTable(){
 
   for(var n=0;n<rare.length;n++){
 
-    c += "<table width = 100%><caption><img class = 'icon' src='..\..\common\PT_rarity_FR.png'>"+ rare[n] +"<img class = 'icon' src='..\..\common\PT_rarity_FR.png'></caption></table>"
+    c += "<table width = 100%><caption><img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'></caption></table>"
     c += "<table id='" + rare[n] + "'class = 'table'></table>"
-    body.innerHTML = c;
+    var wr = document.getElementById("WR");
+    document.body.insertAdjacentHTML('afterend',c);
+  }
 
 
+  for(n=0;n<all.length;n++){
 
     for(x = 0; x < all[n].length; x++){
-            var tbl = document.getElementById(rare[n]);
-      t += "<tr>";
+
+      t += "<tr>"
+
       for(y = 0;y < all[n][x].length; y++){
-        t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>";
+        t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>"
       }
-      t += "</tr>";
+      t += "</tr>"
     }
-    tbl.innerHTML = t;
+    var tbl = document.getElementById(rare[n]);
+    console.log(t);
+    tbl.insertAdjacentHTML('afterbegin',t);
+    t='';
 
   }
 };
