@@ -7,147 +7,115 @@ window.addEventListener('load', function(){setColor()})
 
 let rare = ["ER","FR","PR","SR","R","N"];
 
-let e=[
-  [72513,3],
-  [72516,3]
-];
-
-let f=[
-  [72526,4],
-  [72530,4]
-];
-
-let p=[
-  [72534,4],
-  [72538,4],
-  [72542,4],
-  [72546,4]
-];
-
-let s=[
-  [72549,3],
-  [72553,4],
-  [72390,3],
-  [72557,4],
-  [72561,4]
-];
-
-let r=[
-  [72566,4],
-  [72570,4],
-  [72574,4],
-  [72578,4],
-  [72582,4],
-  [72586,4],
-  [72590,4]
-];
-
-let n=[
-  [72594,4],
-  [72598,4],
-  [72602,4],
-  [72605,3],
-  [72607,2]
-];
-
 let all =[];
-let er =[];
-let fr =[];
-let pr =[];
-let sr =[];
-let ra =[];
-let no =[];
+
+let er =[
+  [72513,72511,72512,0],
+  [72516,72514,72515,0],
+  [72519,72517,72518,0],
+  [72522,72520,72521,0]
+];
+let fr =[
+  [72526,72523,72524,72525],
+  [72530,72527,72528,72529]
+];
+let pr =[
+  [72534,72531,72532,72533],
+  [72538,72535,72536,72537],
+  [72542,72539,72540,72541],
+  [72546,72543,72544,72545]
+];
+let sr =[
+  [72549,72547,72548,0],
+  [72553,72550,72551,72552],
+  [72590,72588,72589,0],
+  [72557,72554,72555,72556],
+  [72561,72558,72559,72560]
+];
+let ra =[
+  [72566,72563,72564,72565],
+  [72570,72567,72568,72569],
+  [72574,72571,72572,72573],
+  [72578,72575,72576,72577],
+  [72582,72579,72580,72581],
+  [72586,72583,72584,72585],
+  [72590,72587,72588,72589]
+];
+let no =[
+  [72594,72591,72592,72593],
+  [72598,72595,72596,72597],
+  [72602,72599,72600,72601],
+  [72605,72603,72604,0],
+  [0,72606,72607,0]
+];
 
 function makeArray(){
-  for(var i=0;i<e.length;i++){
-    er.push([e[i][0],e[i][0]-e[i][1]+1,e[i][0]-e[i][1]+2,e[i][0]-e[i][1]+3]);
-  }
-  if (e.length) {all.push(er);}
-
-  for(var i=0;i<f.length;i++){
-    fr.push([f[i][0],f[i][0]-f[i][1]+1,f[i][0]-f[i][1]+2,f[i][0]-f[i][1]+3]);
-  }
-  if (f.length) {all.push(fr);}
-
-  for(var i=0;i<p.length;i++){
-    pr.push([p[i][0],p[i][0]-p[i][1]+1,p[i][0]-p[i][1]+2,p[i][0]-p[i][1]+3]);
-  }
-  if (p.length) {all.push(pr);}
-
-  for(var i=0;i<s.length;i++){
-    sr.push([s[i][0],s[i][0]-s[i][1]+1,s[i][0]-s[i][1]+2,s[i][0]-s[i][1]+3]);
-  }
-  if (s.length) {all.push(sr);}
-
-  for(var i=0;i<r.length;i++){
-    ra.push([r[i][0],r[i][0]-r[i][1]+1,r[i][0]-r[i][1]+2,r[i][0]-r[i][1]+3]);
-  }
-  if (r.length) {all.push(ra);}
-
-  for(var i=0;i<n.length;i++){
-    no.push([n[i][0],n[i][0]-n[i][1]+1,n[i][0]-n[i][1]+2,n[i][0]-n[i][1]+3]);
-  }
-  if (n.length) {all.push(no);}
+  if (er.length) {all.push(er);}
+  if (fr.length) {all.push(fr);}
+  if (pr.length) {all.push(pr);}
+  if (sr.length) {all.push(sr);}
+  if (ra.length) {all.push(ra);}
+  if (no.length) {all.push(no);}
 }
 
 /*
 function makeArrayy(){
-  for(var i=0;i<e.length;i++){
-    er.push([e[i][0],e[i][0]-e[i][1]+1,e[i][0]-e[i][1]+2,e[i][0]-e[i][1]+3]);
-  }
-  all.push(er);
+for(var i=0;i<e.length;i++){
+er.push([e[i][0],e[i][0]-e[i][1]+1,e[i][0]-e[i][1]+2,e[i][0]-e[i][1]+3]);
+}
+all.push(er);
 
-  for(var i=0;i<f.length;i++){
-    fr.push([f[i][0],f[i][0]-f[i][1]+1,f[i][0]-f[i][1]+2,f[i][0]-f[i][1]+3]);
-  }
-  all.push(fr);
+for(var i=0;i<f.length;i++){
+fr.push([f[i][0],f[i][0]-f[i][1]+1,f[i][0]-f[i][1]+2,f[i][0]-f[i][1]+3]);
+}
+all.push(fr);
 
-  for(var i=0;i<p.length;i++){
-    pr.push([p[i][0],p[i][0]-p[i][1]+1,p[i][0]-p[i][1]+2,p[i][0]-p[i][1]+3]);
-  }
-  all.push(pr);
+for(var i=0;i<p.length;i++){
+pr.push([p[i][0],p[i][0]-p[i][1]+1,p[i][0]-p[i][1]+2,p[i][0]-p[i][1]+3]);
+}
+all.push(pr);
 
-  for(var i=0;i<s.length;i++){
-    sr.push([s[i][0],s[i][0]-s[i][1]+1,s[i][0]-s[i][1]+2,s[i][0]-s[i][1]+3]);
-  }
-  all.push(sr);
+for(var i=0;i<s.length;i++){
+sr.push([s[i][0],s[i][0]-s[i][1]+1,s[i][0]-s[i][1]+2,s[i][0]-s[i][1]+3]);
+}
+all.push(sr);
 }
 function makeTablePR(){
-  //Rare Array Loop
-  var tbl = document.getElementById("PR");
+//Rare Array Loop
+var tbl = document.getElementById("PR");
 
-  //  表作成
-  var x;
-  var y;
-  var t = '';
+//  表作成
+var x;
+var y;
+var t = '';
 
-  for(x = 0; x < pr.length; x++){
-    t += "<tr>";
-    for(y = 0;y < pr[x].length; y++){
-      t += "<td id='"+pr[x][y]+"' class='item'><img src='img/Item_ID"+pr[x][y]+".png'></td>";
-    }
-    t += "</tr>";
-  }
-  tbl.innerHTML = t;
+for(x = 0; x < pr.length; x++){
+t += "<tr>";
+for(y = 0;y < pr[x].length; y++){
+t += "<td id='"+pr[x][y]+"' class='item'><img src='img/Item_ID"+pr[x][y]+".png'></td>";
+}
+t += "</tr>";
+}
+tbl.innerHTML = t;
 
 };
 function makeTableSR(){
-  //Rare Array Loop
-  var tbl = document.getElementById(rare[3]);
+//Rare Array Loop
+var tbl = document.getElementById(rare[3]);
 
-  //  表作成
-  var x;
-  var y;
-  var t = '';
+//  表作成
+var x;
+var y;
+var t = '';
 
-  for(x = 0; x < sr.length; x++){
-    t += "<tr>";
-    for(y = 0;y < sr[x].length; y++){
-      t += "<td id='"+sr[x][y]+"' class='item'><img src='img/Item_ID"+sr[x][y]+".png'></td>";
-    }
-    t += "</tr>";
-  }
-  tbl.innerHTML = t;
+for(x = 0; x < sr.length; x++){
+t += "<tr>";
+for(y = 0;y < sr[x].length; y++){
+t += "<td id='"+sr[x][y]+"' class='item'><img src='img/Item_ID"+sr[x][y]+".png'></td>";
+}
+t += "</tr>";
+}
+tbl.innerHTML = t;
 
 };
 */
@@ -164,7 +132,8 @@ function makeTable(){
     c += "<table width = 100%><caption><img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'></caption></table>"
     c += "<table id='" + rare[n] + "'class = 'table'></table>"
     var wr = document.getElementById("WR");
-    document.body.insertAdjacentHTML('afterend',c);
+    document.body.insertAdjacentHTML('beforeend',c);
+    c ="";
   }
 
 
@@ -175,12 +144,16 @@ function makeTable(){
       t += "<tr>"
 
       for(y = 0;y < all[n][x].length; y++){
-        t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>"
+        if(all[n][x][y]==0){
+          t += "<td></td>"
+        }
+        else{
+          t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>"
+        }
       }
       t += "</tr>"
     }
     var tbl = document.getElementById(rare[n]);
-    console.log(t);
     tbl.insertAdjacentHTML('afterbegin',t);
     t='';
 
