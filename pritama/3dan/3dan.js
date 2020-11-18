@@ -1,9 +1,11 @@
 window.addEventListener('load', function(){makeArray()})
-//window.addEventListener('load', function(){makeCaption()})
 window.addEventListener('load', function(){makeTable()})
-//window.addEventListener('load', function(){makeTableSR()})
-window.addEventListener('load', function(){addEvent()} )
+window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
+window.addEventListener('load', function(){IDCount()})
+
+let sum=0;
+let having=0;
 
 let rare = ["ER","FR","PR","SR","R","N"];
 
@@ -170,12 +172,16 @@ function addEvent(){
       if(key==1){
         localStorage.removeItem(items[i].id);
         document.getElementById(items[i].id).style.backgroundColor = "white";
+        having--;
+        CountText();
       }
       else{
         localStorage.setItem(items[i].id,1);
         document.getElementById(items[i].id).style.backgroundColor = "gray";
+        having++;
+        CountText();
       }
-
+      console.log(having + "/" +sum);
     }, false);
   }
 }
@@ -184,9 +190,28 @@ function setColor(){
   for (key in localStorage) {
     if (localStorage.hasOwnProperty(key)) {
       document.getElementById(key).style.backgroundColor = "gray";
+      having++;
     }
   }
 
+}
+
+function IDCount(){
+  for(let n=0; n<all.length; n++){
+    for(let x = 0; x < all[n].length; x++){
+      for(let y = 0;y < all[n][x].length; y++){
+        if(all[n][x][y]!=0){
+          sum++;
+        }
+      }
+    }
+  }
+  CountText();
+}
+
+function CountText(){
+  let text = document.getElementById('count');
+  text.innerText = having + "/" + sum + " (" + Math.round((having/sum)*100*100)/100 + "%)";
 }
 
 /*

@@ -40,3 +40,9 @@ img{
   width:2em;
   height:2em;
 }
+
+#count{
+  font-weight: bold;
+  text-align: center;
+  font-size: x-large;
+}
