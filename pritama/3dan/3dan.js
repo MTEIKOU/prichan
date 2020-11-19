@@ -133,7 +133,7 @@ function makeTable(){
 
   for(var n=0;n<rare.length;n++){
 
-    c += "<table width = 100%><caption><img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'></caption></table>"
+    c += "<table><caption><img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/PT_rarity_" + rare[n] +".png'></caption></table>"
     c += "<table id='" + rare[n] + "'class = 'table'></table>"
     var wr = document.getElementById("WR");
     document.body.insertAdjacentHTML('beforeend',c);

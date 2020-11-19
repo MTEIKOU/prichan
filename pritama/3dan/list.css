@@ -17,13 +17,17 @@ caption{
     width = 100%;
 }
 
-.table{
+table{
     width: 100%;
+}
+
+.table{
+  empty-cells : hide;
+    border-collapse: collapse;
 }
 
 td{
     width:25%;
-    border:1px solid #a9a9a9;
 }
 
 img{
@@ -39,10 +43,15 @@ img{
   font-weight: bold;
   width:2em;
   height:2em;
+  border:2px solid #ff8080;
 }
 
 #count{
   font-weight: bold;
   text-align: center;
   font-size: x-large;
+}
+
+#top{
+  text-align: center;
 }
