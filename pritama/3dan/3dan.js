@@ -3,6 +3,8 @@ window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 window.addEventListener('load', function(){IDCount()})
+window.onload = function(){IDCount};
+
 
 let sum=0;
 let having=0;
@@ -29,8 +31,8 @@ let pr =[
 ];
 let sr =[
   [72549,72547,72548,0],
+  [72390,72388,72389,0],
   [72553,72550,72551,72552],
-  [72590,72588,72589,0],
   [72557,72554,72555,72556],
   [72561,72558,72559,72560]
 ];
@@ -197,16 +199,10 @@ function setColor(){
 }
 
 function IDCount(){
-  for(let n=0; n<all.length; n++){
-    for(let x = 0; x < all[n].length; x++){
-      for(let y = 0;y < all[n][x].length; y++){
-        if(all[n][x][y]!=0){
-          sum++;
-        }
-      }
-    }
-  }
-  CountText();
+
+  sum = document.getElementsByClassName("item").length;
+  let text = document.getElementById('count');
+  text.innerHTML = having + "/" + sum + " (" + Math.round((having/sum)*100*100)/100 + "%)";
 }
 
 function CountText(){
