@@ -8,9 +8,10 @@
 caption{
   font-family:Impact, sans-serif;
   font-size:3em;
-  /*font-weight: bold;*/
-  background-color: pink;
-  /*background-image: url("..\..\common\PT_rarity_ER.png");*/
+}
+
+body{
+  background-color:mistyrose;
 }
 
 .cap{
@@ -19,6 +20,7 @@ caption{
 
 table{
     width: 100%;
+    background-color: white;
 }
 
 .table{
@@ -58,4 +60,36 @@ img{
 
 .float{
   float: left;
+}
+
+.WR{
+    background-color: pink;
+}
+
+.ER{
+    background-color: gold;
+}
+
+.FR{
+    background-color: lightgray;
+}
+
+.PR{
+    background-color: lightblue;
+}
+
+.SR{
+    background-color: gold;
+}
+
+.R{
+    background-color: lightgray;
+}
+
+.N{
+    background-color: white;
+}
+
+.empty{
+  background-color: mistyrose;
 }

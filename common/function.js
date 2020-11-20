@@ -27,7 +27,7 @@ function makeTable(){
 
   //wr caption
   if(wr.length){
-    t += "<table id='WR' class = 'table'><caption><img class = 'icon' src='../../common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='../../common/img/PT_rarity_Q.png'></caption></table>"
+    t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='../../common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='../../common/img/PT_rarity_Q.png'></caption></table>"
     var tbl = document.getElementById("count");
     tbl.insertAdjacentHTML('afterend',t);
     t ="";
@@ -35,7 +35,7 @@ function makeTable(){
 
   //other rare caption
   for(var n=0;n<rare.length;n++){
-    t += "<table id='" + rare[n] + "'class = 'table'><caption><img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
+    t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
     document.body.insertAdjacentHTML('beforeend',t);
     t ="";
   }
@@ -47,7 +47,7 @@ function makeTable(){
       for(var y = 0;y < wr[x].length; y++){
 
         if(wr[x][y]==0){
-          t += "<td></td>"
+          t += "<td class='empty'></td>"
         }
         else{
           t += "<td id='" +wr[x][y] + "'class='item'>"+wr[x][y]+"</td>"
@@ -67,7 +67,7 @@ function makeTable(){
 
       for(var y = 0;y < all[n][x].length; y++){
         if(all[n][x][y]==0){
-          t += "<td></td>"
+          t += "<td class='empty'></td>"
         }
         else{
           t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>"
@@ -79,7 +79,6 @@ function makeTable(){
     tbl.insertAdjacentHTML('afterbegin',t);
     t='';
   }
-
 }
 
 //add clickevent
