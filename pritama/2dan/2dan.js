@@ -1,5 +1,5 @@
 let title = "プリたま2弾"
-let kikan = "7/30(木)～9/30(水)"
+let kikan = "7/30(木)～12/2(水)"
 
 let rare = ["ER","FR","PR","SR","R","N"];
 
