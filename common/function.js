@@ -2,9 +2,9 @@ window.addEventListener('load', function(){makeArray()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 //window.addEventListener('load', function(){setColor()})
-window.addEventListener('load', function(){IDCount()})
-window.onload = function(){setColor()};
 
+window.addEventListener('load', function(){setColor()})
+window.addEventListener('load', function(){IDCount()})
 let sum=0;
 let having=0;
 
@@ -108,12 +108,12 @@ function addEvent(){
 }
 
 function setColor(){
-  for (key in localStorage) {
-    //if (localStorage.hasOwnProperty(key)) {
-      console.log(key);
+  for (var key in localStorage) {
+    if (localStorage.hasOwnProperty(key)) {
       document.getElementById(key).style.backgroundColor = "gray";
       having++;
-    //}
+      console.log(key + " " + having);
+    }
   }
 }
 
