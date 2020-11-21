@@ -1,8 +1,6 @@
 window.addEventListener('load', function(){makeArray()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
-//window.addEventListener('load', function(){setColor()})
-
 window.addEventListener('load', function(){setColor()})
 window.addEventListener('load', function(){IDCount()})
 let sum=0;
