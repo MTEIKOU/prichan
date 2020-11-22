@@ -54,6 +54,11 @@ img{
   font-size: 4;
 }
 
+.inline{  display: inline;
+}
+
+.center{text-align: center;}
+
 #top{
   text-align: center;
 }

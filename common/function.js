@@ -19,22 +19,21 @@ function makeArray(){
 function makeTable(){
   //main caption
   var t = '';
-  t+="<div id='top'><font size=5>"+title+"</font><font size=4>"+kikan+"</font></div><div id='count'></div>"
+  t+="<div id='top'><font size=5>"+title+"</font><font size=4>"+kikan+"</font></div><div class='center'><div class = 'inline' id='count'></div><div class ='inline'><input type='button' value='リセット' onclick='Reset();'></div></div>"
   document.getElementById("noscript").insertAdjacentHTML('afterend',t);
   t ="";
-
-  //wr caption
-  if(wr.length){
-    t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='../../common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='../../common/img/PT_rarity_Q.png'></caption></table>"
-    var tbl = document.getElementById("count");
-    tbl.insertAdjacentHTML('afterend',t);
-    t ="";
-  }
 
   //other rare caption
   for(var n=0;n<rare.length;n++){
     t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
     document.body.insertAdjacentHTML('beforeend',t);
+    t ="";
+  }
+
+  //wr caption
+  if(wr.length){
+    t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='../../common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='../../common/img/PT_rarity_Q.png'></caption></table>"
+    document.body.insertAdjacentHTML('afterend',t);
     t ="";
   }
 
@@ -123,5 +122,18 @@ function IDCount(){
 
 function CountText(){
   let text = document.getElementById('count');
+  text.innerText = having + "/" + sum + " (" + Math.round((having/sum)*100*100)/100 + "%)";
+}
+
+function Reset(){
+  for (var key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+      document.getElementById(key).style.backgroundColor = "white";
+    }
+  }
+  localStorage.clear();
+
+  let text = document.getElementById('count');
+  having=0;
   text.innerText = having + "/" + sum + " (" + Math.round((having/sum)*100*100)/100 + "%)";
 }
