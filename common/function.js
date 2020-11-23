@@ -67,7 +67,7 @@ function makeTable(){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>"
+          t += "<td id='"+all[n][x][y]+"' class='item'><img src='../img/Item_ID"+all[n][x][y]+".png'></td>"
         }
       }
       t += "</tr>"
