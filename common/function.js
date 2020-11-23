@@ -33,7 +33,7 @@ function makeTable(){
   //wr caption
   if(wr.length){
     t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='../../common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='../../common/img/PT_rarity_Q.png'></caption></table>"
-    document.body.insertAdjacentHTML('afterend',t);
+    document.body.insertAdjacentHTML('beforeend',t);
     t ="";
   }
 
