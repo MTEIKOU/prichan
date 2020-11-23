@@ -47,7 +47,7 @@ function makeTable(){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='" +wr[x][y] + "'class='item'>"+wr[x][y]+"</td>"
+          t += "<td id='" +wr[x][y] + "'class='item'><img src='../../common/img/Item_Question.png'></br>"+wr[x][y]+"</td>"
         }
       }
       t += "</tr>"
