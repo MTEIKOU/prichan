@@ -19,7 +19,7 @@ function makeArray(){
 function makeTable(){
   //main caption
   var t = '';
-  t+="<div id='top'><b><font size=5>"+title+"</font></b><font size=4>"+kikan+"</font></div><div class='center'><div class = 'inline' id='count'></div><div class ='inline'><input type='button' value='リセット' onclick='Reset();'></div></div>"
+  t+="<div id='top'><b><font size=5>"+title+"</font></b> <font size=4>"+kikan+"</font></div><div class='center'><div class = 'inline' id='count'></div><div class ='inline'><input type='button' value='リセット' onclick='Reset();'></div></div>"
   document.getElementById("noscript").insertAdjacentHTML('afterend',t);
   t ="";
 
