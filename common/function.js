@@ -25,14 +25,14 @@ function makeTable(){
 
   //other rare caption
   for(var n=0;n<rare.length;n++){
-    t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='../../common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
+    t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
     document.body.insertAdjacentHTML('beforeend',t);
     t ="";
   }
 
   //wr caption
   if(wr.length){
-    t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='../../common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='../../common/img/PT_rarity_Q.png'></caption></table>"
+    t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
     document.body.insertAdjacentHTML('beforeend',t);
     t ="";
   }
@@ -47,7 +47,7 @@ function makeTable(){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='" +wr[x][y] + "'class='item'><img src='../../common/img/Item_Question.png'></br>"+wr[x][y]+"</td>"
+          t += "<td id='" +wr[x][y] + "'class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>"+wr[x][y]+"</td>"
         }
       }
       t += "</tr>"
@@ -67,7 +67,7 @@ function makeTable(){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>"
+          t += "<td id='"+all[n][x][y]+"' class='item'><img src='../img/Item_ID"+all[n][x][y]+".png'></td>"
         }
       }
       t += "</tr>"
