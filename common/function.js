@@ -47,7 +47,7 @@ function makeTable(){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='" +wr[x][y] + "'class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>"+wr[x][y]+"</td>"
+          t += "<td id='" +wr[x][y] + "'class='item'><img src='../../common/img/Item_Question.png'></br>"+wr[x][y]+"</td>"
         }
       }
       t += "</tr>"
@@ -67,7 +67,7 @@ function makeTable(){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='"+all[n][x][y]+"' class='item'><img src='../img/Item_ID"+all[n][x][y]+".png'></td>"
+          t += "<td id='"+all[n][x][y]+"' class='item'><img src='img/Item_ID"+all[n][x][y]+".png'></td>"
         }
       }
       t += "</tr>"
