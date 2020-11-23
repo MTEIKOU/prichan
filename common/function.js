@@ -126,14 +126,6 @@ function CountText(){
 }
 
 function Reset(){
-  for (var key in localStorage) {
-        if (localStorage.hasOwnProperty(key)) {
-      document.getElementById(key).style.backgroundColor = "white";
-    }
-  }
   localStorage.clear();
-
-  let text = document.getElementById('count');
-  having=0;
-  text.innerText = having + "/" + sum + " (" + Math.round((having/sum)*100*100)/100 + "%)";
+  location.reload();
 }
