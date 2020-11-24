@@ -67,34 +67,12 @@ img{
   float: left;
 }
 
-.WR{
-    background-color: pink;
-}
-
-.ER{
-    background-color: gold;
-}
-
-.FR{
-    background-color: lightgray;
-}
-
-.PR{
-    background-color: lightblue;
-}
-
-.SR{
-    background-color: gold;
-}
-
-.R{
-    background-color: lightgray;
-}
-
-.N{
-    background-color: white;
-}
-
-.empty{
-  background-color: mistyrose;
-}
+.IR{background-color: pink;}
+.WR{background-color: pink;}
+.ER{background-color: gold;}
+.FR{background-color: lightgray;}
+.PR{background-color: lightblue;}
+.SR{background-color: gold;}
+.R{background-color: lightgray;}
+.N{background-color: white;}
+.empty{background-color: mistyrose;}
