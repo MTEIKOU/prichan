@@ -1,4 +1,4 @@
-window.addEventListener('load', function(){makeArray()})
+//window.addEventListener('load', function(){makeArray()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
@@ -6,15 +6,16 @@ window.addEventListener('load', function(){IDCount()})
 let sum=0;
 let having=0;
 
-let all =[];
+//let all =[];
 let r = [ir,er,fr,pr,sr,ra,no];
 
 //male all array
+/*
 function makeArray(){
   for(var n=0;n<r.length;n++){
     if (r[n].length) {all.push(r[n]);}
   }
-}
+}*/
 
 function makeTable(){
   //main caption
@@ -67,7 +68,7 @@ function makeTable(){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='"+all[n][x][y]+"' class='item'><img src='../img/Item_ID"+all[n][x][y]+".png'></td>"
+          t += "<td id='"+id[n][x][y]+"' class='item'><img src='../img/Item_ID"+all[n][x][y]+".png'></br>" +id[n][x][y] +"</td>"
         }
       }
       t += "</tr>"
