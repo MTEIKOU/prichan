@@ -76,6 +76,29 @@ function makeTable(){
     tbl.insertAdjacentHTML('afterbegin',t);
     t='';
   }
+
+  //item
+  if(pa.length){
+  t += "<table id='PA' class = 'table'><caption class='PA'>パシャっとアイテム</caption></table>"
+  document.body.insertAdjacentHTML('beforeend',t);
+  t ="";
+
+      t += "<tr>"
+      for(var x = 0;x < pa.length; x++){
+
+        if(pa[x]==0){
+          t += "<td class='empty'></td>"
+        }
+        else{
+          t += "<td id='"+pa[x]+"' class='item'><img src='../img/Item_ID"+pa[x]+".png'></br>"+ pa_id[x]+"</td>"
+        }
+      }
+      t += "</tr>"
+
+      var tbl = document.getElementById("PA");
+      tbl.insertAdjacentHTML('afterbegin',t);
+    t='';
+  }
 }
 
 //add clickevent
