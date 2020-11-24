@@ -7,7 +7,7 @@ let sum=0;
 let having=0;
 
 let all =[];
-let r = [er,fr,pr,sr,ra,no];
+let r = [ir,er,fr,pr,sr,ra,no];
 
 //male all array
 function makeArray(){
