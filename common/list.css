@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
 .icon{
-    width:1em;
-  	height:1em;
+  width:1em;
+  height:1em;
 }
 
 caption{
   font-family:Impact, sans-serif;
+  font-weight: bold;
   font-size:3em;
 }
 
@@ -14,22 +15,18 @@ body{
   background-color:mistyrose;
 }
 
-.cap{
-    width = 100%;
-}
-
 table{
-    width: 100%;
-    background-color: white;
+  width: 100%;
+  background-color: white;
 }
 
 .table{
   empty-cells : hide;
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 td{
-    width:25%;
+  width:25%;
 }
 
 img{
@@ -54,17 +51,22 @@ img{
   font-size: 4;
 }
 
-.inline{  display: inline;
+.inline{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.center{text-align: center;}
 
 #top{
   text-align: center;
 }
 
-.float{
-  float: left;
+#title{
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .IR{background-color: pink;}

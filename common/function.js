@@ -1,40 +1,49 @@
-//window.addEventListener('load', function(){makeArray()})
+window.addEventListener('load', function(){remove()})
+window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 window.addEventListener('load', function(){IDCount()})
 let sum=0;
 let having=0;
+var t = '';
 
-//let all =[];
-let r = [ir,er,fr,pr,sr,ra,no];
+function remove(){
+  document.getElementById("disable").remove();
+  document.title=title;
+}
 
-//male all array
+function settitle(){
+  document.getElementById("title").innerText=title;
+}
+
+function infomation(){
+
+}
+
 /*
-function makeArray(){
-  for(var n=0;n<r.length;n++){
-    if (r[n].length) {all.push(r[n]);}
-  }
+function title1(){
+//main caption
+var t = '';
+t+="<div id='top'><b><font size=5>"+title+"</font></b> <font size=4>"+kikan+"</font></div><div class='center'><div class = 'inline' id='count'></div><div class ='inline'> <input type='button' value='リセット' onclick='Reset();'></div></div>"
+document.getElementById("title").insertAdjacentHTML('afterbegin',t);
+t ="";
+
 }*/
 
 function makeTable(){
-  //main caption
-  var t = '';
-  t+="<div id='top'><b><font size=5>"+title+"</font></b> <font size=4>"+kikan+"</font></div><div class='center'><div class = 'inline' id='count'></div><div class ='inline'> <input type='button' value='リセット' onclick='Reset();'></div></div>"
-  document.getElementById("noscript").insertAdjacentHTML('afterend',t);
-  t ="";
 
   //other rare caption
   for(var n=0;n<rare.length;n++){
     t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
-    document.body.insertAdjacentHTML('beforeend',t);
+    document.getElementById("main").insertAdjacentHTML('beforeend',t);
     t ="";
   }
 
   //wr caption
   if(wr.length){
     t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
-    document.body.insertAdjacentHTML('beforeend',t);
+    document.getElementById("main").insertAdjacentHTML('beforeend',t);
     t ="";
   }
 
@@ -80,24 +89,23 @@ function makeTable(){
 
   //item
   if(pa.length){
-  t += "<table id='PA' class = 'table'><caption class='PA'>パシャっとアイテム</caption></table>"
-  document.body.insertAdjacentHTML('beforeend',t);
-  t ="";
+    t += "<table id='PA' class = 'table'><caption class='PA'>パシャっとアイテム</caption></table>"
+    document.getElementById("main").insertAdjacentHTML('beforeend',t);
+    t ="";
 
-      t += "<tr>"
-      for(var x = 0;x < pa.length; x++){
+    t += "<tr>"
+    for(var x = 0;x < pa.length; x++){
 
-        if(pa[x]==0){
-          t += "<td class='empty'></td>"
-        }
-        else{
-          t += "<td id='"+pa[x]+"' class='item'><img src='../img/Item_ID"+pa[x]+".png'></br>"+ pa_id[x]+"</td>"
-        }
+      if(pa[x]==0){
+        t += "<td class='empty'></td>"
       }
-      t += "</tr>"
+      else{
+        t += "<td id='"+pa[x]+"' class='item'><img src='../img/Item_ID"+pa[x]+".png'></br>"+ pa_id[x]+"</td>"
+      }
+    }
+    t += "</tr>"
 
-      var tbl = document.getElementById("PA");
-      tbl.insertAdjacentHTML('afterbegin',t);
+    document.getElementById("PA").insertAdjacentHTML('afterbegin',t);
     t='';
   }
 }
@@ -150,6 +158,9 @@ function CountText(){
 }
 
 function Reset(){
-  localStorage.clear();
-  location.reload();
+  res=confirm("リセットしますか？");
+  if(res==true){
+    localStorage.clear();
+    location.reload();
+  }
 }
