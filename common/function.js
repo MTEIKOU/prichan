@@ -1,5 +1,7 @@
 window.addEventListener('load', function(){remove()})
 window.addEventListener('load', function(){settitle()})
+window.addEventListener('load', function(){schedule()})
+window.addEventListener('load', function(){collect()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
@@ -7,6 +9,7 @@ window.addEventListener('load', function(){IDCount()})
 let sum=0;
 let having=0;
 var t = '';
+const goal = new Date(yy,mm-1,dd);
 
 function remove(){
   document.getElementById("disable").remove();
@@ -15,21 +18,48 @@ function remove(){
 
 function settitle(){
   document.getElementById("title").innerText=title;
+  document.getElementById("kikan").innerText=kikan;
+  document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
 }
 
-function infomation(){
-
+function schedule(){
+  const limit = CountDown(goal);
+  document.getElementById("limit").innerHTML="終了まで<span class='big'>"+limit[0]+"</span>日";
+  refresh();
 }
 
-/*
-function title1(){
-//main caption
-var t = '';
-t+="<div id='top'><b><font size=5>"+title+"</font></b> <font size=4>"+kikan+"</font></div><div class='center'><div class = 'inline' id='count'></div><div class ='inline'> <input type='button' value='リセット' onclick='Reset();'></div></div>"
-document.getElementById("title").insertAdjacentHTML('afterbegin',t);
-t ="";
+function CountDown(due){
+  const now = new Date();
+  const rest = due.getTime() - now.getTime();
+  const sec = Math.max(Math.floor(rest/1000)%60,0);
+  const min = Math.max(Math.floor(rest/1000/60)%60,0);
+  const hours = Math.max(Math.floor(rest/1000/60/60)%24,0);
+  const days = Math.max(Math.floor(rest/1000/60/60/24),0);
+  const count = [days,hours,min,sec];
+  return count;
+}
 
-}*/
+function refresh(){
+  setTimeout(schedule,1000);
+}
+schedule();
+
+function collect(){
+  let zenbu=[];
+  for(let x=0; x<all.length; x++){
+    let arare=0;
+    for(let y=0; y<all[x].length; y++){
+      for(let z=0; z<all[x][y].length; z++){
+        if(all[x][y][z]!=0){
+          arare++;
+        }
+      }
+    }
+    zenbu.push(arare);
+    console.log(arare);
+  }
+}
+
 
 function makeTable(){
 
