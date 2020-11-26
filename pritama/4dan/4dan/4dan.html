@@ -2,15 +2,35 @@
 <html>
 <style></style>
 <head>
-  <link rel="stylesheet" href="https://mteikou.github.io/prichan/common/list.css">
-  <title>プリたま4弾</title>
+  <link rel="stylesheet" href="../../../common/list.css">
+  <title>エラー</title>
  <script type="text/javascript" src="4dan.js"></script>
  <script type="text/javascript" src="../../../common/function.js"></script>
 </head>
 
 <body>
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <div class="float"><a href ="https://mteikou.github.io/prichan/index.html"><<戻る</a></div>
-  <div id = "noscript"><noscript><font size=7>Javascriptを有効にしてください。</font></noscript></div>
+  <div class="inline"><!-- 1段目 タイトル -->
+    <span><a href ="https://mteikou.github.io/prichan/index.html"><<戻る</a></span>
+    <span id="title" class="font1"></span>
+    <span id="reset"></span>
+  </div>
+
+  <div id = "schedule" class="center"><!-- 2段目 期間 -->
+    <span id="kikan" class="font2"></span> <span id="limit" class="font3"></span>
+  </div>
+
+  <div id="collect" class="center"><!-- 3段目 収集率 -->
+    <span id ="total" class ="font2"></span>
+    <span><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button">Tweet</a><script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+  </div>
+
+  <div class="center"><!-- 4段目 収集率（詳細） -->
+    <span id="each"><span>
+  </div>
+
+  <div id="main"></div>
+
+  <div id = "disable"><noscript><font size=7>Javascriptを有効にしてください。</font></noscript></div>
+
 </body>
 </html>

@@ -1,15 +1,17 @@
-window.addEventListener('load', function(){remove()})
+window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
-window.addEventListener('load', function(){collect()})
+window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
-window.addEventListener('load', function(){IDCount()})
-let sum=0;
-let having=0;
-var t = '';
-const goal = new Date(yy,mm-1,dd);
+//window.addEventListener('load', function(){IDCount()})
+
+
+var share='';
+let motteru=[];
+let zenbu=[];
+const goal = new Date(ymd[0],ymd[1]-1,ymd[2]);
 
 function remove(){
   document.getElementById("disable").remove();
@@ -42,101 +44,74 @@ function CountDown(due){
 function refresh(){
   setTimeout(schedule,1000);
 }
-schedule();
+//schedule();
 
-function collect(){
-  let zenbu=[];
-  for(let x=0; x<all.length; x++){
-    let arare=0;
-    for(let y=0; y<all[x].length; y++){
-      for(let z=0; z<all[x][y].length; z++){
-        if(all[x][y][z]!=0){
-          arare++;
+function allcount(){
+  for(let x=0; x<id.length; x++){
+    let count=0;
+    for(let y=0; y<id[x].length; y++){
+      for(let z=0; z<id[x][y].length; z++){
+        if(id[x][y][z]!=0){
+          count++;
         }
       }
     }
-    zenbu.push(arare);
-    console.log(arare);
+    zenbu[x]=count;
   }
+  let a ='';
+  for(let i in zenbu){
+    a += (rare[i] +":"+zenbu[i] + " ");
+  }
+  console.log(a);
 }
 
 
 function makeTable(){
 
-  //other rare caption
-  for(var n=0;n<rare.length;n++){
-    t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
+  //make rare caption
+  for(let n=0;n<rare.length;n++){
+    var t='';
+    switch(rare[n]){
+      case "WR":
+      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
+      break;
+
+      case "ITEM":
+      t += "<table id='ITEM' class = 'table'><caption class='ITEM'>パシャっとアイテム</caption></table>"
+      break;
+
+      default:
+      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
+      break;
+    }
     document.getElementById("main").insertAdjacentHTML('beforeend',t);
     t ="";
   }
 
-  //wr caption
-  if(wr.length){
-    t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
-    document.getElementById("main").insertAdjacentHTML('beforeend',t);
-    t ="";
-  }
+  //make table
+  for(let x=0;x<rare.length;x++){
+    var t='';
+    for(let y = 0; y < id[x].length; y++){
 
-  //wr table
-  if(wr.length){
-    for(var x = 0; x < wr.length; x++){
       t += "<tr>"
-      for(var y = 0;y < wr[x].length; y++){
 
-        if(wr[x][y]==0){
+      for(let z = 0;z < id[x][y].length; z++){
+        if(id[x][y][z]==0){
           t += "<td class='empty'></td>"
         }
         else{
-          t += "<td id='" +wr[x][y] + "'class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>"+wr[x][y]+"</td>"
+          if(rare[x]=="WR"){
+            t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+          }
+          else{
+            t += "<td id='"+id[x][y][z]+"' class='item'><img src='../img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
+          }
         }
       }
       t += "</tr>"
     }
-    document.getElementById("WR").insertAdjacentHTML('afterbegin',t);
-    t='';
-  }
-
-  //other rare table
-  for(var n=0;n<all.length;n++){
-    for(var x = 0; x < all[n].length; x++){
-
-      t += "<tr>"
-
-      for(var y = 0;y < all[n][x].length; y++){
-        if(all[n][x][y]==0){
-          t += "<td class='empty'></td>"
-        }
-        else{
-          t += "<td id='"+id[n][x][y]+"' class='item'><img src='../img/Item_ID"+all[n][x][y]+".png'></br>" +id[n][x][y] +"</td>"
-        }
-      }
-      t += "</tr>"
-    }
-    var tbl = document.getElementById(rare[n]);
+    var tbl = document.getElementById(rare[x]);
     tbl.insertAdjacentHTML('afterbegin',t);
-    t='';
-  }
-
-  //item
-  if(pa.length){
-    t += "<table id='PA' class = 'table'><caption class='PA'>パシャっとアイテム</caption></table>"
-    document.getElementById("main").insertAdjacentHTML('beforeend',t);
-    t ="";
-
-    t += "<tr>"
-    for(var x = 0;x < pa.length; x++){
-
-      if(pa[x]==0){
-        t += "<td class='empty'></td>"
-      }
-      else{
-        t += "<td id='"+pa[x]+"' class='item'><img src='../img/Item_ID"+pa[x]+".png'></br>"+ pa_id[x]+"</td>"
-      }
-    }
-    t += "</tr>"
-
-    document.getElementById("PA").insertAdjacentHTML('afterbegin',t);
-    t='';
   }
 }
 
@@ -145,46 +120,78 @@ function addEvent(){
   let items = document.getElementsByClassName("item");
   for(let i = 0; i < items.length; i++){
     items[i].addEventListener("click",() => {
+
       let key = localStorage.getItem(items[i].id)
 
       if(key==1){
         localStorage.removeItem(items[i].id);
-        document.getElementById(items[i].id).style.backgroundColor = "white";
-        having--;
+        document.getElementById(items[i].id).classList.remove("have");
+        //document.getElementById(items[i].id).classList.add("nohave");
         console.log("removed " + items[i].id);
-        CountText();
+        console.log((document.getElementById(items[i].id).closest(".table")).id);
       }
 
       else{
         localStorage.setItem(items[i].id,1);
-        document.getElementById(items[i].id).style.backgroundColor = "gray";
-        having++;
+        document.getElementById(items[i].id).classList.add("have");
+        //document.getElementById(items[i].id).classList.remove("nohave");
         console.log("added " + items[i].id);
-        CountText();
       }
+      Count();
+      achevement();
     }, false);
   }
+}
+
+function Count(){
+
+  for(let i=0; i<rare.length; i++){
+
+    let count =0;
+    for (var key in localStorage){
+      if (localStorage.hasOwnProperty(key)) {
+        let parent = (document.getElementById(key).closest(".table")).id;
+
+        if(parent == rare[i]){
+          count++;
+        }
+      }
+    }
+    motteru[i]=count;
+  }
+  let a ='';
+  for(let i in motteru){
+    a += rare[i] + ":" +motteru[i] + " ";
+  }
+  console.log(a);
+}
+
+function achevement(){
+  let have=0;
+  let sum=0;
+  let total='';
+  let each='';
+
+  for(let i in rare){
+    have += motteru[i];
+    sum += zenbu[i];
+    each += rare[i] + ":" + motteru[i] + "/" + zenbu[i] + " ";
+  }
+  total = have + "/" + sum + " (" + Math.round((have/sum)*100*100)/100 + "%)";
+  document.getElementById("total").innerHTML= total;
+  document.getElementById("each").innerHTML= each;
+  console.log(have+"/"+sum);
+  share = "コンプ率:" + Math.round((have/sum)*100*100)/100 + "% (" + each + ")";
 }
 
 function setColor(){
   for (var key in localStorage) {
     if (localStorage.hasOwnProperty(key)) {
-      document.getElementById(key).style.backgroundColor = "gray";
-      having++;
-      console.log(key + " " + having);
+      document.getElementById(key).classList.add("have");
     }
   }
-}
-
-function IDCount(){
-  sum = document.getElementsByClassName("item").length;
-  let text = document.getElementById('count');
-  text.innerHTML = having + "/" + sum + " (" + Math.round((having/sum)*100*100)/100 + "%)";
-}
-
-function CountText(){
-  let text = document.getElementById('count');
-  text.innerText = having + "/" + sum + " (" + Math.round((having/sum)*100*100)/100 + "%)";
+  Count();
+  achevement();
 }
 
 function Reset(){

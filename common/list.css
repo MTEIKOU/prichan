@@ -1,4 +1,7 @@
 @charset "UTF-8";
+:root {
+  --bgcolor: mistyrose;
+}
 
 .icon{
   width:1em;
@@ -12,7 +15,7 @@ caption{
 }
 
 body{
-  background-color:mistyrose;
+  background-color:var(--bgcolor);
 }
 
 table{
@@ -33,10 +36,6 @@ img{
   width:100%;
 }
 
-.have{
-  background-color: gray;
-}
-
 .item{
   text-align: center;
   font-weight: bold;
@@ -47,22 +46,25 @@ img{
 
 .center{text-align: center;}
 
-#kikan{
+.font1{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.font2{
   font-weight: bold;
   text-align: center;
   font-size: 1.5em;
 }
 
-#limit{
+.font3{
   font-weight: bold;
   text-align: center;
   font-size: 1em;
 }
 
 .reset{height:inherit;}
-.big{
-  font-size: 1.5em;
-}
+.big{font-size: 1.5em;}
 
 .inline{
   display: -webkit-flex;
@@ -73,15 +75,6 @@ img{
 }
 
 
-#top{
-  text-align: center;
-}
-
-#title{
-  font-size: 2em;
-  font-weight: bold;
-}
-
 .IR{background-color: pink;}
 .WR{background-color: pink;}
 .ER{background-color: gold;}
@@ -90,5 +83,11 @@ img{
 .SR{background-color: gold;}
 .R{background-color: lightgray;}
 .N{background-color: white;}
-.PA{background-color: palegreen;}
-.empty{background-color: mistyrose;}
+.ITEM{background-color: palegreen;}
+
+.EVENT{background-color: pink;}
+.HR{background-color: palegreen;}
+
+.empty{background-color: var(--bgcolor)}
+.have{background-color: gray;}
+/*.nohave{background-color: white;}
