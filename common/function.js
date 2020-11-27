@@ -5,12 +5,11 @@ window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
-//window.addEventListener('load', function(){IDCount()})
+window.addEventListener('load', function(){tweetReset()})
 
-
-var share='';
 let motteru=[];
 let zenbu=[];
+
 const goal = new Date(ymd[0],ymd[1]-1,ymd[2]);
 
 function remove(){
@@ -24,27 +23,36 @@ function settitle(){
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
 }
 
+function setgoal(){
+  const goal = new Date(ymd[0],ymd[1]-1,ymd[2]);
+}
+
 function schedule(){
   const limit = CountDown(goal);
   document.getElementById("limit").innerHTML="終了まで<span class='big'>"+limit[0]+"</span>日";
-  refresh();
+  if(limit[0]!='?')refresh();
 }
 
 function CountDown(due){
-  const now = new Date();
-  const rest = due.getTime() - now.getTime();
-  const sec = Math.max(Math.floor(rest/1000)%60,0);
-  const min = Math.max(Math.floor(rest/1000/60)%60,0);
-  const hours = Math.max(Math.floor(rest/1000/60/60)%24,0);
-  const days = Math.max(Math.floor(rest/1000/60/60/24),0);
-  const count = [days,hours,min,sec];
-  return count;
+  if(ymd[0]==9999 || ymd[1]==0 || ymd[2] ==0){
+    const count = ['?','?','?','?'];
+    return count;
+  }
+  else{
+    const now = new Date();
+    const rest = due.getTime() - now.getTime();
+    const sec = Math.max(Math.floor(rest/1000)%60,0);
+    const min = Math.max(Math.floor(rest/1000/60)%60,0);
+    const hours = Math.max(Math.floor(rest/1000/60/60)%24,0);
+    const days = Math.max(Math.floor(rest/1000/60/60/24),0);
+    const count = [days,hours,min,sec];
+    return count;
+  }
 }
 
 function refresh(){
   setTimeout(schedule,1000);
 }
-//schedule();
 
 function allcount(){
   for(let x=0; x<id.length; x++){
@@ -70,7 +78,7 @@ function makeTable(){
 
   //make rare caption
   for(let n=0;n<rare.length;n++){
-    var t='';
+    let t='';
     switch(rare[n]){
       case "WR":
       t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
@@ -85,12 +93,11 @@ function makeTable(){
       break;
     }
     document.getElementById("main").insertAdjacentHTML('beforeend',t);
-    t ="";
   }
 
   //make table
   for(let x=0;x<rare.length;x++){
-    var t='';
+    let t='';
     for(let y = 0; y < id[x].length; y++){
 
       t += "<tr>"
@@ -110,7 +117,7 @@ function makeTable(){
       }
       t += "</tr>"
     }
-    var tbl = document.getElementById(rare[x]);
+    let tbl = document.getElementById(rare[x]);
     tbl.insertAdjacentHTML('afterbegin',t);
   }
 }
@@ -148,9 +155,9 @@ function Count(){
   for(let i=0; i<rare.length; i++){
 
     let count =0;
-    for (var key in localStorage){
+    for (let key in localStorage){
       if (localStorage.hasOwnProperty(key)) {
-        let parent = (document.getElementById(key).closest(".table")).id;
+        let parent = (document.getElementById(key).closest("table")).id;
 
         if(parent == rare[i]){
           count++;
@@ -160,8 +167,9 @@ function Count(){
     motteru[i]=count;
   }
   let a ='';
-  for(let i in motteru){
-    a += rare[i] + ":" +motteru[i] + " ";
+  for(let i=0; i<id.length; i++){
+    a += rare[i] + ":" +motteru[i] + "/" + zenbu[i] + " ";
+
   }
   console.log(a);
 }
@@ -172,20 +180,25 @@ function achevement(){
   let total='';
   let each='';
 
-  for(let i in rare){
+  for(let i=0; i<rare.length; i++){
     have += motteru[i];
     sum += zenbu[i];
-    each += rare[i] + ":" + motteru[i] + "/" + zenbu[i] + " ";
+    each += rare[i] + ":" + motteru[i] + "/" + zenbu[i];
+    if(i != rare.length-1){
+      each += " ";
+    }
   }
   total = have + "/" + sum + " (" + Math.round((have/sum)*100*100)/100 + "%)";
   document.getElementById("total").innerHTML= total;
   document.getElementById("each").innerHTML= each;
-  console.log(have+"/"+sum);
-  share = "コンプ率:" + Math.round((have/sum)*100*100)/100 + "% (" + each + ")";
+  const text = document.title + " " + total + "\n" + each;
+  console.log(text);
+  tweet(text);
 }
 
+
 function setColor(){
-  for (var key in localStorage) {
+  for (let key in localStorage) {
     if (localStorage.hasOwnProperty(key)) {
       document.getElementById(key).classList.add("have");
     }
@@ -200,4 +213,19 @@ function Reset(){
     localStorage.clear();
     location.reload();
   }
+}
+
+function tweetReset(){
+
+}
+
+function tweet(text){
+  document.getElementById('twitter').innerHTML='';
+  twttr.widgets.createShareButton(
+    location.href,
+    document.getElementById('twitter'),
+    {
+      text: text
+    }
+  );
 }

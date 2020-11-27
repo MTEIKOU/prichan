@@ -6,6 +6,22 @@
   <title>エラー</title>
  <script type="text/javascript" src="4dan.js"></script>
  <script type="text/javascript" src="../../../common/function.js"></script>
+ <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 </head>
 
 <body>
@@ -19,12 +35,12 @@
     <span id="kikan" class="font2"></span> <span id="limit" class="font3"></span>
   </div>
 
-  <div id="collect" class="center"><!-- 3段目 収集率 -->
-    <span id ="total" class ="font2"></span>
-    <span><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button">Tweet</a><script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+  <div id="collect" class="center"><!-- 3段目 取得率（合計） -->
+    <span id="total" class="font2"></span>
+    <span id="twitter"></span>
   </div>
 
-  <div class="center"><!-- 4段目 収集率（詳細） -->
+  <div class="center"><!-- 4段目 取得率（個別） -->
     <span id="each"><span>
   </div>
 

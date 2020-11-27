@@ -9,13 +9,14 @@
 }
 
 caption{
-  font-family:Impact, sans-serif;
+  font-family:Impact;
   font-weight: bold;
   font-size:3em;
 }
 
 body{
   background-color:var(--bgcolor);
+  font-family:sans-serif;
 }
 
 table{
@@ -38,10 +39,11 @@ img{
 
 .item{
   text-align: center;
-  font-weight: bold;
   width:2em;
   height:2em;
   border:2px solid #ff8080;
+  font-size: 1.5em;
+  /*font-weight: bold;*/
 }
 
 .center{text-align: center;}
