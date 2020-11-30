@@ -2,10 +2,22 @@
 <html>
 <style></style>
 <head>
-  <link rel="stylesheet" href="../../../common/list.css">
+  <link rel="stylesheet" href="../../common/list.css">
   <title>エラー</title>
- <script type="text/javascript" src="3dan.js"></script>
- <script type="text/javascript" src="../../../common/function.js"></script>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="../../common/function.js"></script>
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    t._e = [];
+    t.ready = function(f) {t._e.push(f);};
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
 </head>
 
 <body>
@@ -26,11 +38,11 @@
 
   <div class="center"><!-- 4段目 収集率（詳細） -->
     <span id="each"><span>
-  </div>
+    </div>
 
-  <div id="main"></div>
+    <div id="main"></div>
 
-  <div id = "disable"><noscript><font size=7>Javascriptを有効にしてください。</font></noscript></div>
+    <div id = "disable"><noscript><font size=7>Javascriptを有効にしてください。</font></noscript></div>
 
-</body>
-</html>
+  </body>
+  </html>
