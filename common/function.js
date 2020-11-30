@@ -6,11 +6,17 @@ window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 window.addEventListener('load', function(){tweetReset()})
+//window.addEventListener('load', function(){Data()})
 
 let motteru=[];
 let zenbu=[];
-
 const goal = new Date(ymd[0],ymd[1]-1,ymd[2]);
+
+function Data(){
+  let name="name";
+  let data=["aaa","bbb","ccc"];
+  localStorage.setItem(name, data);
+}
 
 function remove(){
   document.getElementById("disable").remove();
@@ -70,7 +76,7 @@ function allcount(){
   for(let i in zenbu){
     a += (rare[i] +":"+zenbu[i] + " ");
   }
-  console.log(a);
+  //console.log(a);
 }
 
 
@@ -171,7 +177,7 @@ function Count(){
     a += rare[i] + ":" +motteru[i] + "/" + zenbu[i] + " ";
 
   }
-  console.log(a);
+  //console.log(a);
 }
 
 function achevement(){
@@ -208,7 +214,7 @@ function setColor(){
 }
 
 function Reset(){
-  res=confirm("リセットしますか？");
+  res=confirm("リセットしますか？\n注意：全てのページのデータがリセットされます！");
   if(res==true){
     localStorage.clear();
     location.reload();
