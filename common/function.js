@@ -11,7 +11,7 @@ window.addEventListener('load', function(){tweetReset()})
 
 let motteru=[];
 let zenbu=[];
-const goal = new Date(ymd[0],ymd[1]-1,ymd[2]);
+
 let data=[];
 
 function DataLoad(){
@@ -27,12 +27,17 @@ function remove(){
 
 function settitle(){
   document.getElementById("title").innerText=title;
-  document.getElementById("kikan").innerText=kikan;
+  document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(goal);
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
 }
 
-function setgoal(){
-  const goal = new Date(ymd[0],ymd[1]-1,ymd[2]);
+function kikanStr(date){
+  const WeekStr = ['日','月','火','水','木','金','土'];
+  let str = date.getFullYear()
+    + '/' + ('0' + date.getMonth()).slice(-2)
+    + '/' + ('0' + date.getDate()).slice(-2)
+    +'('+ WeekStr[date.getDay()] +')';
+    return str;
 }
 
 function schedule(){
@@ -42,8 +47,8 @@ function schedule(){
 }
 
 function CountDown(due){
-  if(ymd[0]==9999 || ymd[1]==0 || ymd[2] ==0){
-    const count = ['?','?','?','?'];
+  if(goal[0]==9999 || goal[1]==0 || goal[2] ==0){
+    const count = ['?'];
     return count;
   }
   else{
@@ -238,6 +243,14 @@ function Reset(){
   res=confirm("リセットしますか？");
   if(res==true){
     localStorage.removeItem(keyname);
+    location.reload();
+  }
+}
+
+function AllReset(){
+  res=confirm("全データ削除しますか？");
+  if(res==true){
+    localStorage.clear();
     location.reload();
   }
 }
