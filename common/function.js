@@ -237,7 +237,7 @@ function setColor(){
 function Reset(){
   res=confirm("リセットしますか？");
   if(res==true){
-    localStorage.clear(keyname);
+    localStorage.removeItem(keyname);
     location.reload();
   }
 }
@@ -247,7 +247,7 @@ function tweetReset(){
 }
 
 function tweet(text){
-  document.getElementById('twitter').innerHTML='';
+  document.getElementById('twitter').innerHTML='<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button">Tweet</a><script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
   twttr.widgets.createShareButton(
     location.href,
     document.getElementById('twitter'),
