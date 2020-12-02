@@ -1,5 +1,5 @@
 let title = "プリたま2弾"
-let keyname = "PT02"
+let keyname = "PT-02"
 let kikan = "7/30（木）～12/3(木)"
 let ymd = [2020,12,3];
 
