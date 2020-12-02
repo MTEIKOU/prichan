@@ -1,29 +1,39 @@
-window.addEventListener("load",function(){load()});
 
-function load(){
-  document.getElementById("button").innerHTML="<input type='button' value='Click' onClick='Random()'>"
-}
+function Random(p1){
 
-function Random(you){
-  let res = Math.floor(Math.random() * Math.floor(3));
+  let p2 = Math.floor(Math.random() * Math.floor(3));
   let result='';
-  let hand='';
-  switch (res) {
+  let e=hand(p2);
+
+  switch((p1-p2+3)%3){
     case 0:
-    hand='グー';
+    result += 'DRAW';
     break;
     case 1:
-    hand='チョキ';
+    result += 'LOSE';
     break;
     case 2:
-    hand='パー';
+    result += 'WIN!';
     break;
   }
-  if(you == res){
-    let result='あいこ'
+
+  console.log("")
+  document.getElementById("hand").innerText=e;
+  document.getElementById("result").innerText=result;
+}
+
+function hand(input){
+  let hand='相手:'
+  switch (input) {
+    case 0:
+    hand+='グー';
+    break;
+    case 1:
+    hand+='チョキ';
+    break;
+    case 2:
+    hand+='パー';
+    break;
   }
-
-
-  document.getElementById("hand").innerHTML=hand;
-  document.getElementById("result").innerHTML='';
+  return hand;
 }

@@ -1,3 +1,4 @@
+window.addEventListener('load', function(){DataLoad()})
 window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
@@ -6,16 +7,17 @@ window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 window.addEventListener('load', function(){tweetReset()})
-//window.addEventListener('load', function(){Data()})
+
 
 let motteru=[];
 let zenbu=[];
 const goal = new Date(ymd[0],ymd[1]-1,ymd[2]);
+let data=[];
 
-function Data(){
-  let name="name";
-  let data=["aaa","bbb","ccc"];
-  localStorage.setItem(name, data);
+function DataLoad(){
+  if(localStorage.getItem(keyname)) {
+    data = JSON.parse(localStorage.getItem(keyname));
+  }
 }
 
 function remove(){
@@ -134,25 +136,42 @@ function addEvent(){
   for(let i = 0; i < items.length; i++){
     items[i].addEventListener("click",() => {
 
-      let key = localStorage.getItem(items[i].id)
-
-      if(key==1){
-        localStorage.removeItem(items[i].id);
+      if  (data.indexOf(items[i].id) != -1){
+        let d = data.findIndex(element => element === items[i].id);
+        data.splice(d, 1);
         document.getElementById(items[i].id).classList.remove("have");
-        //document.getElementById(items[i].id).classList.add("nohave");
-        console.log("removed " + items[i].id);
-        console.log((document.getElementById(items[i].id).closest(".table")).id);
       }
 
-      else{
-        localStorage.setItem(items[i].id,1);
+      //要素がない場合追加
+      else {
+        data.push(items[i].id);
         document.getElementById(items[i].id).classList.add("have");
-        //document.getElementById(items[i].id).classList.remove("nohave");
-        console.log("added " + items[i].id);
       }
-      Count();
-      achevement();
+
+
+      /*      let key = localStorage.getItem(items[i].id)
+      /*
+      if(key==1){
+      localStorage.removeItem(items[i].id);
+      document.getElementById(items[i].id).classList.remove("have");
+      //document.getElementById(items[i].id).classList.add("nohave");
+      console.log("removed " + items[i].id);
+      console.log((document.getElementById(items[i].id).closest(".table")).id);
+    }
+
+    else{
+    localStorage.setItem(items[i].id,1);
+    document.getElementById(items[i].id).classList.add("have");
+    //document.getElementById(items[i].id).classList.remove("nohave");
+    console.log("added " + items[i].id);
+  }
+  */
+    localStorage.setItem(keyname,JSON.stringify(data));
+    console.log(data);
+    Count();
+    achevement();
     }, false);
+
   }
 }
 
@@ -161,14 +180,14 @@ function Count(){
   for(let i=0; i<rare.length; i++){
 
     let count =0;
-    for (let key in localStorage){
-      if (localStorage.hasOwnProperty(key)) {
-        let parent = (document.getElementById(key).closest("table")).id;
+    for (let key in data){
+//      if (localStorage.hasOwnProperty(key))
+        let parent = (document.getElementById(data[key]).closest("table")).id;
 
         if(parent == rare[i]){
           count++;
         }
-      }
+//      }
     }
     motteru[i]=count;
   }
@@ -204,19 +223,21 @@ function achevement(){
 
 
 function setColor(){
-  for (let key in localStorage) {
-    if (localStorage.hasOwnProperty(key)) {
-      document.getElementById(key).classList.add("have");
-    }
+  //保存データ取得
+  if(localStorage.getItem(keyname)) {
+    data = JSON.parse(localStorage.getItem(keyname));
+  }
+  for (let i in data) {
+    document.getElementById(data[i]).classList.add("have");
   }
   Count();
   achevement();
 }
 
 function Reset(){
-  res=confirm("リセットしますか？\n注意：全てのページのデータがリセットされます！");
+  res=confirm("リセットしますか？");
   if(res==true){
-    localStorage.clear();
+    localStorage.clear(keyname);
     location.reload();
   }
 }

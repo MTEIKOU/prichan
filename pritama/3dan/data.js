@@ -1,4 +1,5 @@
 let title = "プリたま3弾"
+let keyname = "PT03"
 let kikan = "10/1(木)～2020/2/3(木)"
 let ymd = [2021,2,3];
 let rare = ["IR","ER","FR","PR","SR","R","N","WR","ITEM"];

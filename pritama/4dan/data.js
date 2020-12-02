@@ -1,4 +1,5 @@
 let title = "プリたま4弾"
+let keyname = "PT04"
 let kikan = "12/3(木)～"
 let ymd = [2021,0,0];
 
