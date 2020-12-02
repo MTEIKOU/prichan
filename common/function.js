@@ -166,6 +166,7 @@ function addEvent(){
     console.log("added " + items[i].id);
   }
   */
+    data.sort();
     localStorage.setItem(keyname,JSON.stringify(data));
     console.log(data);
     Count();
@@ -176,7 +177,6 @@ function addEvent(){
 }
 
 function Count(){
-
   for(let i=0; i<rare.length; i++){
 
     let count =0;
@@ -247,7 +247,7 @@ function tweetReset(){
 }
 
 function tweet(text){
-  document.getElementById('twitter').innerHTML='<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button">Tweet</a><script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
+  document.getElementById('twitter').innerHTML='';
   twttr.widgets.createShareButton(
     location.href,
     document.getElementById('twitter'),
