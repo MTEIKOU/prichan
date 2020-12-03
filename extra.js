@@ -7,13 +7,13 @@ function Random(p1){
 
   switch((p1-p2+3)%3){
     case 0:
-    result += 'DRAW';
+    result += 'あいこ';
     break;
     case 1:
-    result += 'LOSE';
+    result += '負け…';
     break;
     case 2:
-    result += 'WIN!';
+    result += '勝ち!';
     break;
   }
 
