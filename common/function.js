@@ -9,6 +9,7 @@ window.addEventListener('load', function(){setColor()})
 window.addEventListener('load', function(){tweetReset()})
 
 
+
 let motteru=[];
 let zenbu=[];
 
@@ -27,14 +28,15 @@ function remove(){
 
 function settitle(){
   document.getElementById("title").innerText=title;
-  document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(goal);
+  document.getElementById("kikan").innerHTML=kikanStr(st) + "～" + kikanStr(go);
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
 }
 
-function kikanStr(date){
+function kikanStr(arr){
+  const date = new Date(arr[0], arr[1]-1, arr[2]);
   const WeekStr = ['日','月','火','水','木','金','土'];
   let str = date.getFullYear()
-    + '/' + ('0' + date.getMonth()).slice(-2)
+    + '/' + ('0' + (date.getMonth()+1)).slice(-2)
     + '/' + ('0' + date.getDate()).slice(-2)
     +'('+ WeekStr[date.getDay()] +')';
     return str;
