@@ -6,8 +6,6 @@ window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
-window.addEventListener('load', function(){tweetReset()})
-
 
 const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
