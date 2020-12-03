@@ -67,7 +67,7 @@ function schedule(){
   else{//終了日未定
     document.getElementById("nokori").innerHTML="?";
   }
-  
+
   if(limit.some(x => x>0))refresh();
 }
 
@@ -264,18 +264,6 @@ function Reset(){
     localStorage.removeItem(keyname);
     location.reload();
   }
-}
-
-function AllReset(){
-  res=confirm("全データ削除しますか？");
-  if(res==true){
-    localStorage.clear();
-    location.reload();
-  }
-}
-
-function tweetReset(){
-
 }
 
 function tweet(text){
