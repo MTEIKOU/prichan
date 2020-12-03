@@ -9,7 +9,7 @@ window.addEventListener('load', function(){setColor()})
 window.addEventListener('load', function(){tweetReset()})
 
 
-
+const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
 let zenbu=[];
 
@@ -28,41 +28,58 @@ function remove(){
 
 function settitle(){
   document.getElementById("title").innerText=title;
-  document.getElementById("kikan").innerHTML=kikanStr(st) + "～" + kikanStr(go);
+  document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
+  document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
 }
 
 function kikanStr(arr){
-  const date = new Date(arr[0], arr[1]-1, arr[2]);
-  const WeekStr = ['日','月','火','水','木','金','土'];
-  let str = date.getFullYear()
+  if(arr.length != 3){
+    let str="????/??/??";
+    return str;
+  }
+
+  else{
+    const date = new Date(arr[0], arr[1]-1, arr[2]);
+    const WeekStr = ['日','月','火','水','木','金','土'];
+    let str = date.getFullYear()
     + '/' + ('0' + (date.getMonth()+1)).slice(-2)
     + '/' + ('0' + date.getDate()).slice(-2)
     +'('+ WeekStr[date.getDay()] +')';
     return str;
+  }
 }
 
 function schedule(){
+
   const limit = CountDown(goal);
-  document.getElementById("limit").innerHTML="終了まで<span class='big'>"+limit[0]+"</span>日";
-  if(limit[0]!='?')refresh();
+  if(end.length == 3){//終了日入力済
+    document.getElementById("nokori").innerHTML=limit[0];
+    if(limit.some(x => x>0) && limit[0]<10){//残り10日未満 赤
+      document.getElementById("nokori").classList.add("red");
+    }
+    if(limit.every(x => x==0)){//終了済　黒
+      document.getElementById("nokori").classList.remove("red");
+      document.getElementById("finish").innerHTML="終了しました。";
+    }
+  }
+
+  else{//終了日未定
+    document.getElementById("nokori").innerHTML="?";
+  }
+  
+  if(limit.some(x => x>0))refresh();
 }
 
 function CountDown(due){
-  if(goal[0]==9999 || goal[1]==0 || goal[2] ==0){
-    const count = ['?'];
-    return count;
-  }
-  else{
-    const now = new Date();
-    const rest = due.getTime() - now.getTime();
-    const sec = Math.max(Math.floor(rest/1000)%60,0);
-    const min = Math.max(Math.floor(rest/1000/60)%60,0);
-    const hours = Math.max(Math.floor(rest/1000/60/60)%24,0);
-    const days = Math.max(Math.floor(rest/1000/60/60/24),0);
-    const count = [days,hours,min,sec];
-    return count;
-  }
+  const now = new Date();
+  const rest = due.getTime() - now.getTime();
+  const sec = Math.max(Math.floor(rest/1000)%60,0);
+  const min = Math.max(Math.floor(rest/1000/60)%60,0);
+  const hours = Math.max(Math.floor(rest/1000/60/60)%24,0);
+  const days = Math.max(Math.floor(rest/1000/60/60/24),0);
+  const count = [days,hours,min,sec];
+  return count;
 }
 
 function refresh(){
@@ -173,14 +190,14 @@ function addEvent(){
     console.log("added " + items[i].id);
   }
   */
-    data.sort();
-    localStorage.setItem(keyname,JSON.stringify(data));
-    console.log(data);
-    Count();
-    achevement();
-    }, false);
+  data.sort();
+  localStorage.setItem(keyname,JSON.stringify(data));
+  console.log(data);
+  Count();
+  achevement();
+}, false);
 
-  }
+}
 }
 
 function Count(){
@@ -188,13 +205,13 @@ function Count(){
 
     let count =0;
     for (let key in data){
-//      if (localStorage.hasOwnProperty(key))
-        let parent = (document.getElementById(data[key]).closest("table")).id;
+      //      if (localStorage.hasOwnProperty(key))
+      let parent = (document.getElementById(data[key]).closest("table")).id;
 
-        if(parent == rare[i]){
-          count++;
-        }
-//      }
+      if(parent == rare[i]){
+        count++;
+      }
+      //      }
     }
     motteru[i]=count;
   }

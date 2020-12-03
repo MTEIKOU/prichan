@@ -1,10 +1,8 @@
 let title = "プリたま2弾"
 let keyname = "PT-02"
 //kikan = "7/30（木）～12/3(木)"
-const st = [2020,7,30];
-const go = [2020,12,3];
-const start = new Date (st[0],st[1]-1,st[2]);
-const goal = new Date (go[0],go[1]-1,go[2]);
+const start = [2020,7,30];
+const end = [2020,12,3];
 
 let rare = ["IR","ER","FR","PR","SR","R","N","WR","ITEM"];
 
