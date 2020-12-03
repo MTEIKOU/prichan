@@ -27,7 +27,7 @@ function remove(){
 }
 
 function settitle(){
-  document.getElementById("title").innerText=title;
+  document.getElementById("title").innerHTML=title;
   document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
   document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
