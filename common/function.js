@@ -33,7 +33,7 @@ function settitle(){
 
 function kikanStr(arr){
   if(arr.length != 3){
-    let str="????/??/??";
+    let str="";
     return str;
   }
 

@@ -1,4 +1,2 @@
 .space{margin-top:1em;}
-.inline{float:left;}
-.right{margin:0 0 0 auto}
-.clear{clear:left}
+.del{text-decoration: line-through;}
