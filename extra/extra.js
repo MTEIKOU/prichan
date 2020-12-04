@@ -4,8 +4,9 @@ function Random(p1){
   let p2 = Math.floor(Math.random() * 6);
   let result='';
   let e=hand(p2%3);
-  console.log(p2%3);
-  switch((p1-p2+3)%3){
+
+  //console.log(p1 +'-'+p2+'+3%3='+((p1-p2+6)%3));
+  switch((p1-p2+6)%3){
     case 0:
     result = 'あいこ';
     break;
