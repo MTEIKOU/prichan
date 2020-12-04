@@ -158,6 +158,7 @@ function addEvent(){
   for(let i = 0; i < items.length; i++){
     items[i].addEventListener("click",() => {
 
+      //配列から要素を削除
       if  (data.indexOf(items[i].id) != -1){
         let d = data.findIndex(element => element === items[i].id);
         data.splice(d, 1);
@@ -190,9 +191,9 @@ function addEvent(){
   */
   data.sort();
   localStorage.setItem(keyname,JSON.stringify(data));
-  console.log(data);
   Count();
   achevement();
+  Password();
 }, false);
 
 }
@@ -254,6 +255,7 @@ function setColor(){
   }
   Count();
   achevement();
+  Password();
 }
 
 function Reset(){
@@ -273,4 +275,54 @@ function tweet(text){
       text: text
     }
   );
+}
+
+function Password(){
+  let str="";
+  for(let x=0; x<id.length; x++){
+    for(let y=0; y<id[x].length; y++){
+      let n=0;
+      for(let z=0; z<id[x][y].length; z++){
+        if(data.indexOf(id[x][y][z]) != -1){
+          n=1;
+        }
+        else{
+          n=0;
+        }
+        if(id[x][y][z] != 0){
+          console.log(n);
+          str += n;
+        }
+      }
+    }
+  }
+  console.log(str);
+  //Restore();
+}
+
+function Restore(){
+  //id配列から0を除去して1次元化
+  let one = [];
+  for(let x=0; x<id.length; x++){
+    for(let y=0; y<id[x].length; y++){
+      for(let z=0; z<id[x][y].length; z++){
+        if(id[x][y][z] != 0){
+          one.push(id[x][y][z]);
+        }
+      }
+    }
+  }
+  console.log(one);
+
+  for(let i in str){
+    if(str[i]==0){
+      let d = data.findIndex(element => element === items[i].id);
+      data.splice(d, 1);
+      document.getElementById(items[i].id).classList.remove("have");
+    }
+    else{
+      data.push(items[i].id);
+      document.getElementById(items[i].id).classList.add("have");
+    }
+  }
 }
