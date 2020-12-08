@@ -15,11 +15,11 @@
 @media screen and (orientation: landscape) {
    /* 横向きの場合のスタイル */
    .image{width:50vw; height: :50vw; border:solid 1px;}
-   .select{width: 15vw; height: :15vw; border:solid 1px;}
+   .select{width: 15vw; height: :15vw; border:solid 1px; margin-left: 5px; margin-right: 5px;}
 }
 
 @media screen and (orientation: portrait) {
    /* 縦向きの場合のスタイル */
-   .image{width: 90vw; border:solid 1px;}
-   .select{width: 30vw; border:solid 1px;}
+   .image{width: 90vw; height: :90vw; border:solid 1px;}
+   .select{width: 30vw; height: :30vw; border:solid 1px; margin-left: 5px; margin-right: 5px;}
 }

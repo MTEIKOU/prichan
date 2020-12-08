@@ -1,4 +1,5 @@
-let offset = 1;
+let offset;
+let old;
 
 // 画像用配列
 var images = [
@@ -20,13 +21,25 @@ window.onload = function(){
 }
 
 function Random(p1){
-
-  let p2 = Math.floor(Math.random() * 3);
   let result='';
-  //let e=hand(p2%3);
+  let p2 = Math.floor(Math.random() * 6);
 
+  let e=hand(p2%3);
+
+  //console.log(p2);
+  //画像被り防止
+  if(old == p2){
+    if(p2<3){
+      p2 +=3;
+    }
+    else{
+      p2 -=3;
+    }
+  }
+  old = p2;
+  //console.log(p2);
   //switch((p1-p2+6)%3)
-  switch((p1-p2+3)%3){
+  switch((p1-p2+6)%3){
     case 0:
     result = 'あいこ';
     document.getElementById("result").classList.remove("red");
@@ -44,17 +57,14 @@ function Random(p1){
     break;
   }
 
-  document.getElementById("img").innerHTML="<img class='image' src='" + (p2 + offset) + ".png'>";
+  document.getElementById("img").innerHTML="<img class='image' src='" + (p2+1) + ".png' alt='" + e +"'>";
   //document.getElementById("hand").innerHTML=e;
   document.getElementById("result").innerHTML=result;
-
-  if(offset==1){offset=4}
-  else{offset=1}
 
 }
 
 function hand(input){
-  let hand='相手:'
+  let hand=''
   switch (input) {
     case 0:
     hand+='グー';
