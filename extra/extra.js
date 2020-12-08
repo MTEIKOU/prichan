@@ -1,4 +1,4 @@
-let offset;
+//let offset;
 let old;
 
 // 画像用配列
