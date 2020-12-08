@@ -1,5 +1,24 @@
 let offset = 1;
 
+// 画像用配列
+var images = [
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
+    '5.png',
+    '6.png'
+];
+
+window.onload = function(){
+
+    // 画像プリロード
+    for (i = 0; i < images.length; i++){
+        var img = document.createElement('img');
+        img.src = images[i];
+    }
+}
+
 function Random(p1){
 
   let p2 = Math.floor(Math.random() * 3);

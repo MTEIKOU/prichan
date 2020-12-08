@@ -1,14 +1,20 @@
-.center{
-  text-align: center;
-}
+.center{text-align: center;}
 .middle{
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #result{font-weight: bold; font-size: 2em; text-align: center;}
+#how{font-weight: bold; font-size: 1.5em; text-align: center;}
+
 .red{color:red}
 .blue{color:blue}
-
 .image{width: 90vw; border:solid 1px;}
 .select{width: 30vw; border:solid 1px;}
+
+@media screen and (orientation: landscape) {
+   /* 横向きの場合のスタイル */
+   .image{width:50vw; height: :50vw; border:solid 1px;}
+   .select{width: 15vw; height: :15vw; border:solid 1px;}
+}
