@@ -193,7 +193,7 @@ function addEvent(){
   localStorage.setItem(keyname,JSON.stringify(data));
   Count();
   achevement();
-  Password();
+  //Password();
 }, false);
 
 }
@@ -255,7 +255,7 @@ function setColor(){
   }
   Count();
   achevement();
-  Password();
+  //Password();
 }
 
 function Reset(){
@@ -284,19 +284,32 @@ function Password(){
       let n=0;
       for(let z=0; z<id[x][y].length; z++){
         if(data.indexOf(id[x][y][z]) != -1){
-          n=1;
+          switch (z) {
+            case 0:
+            n+=1;
+            break;
+            case 1:
+            n+=2;
+            break;
+            case 2:
+            n+=4;
+            break;
+            case 3:
+            n+=8;
+            break;
+          }
+
         }
         else{
-          n=0;
+          n+=0;
         }
-        if(id[x][y][z] != 0){
-          console.log(n);
-          str += n;
-        }
+
       }
+      str += n.toString(16);
     }
   }
   console.log(str);
+  document.forms.form.text.value = str ;
   //Restore();
 }
 
