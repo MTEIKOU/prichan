@@ -10,7 +10,6 @@ window.addEventListener('load', function(){setColor()})
 const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
 let zenbu=[];
-
 let data=[];
 
 function DataLoad(){
@@ -29,6 +28,7 @@ function settitle(){
   document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
   document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
+  setForm();
 }
 
 function kikanStr(arr){
@@ -82,6 +82,21 @@ function CountDown(due){
 
 function refresh(){
   setTimeout(schedule,1000);
+}
+
+function setForm(){
+  let a=''
+  let n=0;
+  for(let x=0; x<id.length; x++){
+    n += id[x].length;
+  }
+
+  a += "<form name='form' id='form' action=''>"
+  a += "<span>復元コード</span>"
+  a += "<input type='text' id='text' name='text' size='" + n +"' maxlength='" + n +"'>"
+  a += "<input type='button' value='復元' onclick='Restore()'>"
+  a += "</form>"
+  document.getElementById("restore").innerHTML=a;
 }
 
 function allcount(){
@@ -193,7 +208,7 @@ function addEvent(){
   localStorage.setItem(keyname,JSON.stringify(data));
   Count();
   achevement();
-  //Password();
+  Password();
 }, false);
 
 }
@@ -255,7 +270,7 @@ function setColor(){
   }
   Count();
   achevement();
-  //Password();
+  Password();
 }
 
 function Reset(){
@@ -282,8 +297,14 @@ function Password(){
   for(let x=0; x<id.length; x++){
     for(let y=0; y<id[x].length; y++){
       let n=0;
+      let temp=[];
+
       for(let z=0; z<id[x][y].length; z++){
-        if(data.indexOf(id[x][y][z]) != -1){
+        if(id[x][y][z]==0){
+          temp.push("-1");
+        }
+        else if(data.indexOf(id[x][y][z]) != -1){
+          temp.push(1);
           switch (z) {
             case 0:
             n+=1;
@@ -302,40 +323,62 @@ function Password(){
         }
         else{
           n+=0;
+          temp.push(0);
         }
 
       }
+
+      if(temp.every(value => value != 0)){n=15;}
       str += n.toString(16);
     }
   }
-  console.log(str);
   document.forms.form.text.value = str ;
-  //Restore();
 }
 
 function Restore(){
-  //id配列から0を除去して1次元化
-  let one = [];
-  for(let x=0; x<id.length; x++){
-    for(let y=0; y<id[x].length; y++){
-      for(let z=0; z<id[x][y].length; z++){
-        if(id[x][y][z] != 0){
-          one.push(id[x][y][z]);
+
+  res=confirm("復元しますか？");
+  if(res==true){
+
+    let id2=[];
+    let data2=[];
+
+    for(let x=0; x<id.length; x++){
+      for(let y=0; y<id[x].length; y++){
+        id2.push(id[x][y]);
+      }
+    }
+    console.log(id2);
+
+    let off=0;
+
+    const input = document.getElementById("text").value;
+    const afterText = String(input).split('');
+
+    for(let i in afterText){
+      const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
+      data2.push(arr);
+    }
+
+    for(let x=0; x<id2.length; x++){
+      for(let y=0; y<id2[x].length; y++){
+        if(id2[x][y] != 0){
+          if(data2[x][y] ==0){
+            let d = data.findIndex(element => element === id2[x][y]);
+            data.splice(d, 1);//削除
+            document.getElementById(id2[x][y]).classList.remove("have");
+          }
+          if(data2[x][y]==1){
+            if(data.indexOf(id2[x][y]) == -1){
+              data.push(id2[x][y]);
+              document.getElementById(id2[x][y]).classList.add("have");
+            }
+          }
         }
       }
     }
-  }
-  console.log(one);
-
-  for(let i in str){
-    if(str[i]==0){
-      let d = data.findIndex(element => element === items[i].id);
-      data.splice(d, 1);
-      document.getElementById(items[i].id).classList.remove("have");
-    }
-    else{
-      data.push(items[i].id);
-      document.getElementById(items[i].id).classList.add("have");
-    }
+    data.sort();
+    localStorage.setItem(keyname,JSON.stringify(data));
+    location.reload();
   }
 }
