@@ -348,7 +348,6 @@ function Restore(){
         id2.push(id[x][y]);
       }
     }
-    console.log(id2);
 
     let off=0;
 
@@ -378,7 +377,8 @@ function Restore(){
       }
     }
     data.sort();
+    console.log(data);
     localStorage.setItem(keyname,JSON.stringify(data));
-    location.reload();
+    //location.reload();
   }
 }
