@@ -1,2 +1,10 @@
 .space{margin-top:1em;}
 .del{text-decoration: line-through;}
+.blue{background-color: blue;}
+.button{
+font-size: 1.5em;
+font-weight: bold;
+padding: 0px 30px;
+background-color: red;
+color:yellow;
+}

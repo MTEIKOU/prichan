@@ -356,7 +356,8 @@ function Restore(){
 
     for(let i in afterText){
       const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
-      data2.push(arr);
+      const arr_r = reverse(arr);
+      data2.push(arr_r);
     }
 
     for(let x=0; x<id2.length; x++){
