@@ -11,18 +11,12 @@ const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
 let zenbu=[];
 let data=[];
-let text='';
 let para='';
-let rep='';
 
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
     data = JSON.parse(localStorage.getItem(keyname));
   }
-  var url = location.href;
-  var ary = url.split('/');
-  var str = ary[ary.length - 1];
-  rep = url.replace(str, 'share');
 }
 
 function remove(){
@@ -243,7 +237,9 @@ function achevement(){
   total = have + "/" + sum + " (" + Math.round((have/sum)*100*100)/100 + "%)";
   document.getElementById("total").innerHTML= total;
   document.getElementById("each").innerHTML= each;
-  const text = document.title + " " + total;// + "\n" + each;
+  const text = document.title + " " + total + "\n" + each;
+  //console.log(text);
+  tweet(text);
 }
 
 
@@ -269,16 +265,14 @@ function Reset(){
 }
 
 function tweet(text){
-
   document.getElementById('twitter').innerHTML='';
   twttr.widgets.createShareButton(
-    rep + "?id=" + para,//location.href,//
+    location.href + "?id=" + para,
     document.getElementById('twitter'),
     {
       text: text
     }
   );
-
 }
 
 function Password(){
@@ -323,8 +317,6 @@ function Password(){
   }
   document.forms.form.text.value = str;
   para = str;
-  console.log(para);
-  tweet(text);
 }
 
 function Restore(){

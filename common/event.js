@@ -2,12 +2,12 @@ window.addEventListener('load', function(){DataLoad()})
 window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
-window.addEventListener('load', function(){allcount()})
+//window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 
-const goal = new Date(end[0],end[1]-1,end[2]);
+//const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
 let zenbu=[];
 let data=[];
@@ -189,7 +189,7 @@ function addEvent(){
 
       data.sort();
       localStorage.setItem(keyname,JSON.stringify(data));
-      Count();
+      //Count();
       //achevement();
       //Password();
     }, false);
