@@ -186,32 +186,14 @@ function addEvent(){
         document.getElementById(items[i].id).classList.add("have");
       }
 
+      data.sort();
+      localStorage.setItem(keyname,JSON.stringify(data));
+      Count();
+      achevement();
+      Password();
+    }, false);
 
-      /*      let key = localStorage.getItem(items[i].id)
-      /*
-      if(key==1){
-      localStorage.removeItem(items[i].id);
-      document.getElementById(items[i].id).classList.remove("have");
-      //document.getElementById(items[i].id).classList.add("nohave");
-      console.log("removed " + items[i].id);
-      console.log((document.getElementById(items[i].id).closest(".table")).id);
-    }
-
-    else{
-    localStorage.setItem(items[i].id,1);
-    document.getElementById(items[i].id).classList.add("have");
-    //document.getElementById(items[i].id).classList.remove("nohave");
-    console.log("added " + items[i].id);
   }
-  */
-  data.sort();
-  localStorage.setItem(keyname,JSON.stringify(data));
-  Count();
-  achevement();
-  Password();
-}, false);
-
-}
 }
 
 function Count(){

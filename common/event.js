@@ -85,21 +85,21 @@ function refresh(){
 }
 /*
 function setForm(){
-  let a=''
-  let n=0;
-  for(let x=0; x<id.length; x++){
-    n += id[x].length;
-  }
-*/
-/*
-  a += "<form name='form' id='form' action=''>"
-  a += "<span>復元コード</span>"
-  a += "<input type='text' id='text' name='text' size='" + n +"' maxlength='" + n +"'>"
-  a += "<input type='button' value='復元' onclick='Restore()'>"
-  a += "</form>"
-  document.getElementById("restore").innerHTML=a;
+let a=''
+let n=0;
+for(let x=0; x<id.length; x++){
+n += id[x].length;
 }
 */
+/*
+a += "<form name='form' id='form' action=''>"
+a += "<span>復元コード</span>"
+a += "<input type='text' id='text' name='text' size='" + n +"' maxlength='" + n +"'>"
+a += "<input type='button' value='復元' onclick='Restore()'>"
+a += "</form>"
+document.getElementById("restore").innerHTML=a;
+}
+
 function allcount(){
   for(let x=0; x<id.length; x++){
     let count=0;
@@ -118,7 +118,7 @@ function allcount(){
   }
   //console.log(a);
 }
-
+*/
 
 function makeTable(){
 
@@ -187,34 +187,16 @@ function addEvent(){
         document.getElementById(items[i].id).classList.add("have");
       }
 
+      data.sort();
+      localStorage.setItem(keyname,JSON.stringify(data));
+      Count();
+      //achevement();
+      //Password();
+    }, false);
 
-      /*      let key = localStorage.getItem(items[i].id)
-      /*
-      if(key==1){
-      localStorage.removeItem(items[i].id);
-      document.getElementById(items[i].id).classList.remove("have");
-      //document.getElementById(items[i].id).classList.add("nohave");
-      console.log("removed " + items[i].id);
-      console.log((document.getElementById(items[i].id).closest(".table")).id);
-    }
-
-    else{
-    localStorage.setItem(items[i].id,1);
-    document.getElementById(items[i].id).classList.add("have");
-    //document.getElementById(items[i].id).classList.remove("nohave");
-    console.log("added " + items[i].id);
   }
-  */
-  data.sort();
-  localStorage.setItem(keyname,JSON.stringify(data));
-  Count();
-  achevement();
-  //Password();
-}, false);
-
 }
-}
-
+/*
 function Count(){
   for(let i=0; i<rare.length; i++){
 
@@ -259,7 +241,7 @@ function achevement(){
   console.log(text);
   tweet(text);
 }
-
+*/
 
 function setColor(){
   //保存データ取得
@@ -269,8 +251,8 @@ function setColor(){
   for (let i in data) {
     document.getElementById(data[i]).classList.add("have");
   }
-  Count();
-  achevement();
+  //Count();
+  //achevement();
   //Password();
 }
 
@@ -295,93 +277,93 @@ function tweet(text){
 
 /*
 function Password(){
-  let str="";
-  for(let x=0; x<id.length; x++){
-    for(let y=0; y<id[x].length; y++){
-      let n=0;
-      let temp=[];
+let str="";
+for(let x=0; x<id.length; x++){
+for(let y=0; y<id[x].length; y++){
+let n=0;
+let temp=[];
 
-      for(let z=0; z<id[x][y].length; z++){
-        if(id[x][y][z]==0){
-          temp.push("-1");
-        }
-        else if(data.indexOf(id[x][y][z]) != -1){
-          temp.push(1);
-          switch (z) {
-            case 0:
-            n+=1;
-            break;
-            case 1:
-            n+=2;
-            break;
-            case 2:
-            n+=4;
-            break;
-            case 3:
-            n+=8;
-            break;
-          }
+for(let z=0; z<id[x][y].length; z++){
+if(id[x][y][z]==0){
+temp.push("-1");
+}
+else if(data.indexOf(id[x][y][z]) != -1){
+temp.push(1);
+switch (z) {
+case 0:
+n+=1;
+break;
+case 1:
+n+=2;
+break;
+case 2:
+n+=4;
+break;
+case 3:
+n+=8;
+break;
+}
 
-        }
-        else{
-          n+=0;
-          temp.push(0);
-        }
+}
+else{
+n+=0;
+temp.push(0);
+}
 
-      }
+}
 
-      if(temp.every(value => value != 0)){n=15;}
-      str += n.toString(16);
-    }
-  }
-  document.forms.form.text.value = str ;
+if(temp.every(value => value != 0)){n=15;}
+str += n.toString(16);
+}
+}
+document.forms.form.text.value = str ;
 }
 
 function Restore(){
 
-  res=confirm("復元しますか？");
-  if(res==true){
+res=confirm("復元しますか？");
+if(res==true){
 
-    let id2=[];
-    let data2=[];
+let id2=[];
+let data2=[];
 
-    for(let x=0; x<id.length; x++){
-      for(let y=0; y<id[x].length; y++){
-        id2.push(id[x][y]);
-      }
-    }
+for(let x=0; x<id.length; x++){
+for(let y=0; y<id[x].length; y++){
+id2.push(id[x][y]);
+}
+}
 
-    let off=0;
+let off=0;
 
-    const input = document.getElementById("text").value;
-    const afterText = String(input).split('');
+const input = document.getElementById("text").value;
+const afterText = String(input).split('');
 
-    for(let i in afterText){
-      const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
-      const arr_r = reverse(arr);
-      data2.push(arr_r);
-    }
+for(let i in afterText){
+const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
+const arr_r = reverse(arr);
+data2.push(arr_r);
+}
 
-    for(let x=0; x<id2.length; x++){
-      for(let y=0; y<id2[x].length; y++){
-        if(id2[x][y] != 0){
-          if(data2[x][y] ==0){
-            let d = data.findIndex(element => element === id2[x][y]);
-            data.splice(d, 1);//削除
-            document.getElementById(id2[x][y]).classList.remove("have");
-          }
-          if(data2[x][y]==1){
-            if(data.indexOf(id2[x][y]) == -1){
-              data.push(id2[x][y]);
-              document.getElementById(id2[x][y]).classList.add("have");
-            }
-          }
-        }
-      }
-    }
-    data.sort();
-    console.log(data);
-    localStorage.setItem(keyname,JSON.stringify(data));
-    //location.reload();
-  }
+for(let x=0; x<id2.length; x++){
+for(let y=0; y<id2[x].length; y++){
+if(id2[x][y] != 0){
+if(data2[x][y] ==0){
+let d = data.findIndex(element => element === id2[x][y]);
+data.splice(d, 1);//削除
+document.getElementById(id2[x][y]).classList.remove("have");
+}
+if(data2[x][y]==1){
+if(data.indexOf(id2[x][y]) == -1){
+data.push(id2[x][y]);
+document.getElementById(id2[x][y]).classList.add("have");
+}
+}
+}
+}
+}
+data.sort();
+console.log(data);
+localStorage.setItem(keyname,JSON.stringify(data));
+//location.reload();
+}
 }*/
