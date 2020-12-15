@@ -341,6 +341,12 @@ function Restore(){
 
     const input = document.getElementById("text").value;
 /*
+
+let n=0;
+for(let x=0; x<id.length; x++){
+  n += id[x].length;
+}
+
     if(input.length > id2.length){
       input = input.substr(0,id2.length);
     }
