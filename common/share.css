@@ -1,0 +1,96 @@
+@charset "UTF-8";
+:root {
+  --bgcolor: lightblue;;
+}
+
+.icon{
+  width:1em;
+  height:1em;
+}
+
+caption{
+  font-family:Impact;
+  font-weight: bold;
+  font-size:3em;
+}
+
+body{
+  background-color:var(--bgcolor);
+  font-family:sans-serif;
+}
+
+table{
+  width: 100%;
+  background-color: white;
+}
+
+.table{
+  empty-cells : hide;
+  border-collapse: collapse;
+}
+
+td{
+  width:25%;
+}
+
+img{
+  width:100%;
+}
+
+.item{
+  text-align: center;
+  width:2em;
+  height:2em;
+  border:2px solid #ff8080;
+  font-size: 1.5em;
+  /*font-weight: bold;*/
+}
+
+.center{text-align: center;}
+
+.font1{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.font2{
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.font3{
+  font-weight: bold;
+  text-align: center;
+  font-size: 1em;
+}
+
+.reset{height:inherit;}
+.big{font-size: 1.5em;}
+
+.inline{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  align-items:stretch;
+}
+
+.red{color:red}
+
+.IR{background-color: pink;}
+.WR{background-color: pink;}
+.ER{background-color: gold;}
+.FR{background-color: lightgray;}
+.PR{background-color: lightblue;}
+.SR{background-color: gold;}
+.R{background-color: lightgray;}
+.N{background-color: white;}
+.ITEM{background-color: palegreen;}
+
+.EVENT{background-color: pink;}
+.HR{background-color: palegreen;}
+
+.empty{background-color: var(--bgcolor)}
+.have{background-color: gray;}
+/*.nohave{background-color: white;}

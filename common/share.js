@@ -1,23 +1,30 @@
-window.addEventListener('load', function(){DataLoad()})
+//window.addEventListener('load', function(){DataLoad()})
+
+
 window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
-window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
-window.addEventListener('load', function(){addEvent()})
+window.addEventListener('load', function(){geturl()})
+window.addEventListener('load', function(){Count()})
+window.addEventListener('load', function(){allcount()})
+window.addEventListener('load', function(){achevement()})
+
+//window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 
 const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
 let zenbu=[];
 let data=[];
-let para='';
-
+//let para='';
+let id2=[];
+/*
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
     data = JSON.parse(localStorage.getItem(keyname));
   }
-}
+}*/
 
 function remove(){
   document.getElementById("disable").remove();
@@ -27,9 +34,18 @@ function remove(){
 function settitle(){
   document.getElementById("title").innerHTML=title;
   document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
-  document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
+  //document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
   document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
-  setForm();
+  //setForm();
+  setlink();
+}
+
+function setlink(){
+  var url = location.href;
+  var ary = url.split('/');
+  var str = ary[ary.length - 1];
+  rep = url.replace(str, 'common.html');
+  document.getElementById("info").innerHTML="作成は<a href=" +rep +">こちら</a>";
 }
 
 function kikanStr(arr){
@@ -168,6 +184,7 @@ function makeTable(){
   }
 }
 
+/*
 //add clickevent
 function addEvent(){
   let items = document.getElementsByClassName("item");
@@ -196,14 +213,14 @@ function addEvent(){
 
   }
 }
-
+*/
 function Count(){
   for(let i=0; i<rare.length; i++){
 
     let count =0;
-    for (let key in data){
+    for (let i in data){
       //      if (localStorage.hasOwnProperty(key))
-      let parent = (document.getElementById(data[key]).closest("table")).id;
+      let parent = (document.getElementById(data[i]).closest("table")).id;
 
       if(parent == rare[i]){
         count++;
@@ -239,11 +256,12 @@ function achevement(){
   document.getElementById("each").innerHTML= each;
   const text = document.title + " " + total + "\n" + each;
   //console.log(text);
-  tweet(text);
+  //tweet(text);
 }
 
 
 function setColor(){
+  /*
   //保存データ取得
   if(localStorage.getItem(keyname)) {
     data = JSON.parse(localStorage.getItem(keyname));
@@ -253,9 +271,12 @@ function setColor(){
   }
   Count();
   achevement();
-  Password();
+  //Password();*/
+  for (let i in data) {
+    document.getElementById(data[i]).classList.add("have");
+  }
 }
-
+/*
 function Reset(){
   res=confirm("リセットしますか？");
   if(res==true){
@@ -317,53 +338,67 @@ function Password(){
   }
   document.forms.form.text.value = str;
   para = str;
+
 }
+*/
+function geturl(){
 
-function Restore(){
+  //if(url.searchParams.has("id")){
 
-  res=confirm("復元しますか？");
-  if(res==true){
+      let data2=[];
 
-    let id2=[];
-    let data2=[];
-
-    for(let x=0; x<id.length; x++){
-      for(let y=0; y<id[x].length; y++){
-        id2.push(id[x][y]);
+      for(let x=0; x<id.length; x++){
+        for(let y=0; y<id[x].length; y++){
+          id2.push(id[x][y]);
+        }
       }
-    }
 
-    let off=0;
+      let input = location.search.slice(4);
+      //console.log(input);
+      if(input.length > id2.length){
+        input = input.substr(0,id2.length);
+      }
+      else if(input.length < id2.length){
+        let l = id2.length-input.length;
+        //console.log(l);
+        for(let n=0; n<l; n++){
+          input += "0";
+        }
+      }
+      //console.log(input +"(" + input.length +")" +"(" + id2.length +")");
+      history.replaceState(null,null, "?id=" + input ) ;
+      const afterText = String(input).split('');
 
-    const input = document.getElementById("text").value;
-    const afterText = String(input).split('');
+      for(let i in afterText){
+        const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
+        const arr_r = arr.reverse();
+        data2.push(arr_r);
+      }
 
-    for(let i in afterText){
-      const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
-      const arr_r = reverse(arr);
-      data2.push(arr_r);
-    }
+      for(let x=0; x<id2.length; x++){
+        for(let y=0; y<id2[x].length; y++){
+          if(id2[x][y] != 0){
 
-    for(let x=0; x<id2.length; x++){
-      for(let y=0; y<id2[x].length; y++){
-        if(id2[x][y] != 0){
-          if(data2[x][y] ==0){
-            let d = data.findIndex(element => element === id2[x][y]);
-            data.splice(d, 1);//削除
-            document.getElementById(id2[x][y]).classList.remove("have");
-          }
-          if(data2[x][y]==1){
-            if(data.indexOf(id2[x][y]) == -1){
-              data.push(id2[x][y]);
-              document.getElementById(id2[x][y]).classList.add("have");
+/*
+            if(data2[x][y] ==0){
+              let d = data.findIndex(element => element === id2[x][y]);
+              data.splice(d, 1);//削除
+              //document.getElementById(id2[x][y]).classList.remove("have");
+            }
+*/
+            if(data2[x][y]==1){
+              //if(data.indexOf(id2[x][y]) == -1){
+                data.push(id2[x][y]);
+                //document.getElementById(id2[x][y]).classList.add("have");
+              //}
             }
           }
         }
       }
-    }
-    data.sort();
-    console.log(data);
-    localStorage.setItem(keyname,JSON.stringify(data));
-    //location.reload();
-  }
+      data.sort();
+      //console.log(data);
+
+      //localStorage.setItem(keyname,JSON.stringify(data));
+      //location.reload();
+    //}
 }

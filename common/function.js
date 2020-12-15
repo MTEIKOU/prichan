@@ -14,11 +14,13 @@ let data=[];
 let text='';
 let para='';
 let rep='';
+let id2=[];
 
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
     data = JSON.parse(localStorage.getItem(keyname));
   }
+  //共有用url
   var url = location.href;
   var ary = url.split('/');
   var str = ary[ary.length - 1];
@@ -323,6 +325,9 @@ function Password(){
   }
   document.forms.form.text.value = str;
   para = str;
+
+  //history.replaceState(null,null, "?id=" + para ) ;
+
   console.log(para);
   tweet(text);
 }
@@ -332,23 +337,32 @@ function Restore(){
   res=confirm("復元しますか？");
   if(res==true){
 
-    let id2=[];
     let data2=[];
 
+    const input = document.getElementById("text").value;
+/*
+    if(input.length > id2.length){
+      input = input.substr(0,id2.length);
+    }
+    else if(input.length < id2.length){
+      let l = id2.length-input.length;
+      //console.log(l);
+      for(let n=0; n<l; n++){
+        input += "0";
+      }
+    }
+*/
     for(let x=0; x<id.length; x++){
       for(let y=0; y<id[x].length; y++){
         id2.push(id[x][y]);
       }
     }
 
-    let off=0;
-
-    const input = document.getElementById("text").value;
     const afterText = String(input).split('');
-
+    console.log(afterText);
     for(let i in afterText){
       const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
-      const arr_r = reverse(arr);
+      const arr_r = arr.reverse();
       data2.push(arr_r);
     }
 
