@@ -100,7 +100,7 @@ function setForm(){
     n += id[x].length;
   }
 
-  a += "<form name='form' id='form' action=''>"
+  a += "<form name='form' onsubmit='return false;' id='form' action=''>"
   a += "<span>復元コード</span>"
   a += "<input type='text' id='text' name='text' size='" + n +"' maxlength='" + n +"'>"
   a += "<input type='button' value='復元' onclick='Restore()'>"
