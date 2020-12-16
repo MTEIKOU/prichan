@@ -14,7 +14,7 @@ let data=[];
 let text='';
 let para='';
 let rep='';
-let id2=[];
+
 
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
@@ -337,61 +337,74 @@ function Restore(){
   res=confirm("復元しますか？");
   if(res==true){
 
+    let id2=[];
     let data2=[];
 
-    const input = document.getElementById("text").value;
-/*
-
-let n=0;
-for(let x=0; x<id.length; x++){
-  n += id[x].length;
-}
-
-    if(input.length > id2.length){
-      input = input.substr(0,id2.length);
-    }
-    else if(input.length < id2.length){
-      let l = id2.length-input.length;
-      //console.log(l);
-      for(let n=0; n<l; n++){
-        input += "0";
-      }
-    }
-*/
     for(let x=0; x<id.length; x++){
       for(let y=0; y<id[x].length; y++){
         id2.push(id[x][y]);
       }
     }
 
-    const afterText = String(input).split('');
-    console.log(afterText);
-    for(let i in afterText){
-      const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
-      const arr_r = arr.reverse();
-      data2.push(arr_r);
+
+    let input = document.getElementById("text").value;
+
+    let n=0;
+    for(let x=0; x<id.length; x++){
+      n += id[x].length;
     }
 
-    for(let x=0; x<id2.length; x++){
-      for(let y=0; y<id2[x].length; y++){
-        if(id2[x][y] != 0){
-          if(data2[x][y] ==0){
-            let d = data.findIndex(element => element === id2[x][y]);
+    /*
+    if(input.length > id2.length){
+    input = input.substr(0,id2.length);
+  }
+  */
+
+  if(input.length < id2.length){
+    let l = id2.length-input.length;
+    for(let n=0; n<l; n++){
+      input += "0";
+    }
+    console.log(input);
+  }
+
+  document.forms.form.text.value = input;
+
+
+  const afterText = String(input).split('');
+
+  for(let i in afterText){
+    const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
+    const arr_r = arr.reverse();
+    data2.push(arr_r);
+  }
+
+  for(let x=0; x<id2.length; x++){
+    for(let y=0; y<id2[x].length; y++){
+
+      if(id2[x][y] != 0){
+
+        if(data2[x][y] ==0){
+          let d = data.findIndex(element => element === id2[x][y]);
+          if(d != -1){
             data.splice(d, 1);//削除
             document.getElementById(id2[x][y]).classList.remove("have");
           }
-          if(data2[x][y]==1){
-            if(data.indexOf(id2[x][y]) == -1){
-              data.push(id2[x][y]);
-              document.getElementById(id2[x][y]).classList.add("have");
-            }
+        }
+        if(data2[x][y]==1){
+          if(data.indexOf(id2[x][y]) == -1){
+
+            data.push(id2[x][y]);
+            document.getElementById(id2[x][y]).classList.add("have");
           }
         }
       }
+
     }
-    data.sort();
-    console.log(data);
-    localStorage.setItem(keyname,JSON.stringify(data));
-    //location.reload();
   }
+  data.sort();
+  console.log(data);
+  localStorage.setItem(keyname,JSON.stringify(data));
+  //location.reload();
+}
 }
