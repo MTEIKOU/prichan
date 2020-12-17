@@ -6,12 +6,15 @@ window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){geturl()})
+
+window.addEventListener('load', function(){setColor()})
+
 window.addEventListener('load', function(){Count()})
 window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){achevement()})
 
 //window.addEventListener('load', function(){addEvent()})
-window.addEventListener('load', function(){setColor()})
+
 
 const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
