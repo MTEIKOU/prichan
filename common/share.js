@@ -9,8 +9,8 @@ window.addEventListener('load', function(){geturl()})
 
 window.addEventListener('load', function(){setColor()})
 
-window.addEventListener('load', function(){Count()})
 window.addEventListener('load', function(){allcount()})
+window.addEventListener('load', function(){Count()})
 window.addEventListener('load', function(){achevement()})
 
 //window.addEventListener('load', function(){addEvent()})
@@ -218,26 +218,27 @@ function addEvent(){
 }
 */
 function Count(){
-  for(let i=0; i<rare.length; i++){
 
+  for(let i=0; i<rare.length; i++){
     let count =0;
     for (let i in data){
-      //      if (localStorage.hasOwnProperty(key))
+      
       let parent = (document.getElementById(data[i]).closest("table")).id;
 
       if(parent == rare[i]){
         count++;
+                console.log(parent);
       }
-      //      }
     }
     motteru[i]=count;
   }
+
   let a ='';
   for(let i=0; i<id.length; i++){
     a += rare[i] + ":" +motteru[i] + "/" + zenbu[i] + " ";
 
   }
-  //console.log(a);
+  console.log(a);
 }
 
 function achevement(){
@@ -258,7 +259,7 @@ function achevement(){
   document.getElementById("total").innerHTML= total;
   document.getElementById("each").innerHTML= each;
   const text = document.title + " " + total + "\n" + each;
-  //console.log(text);
+  console.log(text);
   //tweet(text);
 }
 
