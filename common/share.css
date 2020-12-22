@@ -76,10 +76,12 @@ img{
   align-items:stretch;
 }
 
+.left{width: 100px}
+.naka{flex: 1}
+.right{width: 100px}
+
 .red{color:red}
-.bg{
-  background-color: yellow;
-}
+.bg{background-color: yellow;}
 
 .IR{background-color: pink;}
 .WR{background-color: pink;}
