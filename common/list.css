@@ -76,6 +76,11 @@ img{
   align-items:stretch;
 }
 
+.left{width: 100px}
+.naka{flex: 1}
+.right{width: 100px}
+
+
 .red{color:red}
 
 .IR{background-color: pink;}
