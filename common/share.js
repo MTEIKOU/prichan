@@ -1,6 +1,5 @@
 //window.addEventListener('load', function(){DataLoad()})
 
-
 window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
@@ -27,7 +26,8 @@ function DataLoad(){
   if(localStorage.getItem(keyname)) {
     data = JSON.parse(localStorage.getItem(keyname));
   }
-}*/
+}
+*/
 
 function remove(){
   document.getElementById("disable").remove();
@@ -44,11 +44,12 @@ function settitle(){
 }
 
 function setlink(){
+  //commonリンク作成
   var url = location.href;
   var ary = url.split('/');
   var str = ary[ary.length - 1];
   rep = url.replace(str, 'common.html');
-  document.getElementById("info").innerHTML="作成は<a href=" +rep +">こちら</a>";
+  document.getElementById("info").innerHTML="<span class='bg'>作成は<a class='red' href=" +rep +">こちら</a></span>";
 }
 
 function kikanStr(arr){
@@ -135,9 +136,8 @@ function allcount(){
   for(let i in zenbu){
     a += (rare[i] +":"+zenbu[i] + " ");
   }
-  //console.log(a);
+  console.log(a);
 }
-
 
 function makeTable(){
 
@@ -220,17 +220,16 @@ function addEvent(){
 function Count(){
 
   for(let i=0; i<rare.length; i++){
-    let count =0;
-    for (let i in data){
-      
-      let parent = (document.getElementById(data[i]).closest("table")).id;
+    let cnt =Number('0');
+    for (let j in data){
+
+      let parent = (document.getElementById(data[j]).closest("table")).id;
 
       if(parent == rare[i]){
-        count++;
-                console.log(parent);
+        cnt++;
       }
     }
-    motteru[i]=count;
+    motteru[i]=cnt;
   }
 
   let a ='';
@@ -401,7 +400,6 @@ function geturl(){
       }
       data.sort();
       //console.log(data);
-
       //localStorage.setItem(keyname,JSON.stringify(data));
       //location.reload();
     //}
