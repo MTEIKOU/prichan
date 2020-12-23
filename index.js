@@ -28,12 +28,12 @@ function kikan(arr){
     else{
       const date = new Date(arr[0], arr[1]-1, arr[2]);
       const WeekStr = ['日','月','火','水','木','金','土'];
-      let str = (''+date.getFullYear()).slice(-2)
+      const str = (''+date.getFullYear()).slice(-2)
       + '/' + ('0' + (date.getMonth()+1)).slice(-2)
       + '/' + ('0' + date.getDate()).slice(-2)
       +'('+ WeekStr[date.getDay()] +')';
-      return str;
       console.log(str);
+      return str;
     }
 }
 /*
