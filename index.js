@@ -1,5 +1,5 @@
 window.addEventListener('load',function(){schedule()});
-window.addEventListener('load',function(){CountDown()});
+
 /*
 function AllReset(){
 res=confirm("全データ削除しますか？");
@@ -12,8 +12,11 @@ location.reload();
 
 function schedule(){
   for(let i=0; i<day.length; i++){
-  const text = kikan(day[i][0]) + "～" + kikan(day[i][1]) +' 終了:'+ kikan(day[i+1][1]) +'';
-  document.getElementById((i+1)+'dan').innerHTML=text;
+  const text = kikan(day[i][0]) + "～" + kikan(day[i][1]);
+  console.log(kikan(day[i][0]) +"~"+kikan(day[i][1]));
+  const text2 = info(day[(i+1)][1]);
+  console.log(i +' ' +day[(i+1)][1]);
+  document.getElementById((i+1)+'dan').innerHTML=text;// +' '+ text2;
   }
 
 }
@@ -35,29 +38,35 @@ function kikan(arr){
       return str;
     }
 }
-/*
-function info(){
 
-  const limit = CountDown(goal);
-  if(end.length == 3){//終了日入力済
-    document.getElementById("nokori").innerHTML=limit[0];
-    if(limit.some(x => x>0) && limit[0]<10){//残り10日未満 赤
-      document.getElementById("nokori").classList.add("red");
+function info(goal){
+let text='';
+  if(goal.length == 3){//終了日入力済
+    const limit = CountDown(goal);
+    const days = limit[0].toString();
+
+    if(limit.some(x => x>0)){ // && limit[0]<10){//残り10日未満 赤
+      //document.getElementById("nokori").classList.add("red");
+      text = "開催中"
     }
     if(limit.every(x => x==0)){//終了済　黒
-      document.getElementById("nokori").classList.remove("red");
-      document.getElementById("finish").innerHTML="終了しました。";
+      text = "終了"
     }
+    return text;
   }
 
   else{//終了日未定
-    document.getElementById("nokori").innerHTML="?";
+    //document.getElementById("nokori").innerHTML="?";
+    const text='開催中';
+    return text;
   }
 
-  if(limit.some(x => x>0))refresh();
+  //if(limit.some(x => x>0))refresh();
+
 }
 
-function CountDown(due){
+function CountDown(goal){
+  const due = new Date(goal[0], goal[1]-1, goal[2]);
   const now = new Date();
   const rest = due.getTime() - now.getTime();
   const sec = Math.max(Math.floor(rest/1000)%60,0);
@@ -70,4 +79,4 @@ function CountDown(due){
 
 function refresh(){
   setTimeout(schedule,1000);
-}*/
+}
