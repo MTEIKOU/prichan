@@ -168,7 +168,7 @@ function makeTable(){
         else{
           if(rare[x]=="WR"){
             //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-            t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".jpg' onerror='imgError(this);'></br>" +id[x][y][z] +"</td>"
+            t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png' onerror='imgError(this);'></br>" +id[x][y][z] +"</td>"
           }
           else{
             t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
