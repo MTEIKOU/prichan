@@ -1,5 +1,5 @@
 window.addEventListener('load',function(){schedule()});
-
+window.addEventListener('load',function(){CountDown()});
 /*
 function AllReset(){
 res=confirm("全データ削除しますか？");
@@ -12,7 +12,7 @@ location.reload();
 
 function schedule(){
   for(let i=0; i<day.length; i++){
-  const text = kikan(day[i][0]) + "～" + kikan(day[i][1]);
+  const text = kikan(day[i][0]) + "～" + kikan(day[i][1]) +' 終了:'+ kikan(day[i+1][1]) +'';
   document.getElementById((i+1)+'dan').innerHTML=text;
   }
 
@@ -32,12 +32,11 @@ function kikan(arr){
       + '/' + ('0' + (date.getMonth()+1)).slice(-2)
       + '/' + ('0' + date.getDate()).slice(-2)
       +'('+ WeekStr[date.getDay()] +')';
-      console.log(str);
       return str;
     }
 }
 /*
-function schedule(){
+function info(){
 
   const limit = CountDown(goal);
   if(end.length == 3){//終了日入力済
@@ -56,4 +55,19 @@ function schedule(){
   }
 
   if(limit.some(x => x>0))refresh();
+}
+
+function CountDown(due){
+  const now = new Date();
+  const rest = due.getTime() - now.getTime();
+  const sec = Math.max(Math.floor(rest/1000)%60,0);
+  const min = Math.max(Math.floor(rest/1000/60)%60,0);
+  const hours = Math.max(Math.floor(rest/1000/60/60)%24,0);
+  const days = Math.max(Math.floor(rest/1000/60/60/24),0);
+  const count = [days,hours,min,sec];
+  return count;
+}
+
+function refresh(){
+  setTimeout(schedule,1000);
 }*/

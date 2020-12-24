@@ -85,6 +85,7 @@ img{
 
 .IR{background-color: pink;}
 .WR{background-color: pink;}
+.gray{filter: grayscale(100%);}
 .ER{background-color: gold;}
 .FR{background-color: lightgray;}
 .PR{background-color: lightblue;}

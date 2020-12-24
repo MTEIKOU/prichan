@@ -49,7 +49,7 @@ function kikanStr(arr){
   else{
     const date = new Date(arr[0], arr[1]-1, arr[2]);
     const WeekStr = ['日','月','火','水','木','金','土'];
-    let str = date.getFullYear()
+    let str = (''+date.getFullYear()).slice(-2)
     + '/' + ('0' + (date.getMonth()+1)).slice(-2)
     + '/' + ('0' + date.getDate()).slice(-2)
     +'('+ WeekStr[date.getDay()] +')';
@@ -127,6 +127,11 @@ function allcount(){
   //console.log(a);
 }
 
+function imgError(image) {
+    image.onerror = "";
+    image.src = "https://mteikou.github.io/prichan/common/img/Item_Question.png"; //置き換えたい画像のURL
+    return true;
+}
 
 function makeTable(){
 
@@ -162,7 +167,8 @@ function makeTable(){
         }
         else{
           if(rare[x]=="WR"){
-            t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+            //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+            t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".jpg' onerror='imgError(this);'></br>" +id[x][y][z] +"</td>"
           }
           else{
             t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
@@ -326,7 +332,8 @@ function Password(){
   document.forms.form.text.value = str;
   para = str;
 
-  //history.replaceState(null,null, "?id=" + para ) ;
+  //アドレスバーにid表示
+  history.replaceState(null,null, "?id=" + para ) ;
 
   console.log(para);
   tweet(text);
