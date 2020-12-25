@@ -251,7 +251,7 @@ function achevement(){
   total = have + "/" + sum + " (" + Math.round((have/sum)*100*100)/100 + "%)";
   document.getElementById("total").innerHTML= total;
   document.getElementById("each").innerHTML= each;
-  const text = document.title + " " + total;// + "\n" + each;
+  text = document.title + " " + total;// + "\n" + each;
 }
 
 
@@ -342,7 +342,7 @@ function Password(){
   history.replaceState(null,null, "?id=" + para ) ;
 
   console.log(para);
-  tweet(para);
+  tweet(text);
 }
 
 function Restore(){
