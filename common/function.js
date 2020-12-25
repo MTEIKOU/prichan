@@ -325,18 +325,24 @@ function Password(){
 
       }
 
+      //セット揃ってたら表示をFに変更
       if(temp.every(value => value != 0)){n=15;}
       str += n.toString(16);
     }
   }
-  document.forms.form.text.value = str;
+
+  const arr = String(str).split('');
+  if(arr.every(zero = (num) => num=='0')){
+    document.forms.form.text.value = '';
+  }
+  else{document.forms.form.text.value = str;}
   para = str;
 
   //アドレスバーにid表示
   history.replaceState(null,null, "?id=" + para ) ;
 
   console.log(para);
-  tweet(text);
+  tweet(para);
 }
 
 function Restore(){
