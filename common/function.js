@@ -2,7 +2,7 @@ window.addEventListener('load', function(){DataLoad()})
 window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
-window.addEventListener('load', function(){schedule2()})
+
 window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){imgChange()})
@@ -10,14 +10,14 @@ window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 
 const goal1 = new Date(end1[0],end1[1]-1,end1[2]);
-const goal2 = new Date(end2[0],end2[1]-1,end2[2]);
+
 let motteru=[];
 let zenbu=[];
 let data=[];
 let text='';
 let para='';
 let rep='';
-  const url = 'https://mteikou.github.io/prichan/common/img/Item_Question.png';
+const url = 'https://mteikou.github.io/prichan/common/img/Item_Question.png';
 
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
@@ -38,10 +38,11 @@ function remove(){
 function settitle(){
   document.getElementById("title").innerHTML=title;
   document.getElementById("kikan").innerHTML="[期間1] " +kikanStr(start1) + "～" + kikanStr(end1);
-  document.getElementById("kikan2").innerHTML="[期間2] " +kikanStr(start2) + "～" + kikanStr(end2);
+  if(end2.length!=1){document.getElementById("kikan2").innerHTML="[期間2] " +kikanStr(start2) + "～" + kikanStr(end2);}
+  else{document.getElementById("kikan").innerHTML="[期間] " +kikanStr(start1) + "～" + kikanStr(end1);}
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
   document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
-  document.getElementById("finish2").innerHTML="終了まで<text id ='nokori2' class='big'>" +"</text>日";
+  if(end2.length!=1){document.getElementById("finish2").innerHTML="終了まで<text id ='nokori2' class='big'>" +"</text>日";}
   setForm();
 }
 
@@ -81,17 +82,18 @@ function schedule(){
   }
 
   if(limit.some(x => x>0))refresh();
+  if(end2.length!=1){schedule2()}
 }
 
 function schedule2(){
-
-  const limit = CountDown(goal2);
+  const goal2 = new Date(end2[0],end2[1]-1,end2[2]);
+  const limit2 = CountDown(goal2);
   if(end2.length == 3){//終了日入力済
-    document.getElementById("nokori2").innerHTML=limit[0];
-    if(limit.some(x => x>0) && limit[0]<10){//残り10日未満 赤
+    document.getElementById("nokori2").innerHTML=limit2[0];
+    if(limit2.some(x => x>0) && limit2[0]<10){//残り10日未満 赤
       document.getElementById("nokori2").classList.add("red");
     }
-    if(limit.every(x => x==0)){//終了済　黒
+    if(limit2.every(x => x==0)){//終了済　黒
       document.getElementById("nokori2").classList.remove("red");
       document.getElementById("finish2").innerHTML="終了しました。";
     }
@@ -101,9 +103,8 @@ function schedule2(){
     document.getElementById("nokori2").innerHTML="?";
   }
 
-  if(limit.some(x => x>0))refresh();
+  if(limit2.some(x => x>0))refresh();
 }
-
 function CountDown(due){
   const now = new Date();
   const rest = due.getTime() - now.getTime();
@@ -199,39 +200,39 @@ function makeTable(){
 
           /*
           if(rare[x]=="WR"){
-            t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-            t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
-          }
-          else{
-            t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
-          }
-          */
-
-          if(rare[x]=="WR"){
-            //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-            t += "<td id='"+id[x][y][z]+"' class='item'><img class='img gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z]+"</td>"
-          }
-          else{
-            t += "<td id='"+id[x][y][z]+"' class='item'><img class='img' src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z]+ "</td>"
-          }
-
+          t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+          t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
         }
+        else{
+        t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
       }
-      t += "</tr>"
-    }
+      */
 
-    let tbl = document.getElementById(rare[x]);
-    tbl.insertAdjacentHTML('afterbegin',t);
+      if(rare[x]=="WR"){
+        //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+        t += "<td id='"+id[x][y][z]+"' class='item'><img class='img gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z]+"</td>"
+      }
+      else{
+        t += "<td id='"+id[x][y][z]+"' class='item'><img class='img' src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z]+ "</td>"
+      }
+
+    }
   }
+  t += "</tr>"
+}
+
+let tbl = document.getElementById(rare[x]);
+tbl.insertAdjacentHTML('afterbegin',t);
+}
 }
 
 function imgChange(){
   let items = document.getElementsByClassName("img");
   for(let i in items){
     items[i].onerror = function(){
-    items[i].src = url;
+      items[i].src = url;
+    }
   }
-}
 }
 
 //add clickevent
