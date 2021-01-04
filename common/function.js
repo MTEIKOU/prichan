@@ -2,13 +2,15 @@ window.addEventListener('load', function(){DataLoad()})
 window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
+window.addEventListener('load', function(){schedule2()})
 window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){imgChange()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 
-const goal = new Date(end[0],end[1]-1,end[2]);
+const goal1 = new Date(end1[0],end1[1]-1,end1[2]);
+const goal2 = new Date(end2[0],end2[1]-1,end2[2]);
 let motteru=[];
 let zenbu=[];
 let data=[];
@@ -35,15 +37,17 @@ function remove(){
 
 function settitle(){
   document.getElementById("title").innerHTML=title;
-  document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
+  document.getElementById("kikan").innerHTML="[期間1] " +kikanStr(start1) + "～" + kikanStr(end1);
+  document.getElementById("kikan2").innerHTML="[期間2] " +kikanStr(start2) + "～" + kikanStr(end2);
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
   document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
+  document.getElementById("finish2").innerHTML="終了まで<text id ='nokori2' class='big'>" +"</text>日";
   setForm();
 }
 
 function kikanStr(arr){
   if(arr.length != 3){
-    let str="";
+    let str="未定";
     return str;
   }
 
@@ -60,8 +64,8 @@ function kikanStr(arr){
 
 function schedule(){
 
-  const limit = CountDown(goal);
-  if(end.length == 3){//終了日入力済
+  const limit = CountDown(goal1);
+  if(end1.length == 3){//終了日入力済
     document.getElementById("nokori").innerHTML=limit[0];
     if(limit.some(x => x>0) && limit[0]<10){//残り10日未満 赤
       document.getElementById("nokori").classList.add("red");
@@ -74,6 +78,27 @@ function schedule(){
 
   else{//終了日未定
     document.getElementById("nokori").innerHTML="?";
+  }
+
+  if(limit.some(x => x>0))refresh();
+}
+
+function schedule2(){
+
+  const limit = CountDown(goal2);
+  if(end2.length == 3){//終了日入力済
+    document.getElementById("nokori2").innerHTML=limit[0];
+    if(limit.some(x => x>0) && limit[0]<10){//残り10日未満 赤
+      document.getElementById("nokori2").classList.add("red");
+    }
+    if(limit.every(x => x==0)){//終了済　黒
+      document.getElementById("nokori2").classList.remove("red");
+      document.getElementById("finish2").innerHTML="終了しました。";
+    }
+  }
+
+  else{//終了日未定
+    document.getElementById("nokori2").innerHTML="?";
   }
 
   if(limit.some(x => x>0))refresh();

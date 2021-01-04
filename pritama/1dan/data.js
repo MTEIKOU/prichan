@@ -1,8 +1,11 @@
 let title = "プリたま1弾"
 let keyname = "PT-01"
-//let kikan = "12/3(木)～"
-const start = [2020,4,2];
-const end = [2020,6,3];
+
+const start1 = [2020,4,2];
+const end1 = [2020,6,3];
+const start2 = [];
+const end2 = [];
+//start2,end2なし
 
 let rare = ["IR","ER","FR","PR","SR","R","N","WR"];
 
@@ -54,7 +57,8 @@ let img = [
     [72304,72301,72302,72303]
   ],
   [
-    []
+    [0,0,0,0],
+    [0,0,0,0]
   ]
 ];
 
