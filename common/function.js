@@ -4,6 +4,7 @@ window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
 window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
+window.addEventListener('load', function(){imgChange()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 
@@ -14,7 +15,7 @@ let data=[];
 let text='';
 let para='';
 let rep='';
-
+  const url = 'https://mteikou.github.io/prichan/common/img/Item_Question.png';
 
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
@@ -126,12 +127,12 @@ function allcount(){
   }
   //console.log(a);
 }
-
+/*
 function imgError(image) {
-    image.onerror = "";
-    image.src = "https://mteikou.github.io/prichan/common/img/Item_Question.png"; //置き換えたい画像のURL
-    return true;
-}
+image.onerror = "";
+image.src = "https://mteikou.github.io/prichan/common/img/Item_Question.png"; //置き換えたい画像のURL
+return true;
+}*/
 
 function makeTable(){
 
@@ -157,29 +158,55 @@ function makeTable(){
   //make table
   for(let x=0;x<rare.length;x++){
     let t='';
+
     for(let y = 0; y < id[x].length; y++){
 
       t += "<tr>"
 
       for(let z = 0;z < id[x][y].length; z++){
+
+        //空テーブル
         if(id[x][y][z]==0){
           t += "<td class='empty'></td>"
         }
+
         else{
+
+          /*
           if(rare[x]=="WR"){
-            //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-            t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png' onerror='imgError(this);'></br>" +id[x][y][z] +"</td>"
+            t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+            t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
           }
           else{
             t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
           }
+          */
+
+          if(rare[x]=="WR"){
+            //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+            t += "<td id='"+id[x][y][z]+"' class='item'><img class='img gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z]+"</td>"
+          }
+          else{
+            t += "<td id='"+id[x][y][z]+"' class='item'><img class='img' src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z]+ "</td>"
+          }
+
         }
       }
       t += "</tr>"
     }
+
     let tbl = document.getElementById(rare[x]);
     tbl.insertAdjacentHTML('afterbegin',t);
   }
+}
+
+function imgChange(){
+  let items = document.getElementsByClassName("img");
+  for(let i in items){
+    items[i].onerror = function(){
+    items[i].src = url;
+  }
+}
 }
 
 //add clickevent
