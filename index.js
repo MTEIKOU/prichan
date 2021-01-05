@@ -14,8 +14,8 @@ function schedule(){
   for(let i=0; i<day.length; i++){
   const text = kikan(day[i][0]) + "～" + kikan(day[i][1]);
   console.log(kikan(day[i][0]) +"~"+kikan(day[i][1]));
-  const text2 = info(day[(i+1)][1]);
-  console.log(i +' ' +day[(i+1)][1]);
+  //const text2 = info(day[(i+1)][1]);
+  //console.log(i +' ' +day[(i+1)][1]);
   document.getElementById((i+1)+'dan').innerHTML=text;// +' '+ text2;
   }
 
@@ -39,6 +39,7 @@ function kikan(arr){
     }
 }
 
+/*
 function info(goal){
 let text='';
   if(goal.length == 3){//終了日入力済
@@ -64,6 +65,7 @@ let text='';
   //if(limit.some(x => x>0))refresh();
 
 }
+*/
 
 function CountDown(goal){
   const due = new Date(goal[0], goal[1]-1, goal[2]);
