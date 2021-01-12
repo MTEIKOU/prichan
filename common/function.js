@@ -465,12 +465,15 @@ function Restore(){
           }
         }
       }
-
+      
     }
   }
   data.sort();
   console.log(data);
   localStorage.setItem(keyname,JSON.stringify(data));
   //location.reload();
+
+  //アドレスバーにid表示
+  history.replaceState(null,null, "?id=" + para ) ;
 }
 }
