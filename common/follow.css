@@ -1,5 +1,7 @@
 .flex{display: flex;}
-table{background-color: lightgray; width: 100%;}
+table{background-color: lightgray; width: 100%;border-collapse: collapse;}
 ul{margin:0px;}
 img{width:100%;}
 li{font-size: 0.5em}
+td{text-align: center;}
+caption{font-size: 2em;font-weight: bold;}

@@ -140,33 +140,45 @@ var str = function(){/*
   ◆ワンダーサーカスクラシックコーデ
 
   */}.toString().split("\n").slice(1,-1);
-/*
+  /*
   var arr = function(){
 
-    str.filter(n => n !== "");
-    for(let i in str){
-      str[i] = str[i].trim();
-    }
+  str.filter(n => n !== "");
+  for(let i in str){
+  str[i] = str[i].trim();
+}
 
-  };
+};
 */
 
 var chara=[];
 var coord=[];
+var list=[];
 
-  function print(){
 
-    var arr = str.filter(n => n.length > 1);
-    for(let i in arr){
-      arr[i] = arr[i].trim();
-      if(i%5 == 0){
-        chara.push(arr[i]);
-      }
-      else{
-        coord.push(arr[i].trim());
-      }
+function print(){
+
+  //空白行削除
+  var arr = str.filter(n => n.length > 1);
+
+  for(let i in arr){
+    //スペース詰め
+    arr[i] = arr[i].trim();
+    if(i%5 == 0){
+      chara.push(arr[i]);
     }
-
-    console.log(chara);
-    console.log(coord);
+    else{
+      coord.push(arr[i].trim());
+    }
   }
+
+  for(let i=0; i<chara.length;i++){
+    var temp=[];
+    for(let j=0; j<4; j++){
+      temp.push(chara[i]+coord[i*4+j]);
+    }
+    list.push(temp);
+  }
+  console.log(list);
+
+}
