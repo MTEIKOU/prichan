@@ -37,12 +37,16 @@ function remove(){
 
 function settitle(){
   document.getElementById("title").innerHTML=title;
+  document.getElementById("kikan").innerHTML="[期間] " +kikanStr(start1) + "～" + kikanStr(end1);
+
+  /*
   document.getElementById("kikan").innerHTML="[期間1] " +kikanStr(start1) + "～" + kikanStr(end1);
-  if(end2.length!=1){document.getElementById("kikan2").innerHTML="[期間2] " +kikanStr(start2) + "～" + kikanStr(end2);}
-  else{document.getElementById("kikan").innerHTML="[期間] " +kikanStr(start1) + "～" + kikanStr(end1);}
+  document.getElementById("kikan2").innerHTML="[期間2] " +kikanStr(start2) + "～" + kikanStr(end2);
+  document.getElementById("finish2").innerHTML="終了まで<text id ='nokori2' class='big'>" +"</text>日";
+  */
+
   document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
   document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
-  if(end2.length!=1){document.getElementById("finish2").innerHTML="終了まで<text id ='nokori2' class='big'>" +"</text>日";}
   setForm();
 }
 
@@ -82,29 +86,32 @@ function schedule(){
   }
 
   if(limit.some(x => x>0))refresh();
-  if(end2.length!=1){schedule2()}
+  //if(end2.length!=1){schedule2()}
 }
 
+/*
 function schedule2(){
-  const goal2 = new Date(end2[0],end2[1]-1,end2[2]);
-  const limit2 = CountDown(goal2);
-  if(end2.length == 3){//終了日入力済
-    document.getElementById("nokori2").innerHTML=limit2[0];
-    if(limit2.some(x => x>0) && limit2[0]<10){//残り10日未満 赤
-      document.getElementById("nokori2").classList.add("red");
-    }
-    if(limit2.every(x => x==0)){//終了済　黒
-      document.getElementById("nokori2").classList.remove("red");
-      document.getElementById("finish2").innerHTML="終了しました。";
-    }
-  }
-
-  else{//終了日未定
-    document.getElementById("nokori2").innerHTML="?";
-  }
-
-  if(limit2.some(x => x>0))refresh();
+const goal2 = new Date(end2[0],end2[1]-1,end2[2]);
+const limit2 = CountDown(goal2);
+if(end2.length == 3){//終了日入力済
+document.getElementById("nokori2").innerHTML=limit2[0];
+if(limit2.some(x => x>0) && limit2[0]<10){//残り10日未満 赤
+document.getElementById("nokori2").classList.add("red");
 }
+if(limit2.every(x => x==0)){//終了済　黒
+document.getElementById("nokori2").classList.remove("red");
+document.getElementById("finish2").innerHTML="終了しました。";
+}
+}
+
+else{//終了日未定
+document.getElementById("nokori2").innerHTML="?";
+}
+
+if(limit2.some(x => x>0))refresh();
+}
+*/
+
 function CountDown(due){
   const now = new Date();
   const rest = due.getTime() - now.getTime();
@@ -392,7 +399,7 @@ function Password(){
   para = str;
 
   //アドレスバーにid表示
-  history.replaceState(null,null, "?id=" + para ) ;
+  //history.replaceState(null,null, "?id=" + para ) ;
 
   console.log(para);
   tweet(text);
@@ -474,6 +481,6 @@ function Restore(){
   //location.reload();
 
   //アドレスバーにid表示
-  history.replaceState(null,null, "?id=" + para ) ;
+  //history.replaceState(null,null, "?id=" + para ) ;
 }
 }

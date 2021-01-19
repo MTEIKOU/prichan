@@ -299,7 +299,7 @@ function tweet(text){
     }
   );
 }
-
+*/
 function Password(){
   let str="";
   for(let x=0; x<id.length; x++){
@@ -344,7 +344,7 @@ function Password(){
   para = str;
 
 }
-*/
+
 function geturl(){
 
   //if(url.searchParams.has("id")){
