@@ -33,7 +33,7 @@ table{
   width:33%;
 }
 
-td not(.three){
+td:not([class="three"]){
   width:25%;
 }
 
