@@ -33,7 +33,7 @@ table{
   width:33%;
 }
 
-.four{
+td not(.three){
   width:25%;
 }
 
