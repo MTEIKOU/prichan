@@ -1,4 +1,4 @@
-let title = "HR大量発生チャンネル（4弾）"
+let title = "HR大量発生チャンネル(4弾)"
 let keyname = "PT04-HC"
 //let kikan = "12/3(木)～"
 const start = [2020,1,7];
