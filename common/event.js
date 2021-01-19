@@ -7,10 +7,17 @@ window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 
-//const goal = new Date(end[0],end[1]-1,end[2]);
+const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
 let zenbu=[];
 let data=[];
+var size = (function(x){
+  if(x==3){
+    return "three";
+  }else{
+    return "four";
+  }
+}(row));
 
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
@@ -50,7 +57,7 @@ function kikanStr(arr){
 
 function setForm(){
   let a=''
-  let n= id[x].length;
+  let n= id.length;
 
   a += "<form name='form' onsubmit='return false;' id='form' action=''>"
   a += "<span>復元コード</span>"
@@ -135,29 +142,27 @@ a += (rare[i] +":"+zenbu[i] + " ");
 function makeTable(){
 
 
-  t += "<table id='rare' class = 'table'><caption class='caption'>" + rare + "</caption></table>"
+  var t = "<table id='"+rare+"' class = 'table'><caption class='caption event'>" + rare + "</caption></table>"
   document.getElementById("main").insertAdjacentHTML('beforeend',t);
 
 
   //make table
-  for(let x=0;x<rare.length;x++){
 
     for(let x = 0; x < id.length; x++){
-      let t='';
+      t='';
       t += "<tr>"
 
       for(let y = 0;y < id[x].length; y++){
-        if(id[x][y]==0){
+        if(id[x][y]==0 && y < row){
           t += "<td class='empty'></td>"
         }
-        else{
-          t += "<td id='"+id[x][y]+"' class='item'><img src='img/Item_ID"+img[x][y]+".png'></br>" +id[x][y] +"</td>"
+        else if(id[x][y] != 0){
+          t += "<td id='"+id[x][y]+"' class='"+size+" + item'><img src='img/Item_ID"+img[x][y]+".png'></br>" +id[x][y] +"</td>"
         }
       }
       t += "</tr>"
-    }
     let tbl = document.getElementById(rare);
-    tbl.insertAdjacentHTML('afterbegin',t);
+    tbl.insertAdjacentHTML('beforeend',t);
   }
 }
 
