@@ -126,9 +126,6 @@ function makeTable(){
   for(let n=0;n<rare.length;n++){
     let t='';
     switch(rare[n]){
-      case "WR":
-      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
-      break;
 
       case "ITEM":
       t += "<table id='ITEM' class = 'table'><caption class='ITEM'>パシャっとアイテム</caption></table>"
