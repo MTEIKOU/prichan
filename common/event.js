@@ -2,7 +2,7 @@ window.addEventListener('load', function(){DataLoad()})
 window.addEventListener('load', function(){remove()})//remove no script
 window.addEventListener('load', function(){settitle()})
 window.addEventListener('load', function(){schedule()})
-//window.addEventListener('load', function(){allcount()})
+window.addEventListener('load', function(){allcount()})
 window.addEventListener('load', function(){makeTable()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
@@ -118,26 +118,18 @@ a += "<input type='button' value='復元' onclick='Restore()'>"
 a += "</form>"
 document.getElementById("restore").innerHTML=a;
 }
-
-function allcount(){
-for(let x=0; x<id.length; x++){
-let count=0;
-for(let y=0; y<id[x].length; y++){
-for(let z=0; z<id[x][y].length; z++){
-if(id[x][y][z]!=0){
-count++;
-}
-}
-}
-zenbu[x]=count;
-}
-let a ='';
-for(let i in zenbu){
-a += (rare[i] +":"+zenbu[i] + " ");
-}
-//console.log(a);
-}
 */
+function allcount(){
+  let count=0;
+  for(let x=0; x<id.length; x++){
+    for(let y=0; y<id[x].length; y++){
+      if(id[x][y]!=0){
+        count++;
+      }
+    }
+  }
+  zenbu=count;
+}
 
 function makeTable(){
 
@@ -148,19 +140,19 @@ function makeTable(){
 
   //make table
 
-    for(let x = 0; x < id.length; x++){
-      t='';
-      t += "<tr>"
+  for(let x = 0; x < id.length; x++){
+    t='';
+    t += "<tr>"
 
-      for(let y = 0;y < id[x].length; y++){
-        if(id[x][y]==0 && y < row){
-          t += "<td class='empty'></td>"
-        }
-        else if(id[x][y] != 0){
-          t += "<td id='"+id[x][y]+"' class='"+size+" + item'><img src='img/Item_ID"+img[x][y]+".png'></br>" +id[x][y] +"</td>"
-        }
+    for(let y = 0;y < id[x].length; y++){
+      if(id[x][y]==0 && y < row){
+        t += "<td class='empty'></td>"
       }
-      t += "</tr>"
+      else if(id[x][y] != 0){
+        t += "<td id='"+id[x][y]+"' class='"+size+" + item'><img src='img/Item_ID"+img[x][y]+".png'></br>" +id[x][y] +"</td>"
+      }
+    }
+    t += "</tr>"
     let tbl = document.getElementById(rare);
     tbl.insertAdjacentHTML('beforeend',t);
   }
@@ -187,59 +179,39 @@ function addEvent(){
 
       data.sort();
       localStorage.setItem(keyname,JSON.stringify(data));
-      //Count();
-      //achevement();
-      //Password();
+      Count();
+      achevement();
+      Password();
     }, false);
 
   }
 }
-/*
+
 function Count(){
-for(let i=0; i<rare.length; i++){
 
-let count =0;
-for (let key in data){
-//      if (localStorage.hasOwnProperty(key))
-let parent = (document.getElementById(data[key]).closest("table")).id;
+  let count =0;
 
-if(parent == rare[i]){
-count++;
-}
-//      }
-}
-motteru[i]=count;
-}
-let a ='';
-for(let i=0; i<id.length; i++){
-a += rare[i] + ":" +motteru[i] + "/" + zenbu[i] + " ";
+  for (let key in data){
+    //      if (localStorage.hasOwnProperty(key))
+    let parent = (document.getElementById(data[key]).closest("table")).id;
 
-}
-//console.log(a);
+    if(parent == rare){
+      count++;
+    }
+    //      }
+  }
+  motteru=count;
+
 }
 
 function achevement(){
-let have=0;
-let sum=0;
-let total='';
-let each='';
+  let per = motteru + "/" + zenbu + " (" + Math.round((motteru/zenbu)*100*100)/100 + "%)";
+  document.getElementById("total").innerHTML= per;
+  const text = document.title + " " + per;
+  console.log(text);
+  tweet(text);
+}
 
-for(let i=0; i<rare.length; i++){
-have += motteru[i];
-sum += zenbu[i];
-each += rare[i] + ":" + motteru[i] + "/" + zenbu[i];
-if(i != rare.length-1){
-each += " ";
-}
-}
-total = have + "/" + sum + " (" + Math.round((have/sum)*100*100)/100 + "%)";
-document.getElementById("total").innerHTML= total;
-document.getElementById("each").innerHTML= each;
-const text = document.title + " " + total + "\n" + each;
-console.log(text);
-tweet(text);
-}
-*/
 
 function setColor(){
   //保存データ取得
@@ -249,9 +221,9 @@ function setColor(){
   for (let i in data) {
     document.getElementById(data[i]).classList.add("have");
   }
-  //Count();
-  //achevement();
-  //Password();
+  Count();
+  achevement();
+  Password();
 }
 
 function Reset(){

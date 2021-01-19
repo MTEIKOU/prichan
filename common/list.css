@@ -14,10 +14,6 @@ caption{
   font-size:3em;
 }
 
-.event{
-  background-color: lightgreen;
-}
-
 body{
   background-color:var(--bgcolor);
   font-family:sans-serif;
