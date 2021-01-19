@@ -48,6 +48,18 @@ function kikanStr(arr){
   }
 }
 
+function setForm(){
+  let a=''
+  let n= id[x].length;
+
+  a += "<form name='form' onsubmit='return false;' id='form' action=''>"
+  a += "<span>復元コード</span>"
+  a += "<input type='text' id='text' name='text' size='" + n +"' maxlength='" + n +"'>"
+  a += "<input type='button' value='復元' onclick='Restore()'>"
+  a += "</form>"
+  document.getElementById("restore").innerHTML=a;
+}
+
 function schedule(){
 
   const limit = CountDown(goal);
@@ -101,66 +113,50 @@ document.getElementById("restore").innerHTML=a;
 }
 
 function allcount(){
-  for(let x=0; x<id.length; x++){
-    let count=0;
-    for(let y=0; y<id[x].length; y++){
-      for(let z=0; z<id[x][y].length; z++){
-        if(id[x][y][z]!=0){
-          count++;
-        }
-      }
-    }
-    zenbu[x]=count;
-  }
-  let a ='';
-  for(let i in zenbu){
-    a += (rare[i] +":"+zenbu[i] + " ");
-  }
-  //console.log(a);
+for(let x=0; x<id.length; x++){
+let count=0;
+for(let y=0; y<id[x].length; y++){
+for(let z=0; z<id[x][y].length; z++){
+if(id[x][y][z]!=0){
+count++;
+}
+}
+}
+zenbu[x]=count;
+}
+let a ='';
+for(let i in zenbu){
+a += (rare[i] +":"+zenbu[i] + " ");
+}
+//console.log(a);
 }
 */
 
 function makeTable(){
 
-  //make rare caption
-  for(let n=0;n<rare.length;n++){
-    let t='';
-    switch(rare[n]){
 
-      case "ITEM":
-      t += "<table id='ITEM' class = 'table'><caption class='ITEM'>パシャっとアイテム</caption></table>"
-      break;
+  t += "<table id='rare' class = 'table'><caption class='caption'>" + rare + "</caption></table>"
+  document.getElementById("main").insertAdjacentHTML('beforeend',t);
 
-      default:
-      t += "<table id='" + rare[n] + "'class = 'table'><caption class='caption'>" + rare[n] + "</caption></table>"
-      break;
-    }
-    document.getElementById("main").insertAdjacentHTML('beforeend',t);
-  }
 
   //make table
   for(let x=0;x<rare.length;x++){
-    let t='';
-    for(let y = 0; y < id[x].length; y++){
 
+    for(let x = 0; x < id.length; x++){
+      let t='';
       t += "<tr>"
 
-      for(let z = 0;z < id[x][y].length; z++){
-        if(id[x][y][z]==0){
+      for(let y = 0;y < id[x].length; y++){
+        if(id[x][y]==0){
           t += "<td class='empty'></td>"
         }
         else{
-          if(rare[x]=="WR"){
-            t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-          }
-          else{
-            t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
-          }
+          t += "<td id='"+id[x][y]+"' class='item'><img src='img/Item_ID"+img[x][y]+".png'></br>" +id[x][y] +"</td>"
         }
       }
       t += "</tr>"
     }
-    let tbl = document.getElementById(rare[x]);
+    let tbl = document.getElementById(rare);
     tbl.insertAdjacentHTML('afterbegin',t);
   }
 }
@@ -195,48 +191,48 @@ function addEvent(){
 }
 /*
 function Count(){
-  for(let i=0; i<rare.length; i++){
+for(let i=0; i<rare.length; i++){
 
-    let count =0;
-    for (let key in data){
-      //      if (localStorage.hasOwnProperty(key))
-      let parent = (document.getElementById(data[key]).closest("table")).id;
+let count =0;
+for (let key in data){
+//      if (localStorage.hasOwnProperty(key))
+let parent = (document.getElementById(data[key]).closest("table")).id;
 
-      if(parent == rare[i]){
-        count++;
-      }
-      //      }
-    }
-    motteru[i]=count;
-  }
-  let a ='';
-  for(let i=0; i<id.length; i++){
-    a += rare[i] + ":" +motteru[i] + "/" + zenbu[i] + " ";
+if(parent == rare[i]){
+count++;
+}
+//      }
+}
+motteru[i]=count;
+}
+let a ='';
+for(let i=0; i<id.length; i++){
+a += rare[i] + ":" +motteru[i] + "/" + zenbu[i] + " ";
 
-  }
-  //console.log(a);
+}
+//console.log(a);
 }
 
 function achevement(){
-  let have=0;
-  let sum=0;
-  let total='';
-  let each='';
+let have=0;
+let sum=0;
+let total='';
+let each='';
 
-  for(let i=0; i<rare.length; i++){
-    have += motteru[i];
-    sum += zenbu[i];
-    each += rare[i] + ":" + motteru[i] + "/" + zenbu[i];
-    if(i != rare.length-1){
-      each += " ";
-    }
-  }
-  total = have + "/" + sum + " (" + Math.round((have/sum)*100*100)/100 + "%)";
-  document.getElementById("total").innerHTML= total;
-  document.getElementById("each").innerHTML= each;
-  const text = document.title + " " + total + "\n" + each;
-  console.log(text);
-  tweet(text);
+for(let i=0; i<rare.length; i++){
+have += motteru[i];
+sum += zenbu[i];
+each += rare[i] + ":" + motteru[i] + "/" + zenbu[i];
+if(i != rare.length-1){
+each += " ";
+}
+}
+total = have + "/" + sum + " (" + Math.round((have/sum)*100*100)/100 + "%)";
+document.getElementById("total").innerHTML= total;
+document.getElementById("each").innerHTML= each;
+const text = document.title + " " + total + "\n" + each;
+console.log(text);
+tweet(text);
 }
 */
 
@@ -272,95 +268,94 @@ function tweet(text){
   );
 }
 
-/*
+
 function Password(){
-let str="";
-for(let x=0; x<id.length; x++){
-for(let y=0; y<id[x].length; y++){
-let n=0;
-let temp=[];
+  let str="";
+  for(let x=0; x<id.length; x++){
+    let n=0;
+    let temp=[];
 
-for(let z=0; z<id[x][y].length; z++){
-if(id[x][y][z]==0){
-temp.push("-1");
-}
-else if(data.indexOf(id[x][y][z]) != -1){
-temp.push(1);
-switch (z) {
-case 0:
-n+=1;
-break;
-case 1:
-n+=2;
-break;
-case 2:
-n+=4;
-break;
-case 3:
-n+=8;
-break;
-}
+    for(let y=0; y<id[x].length; y++){
+      if(id[x][y]==0){
+        temp.push("-1");
+      }
+      else if(data.indexOf(id[x][y]) != -1){
+        temp.push(1);
+        switch (y) {
+          case 0:
+          n+=1;
+          break;
+          case 1:
+          n+=2;
+          break;
+          case 2:
+          n+=4;
+          break;
+          case 3:
+          n+=8;
+          break;
+        }
 
-}
-else{
-n+=0;
-temp.push(0);
-}
+      }
+      else{
+        n+=0;
+        temp.push(0);
+      }
 
-}
+    }
 
-if(temp.every(value => value != 0)){n=15;}
-str += n.toString(16);
-}
-}
-document.forms.form.text.value = str ;
+    if(temp.every(value => value != 0)){n=15;}
+    str += n.toString(16);
+  }
+
+  document.forms.form.text.value = str ;
 }
 
 function Restore(){
 
-res=confirm("復元しますか？");
-if(res==true){
+  res=confirm("復元しますか？");
+  if(res==true){
 
-let id2=[];
-let data2=[];
+    let id2=[];
+    let data2=[];
 
-for(let x=0; x<id.length; x++){
-for(let y=0; y<id[x].length; y++){
-id2.push(id[x][y]);
-}
-}
+    for(let x=0; x<id.length; x++){
+      for(let y=0; y<id[x].length; y++){
+        id2.push(id[x][y]);
+      }
+    }
 
-let off=0;
+    let off=0;
 
-const input = document.getElementById("text").value;
-const afterText = String(input).split('');
+    const input = document.getElementById("text").value;
+    const afterText = String(input).split('');
 
-for(let i in afterText){
-const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
-const arr_r = reverse(arr);
-data2.push(arr_r);
-}
+    for(let i in afterText){
+      const arr = parseInt(afterText[i],16).toString(2).padStart(4,"0").split("");
+      const arr_r = reverse(arr);
+      data2.push(arr_r);
+    }
 
-for(let x=0; x<id2.length; x++){
-for(let y=0; y<id2[x].length; y++){
-if(id2[x][y] != 0){
-if(data2[x][y] ==0){
-let d = data.findIndex(element => element === id2[x][y]);
-data.splice(d, 1);//削除
-document.getElementById(id2[x][y]).classList.remove("have");
+    for(let x=0; x<id2.length; x++){
+      for(let y=0; y<id2[x].length; y++){
+        if(id2[x][y] != 0){
+          if(data2[x][y] ==0){
+            let d = data.findIndex(element => element === id2[x][y]);
+            data.splice(d, 1);//削除
+            document.getElementById(id2[x][y]).classList.remove("have");
+          }
+          if(data2[x][y]==1){
+            if(data.indexOf(id2[x][y]) == -1){
+              data.push(id2[x][y]);
+              document.getElementById(id2[x][y]).classList.add("have");
+            }
+          }
+        }
+      }
+    }
+    data.sort();
+    console.log(data);
+    localStorage.setItem(keyname,JSON.stringify(data));
+    //location.reload();
+  }
 }
-if(data2[x][y]==1){
-if(data.indexOf(id2[x][y]) == -1){
-data.push(id2[x][y]);
-document.getElementById(id2[x][y]).classList.add("have");
-}
-}
-}
-}
-}
-data.sort();
-console.log(data);
-localStorage.setItem(keyname,JSON.stringify(data));
-//location.reload();
-}
-}*/
