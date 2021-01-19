@@ -1,5 +1,16 @@
 table{width: 100%;border-collapse: collapse;}
 img{width:100%;}
 body{text-align: center;}
-.big{font-size: 2em;font-weight: bold;}
-.have{background-color: lightgray;}
+.have{background-color: #999;}
+
+@media screen and (min-width: 480px){
+  .br-sp { display:none; }
+}
+@media screen and (max-width: 480px){
+  .br-sp { display:block; }
+}
+
+.h1{font-size: 32px;}
+
+.h2{font-size: 24px;}
+.bold{font-weight: bold;}

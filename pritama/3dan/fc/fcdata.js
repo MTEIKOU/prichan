@@ -120,5 +120,5 @@ var str = function(){/*
 
 const name=['mirai','emo','rinka','anna','sara','meru','anjyu','aira','maria','suzu','daia','naru','a-daia','kirachu','merupan','lovily','yui'];
 
-const title = 'フォロチケ（プリたま3弾）'
+const title = 'プリたま3弾'
 const keyname="FC-03";

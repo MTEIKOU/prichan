@@ -5,11 +5,15 @@ window.addEventListener("load",function(){event()});
 var chara=[];
 var coord=[];
 var data=[];
-const color=['FCC','FF6','9CF','F99','6F6','C9F'];
+
+/*
+const name= ['mirai','emo','rinka','anna','sara','meru','anjyu','aira','maria','suzu','daia','naru','a-daia','kirachu','merupan','lovily','yui','alice','soruru'];
+*/
+const color=['fcc',  'ff9','9cf',  'f66', '6f6', 'c9f', 'cff',  'f99', 'ff6',  'ccc', '9cf', 'f9c', 'c9c',   'fcc',    '9cf',    '9f9',   'fcc','fc6',  'cff'];
 
 function print(){
 
-  document.getElementById('title').innerHTML=title;
+  document.getElementById('title').innerHTML="<font class='h1 bold'>フォロチケ</font><br class='br-sp'><font class='h2'>（" + title +"）</font>";
 
   //空白行削除
   var arr = str.filter(n => n.length > 1);
@@ -39,8 +43,8 @@ function print(){
   var t='';
 
   for(let i in chara){
-    t = "<table border='3'><tr><td colspan='2' style='background-color:#"+ color[(i%color.length)] +"' class='big caption'>" + chara[i] +"</td></tr>";
-    t += "<tr><td rowspan='4' style='background-color:#"+ color[(i%color.length)] +"' class='chara' width='20%'><img src='fc/fc_" + name[i] +".png' width='100%'></td>";
+    t = "<table border='3'><tr><td colspan='2' style='background-color:#"+ color[(i%color.length)] +"' class='h2 bold'>" + chara[i] +"</td></tr>";
+    t += "<tr><td rowspan='4' style='background-color:#"+ color[(i%color.length)] +"' class='chara' width='20%'><img src='img/fc_" + name[i] +".png' width='100%'></td>";
     for(j=0;j<4;j++){
       t += "<td class='item' id='" +i+j + "'>" + coord[i*4+j].slice(1) +"</td></tr>";
     }

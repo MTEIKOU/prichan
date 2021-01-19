@@ -133,7 +133,9 @@ var str = function(){/*
 
   */}.toString().split("\n").slice(1,-1);
 
-const name=['mirai','emo','rinka','anna','sara','meru','anjyu','aira','maria','suzu','daia','naru','a-daia','kirachu','merupan','lovily','yui','alice','soruru'];
+const name= ['mirai','emo','rinka','anna','sara','meru','anjyu','aira','maria','suzu','daia','naru','a-daia','kirachu','merupan','lovily','yui','alice','soruru'];
 
-const title = 'フォロチケ（プリたま4弾）'
+//const title = 'フォロチケ'
+const title = 'プリたま4弾'
+
 const keyname="FC-04";
