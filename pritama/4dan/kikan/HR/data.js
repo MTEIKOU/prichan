@@ -4,7 +4,7 @@ let keyname = "PT04-HC"
 const start = [2020,1,7];
 const end = [2021,2,3];
 
-let rare = "HR";
+let rare = "HR"
 const row=3;
 
 let img = [
