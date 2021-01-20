@@ -386,6 +386,8 @@ function Password(){
 
       }
 
+      console.log(temp);
+
       //セット揃ってたら表示をFに変更
       if(temp.every(value => value != 0)){n=15;}
       str += n.toString(16);
