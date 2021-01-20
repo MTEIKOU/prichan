@@ -14,8 +14,6 @@ window.addEventListener('load', function(){achevement()})
 
 //window.addEventListener('load', function(){addEvent()})
 
-const start = [start1[0],start1[1],start1[2]];
-const end = [end1[0],end1[1],end1[2]];
 const goal = new Date(end[0],end[1]-1,end[2]);
 let motteru=[];
 let zenbu=[];
