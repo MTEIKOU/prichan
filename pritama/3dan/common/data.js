@@ -1,10 +1,10 @@
 let title = "プリたま3弾"
 let keyname = "PT-03"
 
-const start1 = [2020,10,1];
-const end1 = [2020,12,2];
-const start2 = [2020,12,3];
-const end2 = [2021,2,3];
+const start = [2020,10,1];
+const end = [2020,12,2];
+//const start2 = [2020,12,3];
+//const end2 = [2021,2,3];
 
 let rare = ["IR","ER","FR","PR","SR","R","N","WR","ITEM"];
 

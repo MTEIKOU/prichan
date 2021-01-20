@@ -9,7 +9,7 @@ window.addEventListener('load', function(){imgChange()})
 window.addEventListener('load', function(){addEvent()})
 window.addEventListener('load', function(){setColor()})
 
-const goal1 = new Date(end1[0],end1[1]-1,end1[2]);
+const goal = new Date(end[0],end[1]-1,end[2]);
 
 let motteru=[];
 let zenbu=[];
@@ -36,8 +36,9 @@ function remove(){
 }
 
 function settitle(){
+  document.getElementById("link").innerHTML="<a href ='https://mteikou.github.io/prichan/index.html'><<戻る</a>";
   document.getElementById("title").innerHTML=title;
-  document.getElementById("kikan").innerHTML="[期間] " +kikanStr(start1) + "～" + kikanStr(end1);
+  document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
 
   /*
   document.getElementById("kikan").innerHTML="[期間1] " +kikanStr(start1) + "～" + kikanStr(end1);
@@ -69,8 +70,8 @@ function kikanStr(arr){
 
 function schedule(){
 
-  const limit = CountDown(goal1);
-  if(end1.length == 3){//終了日入力済
+  const limit = CountDown(goal);
+  if(end.length == 3){//終了日入力済
     document.getElementById("nokori").innerHTML=limit[0];
     if(limit.some(x => x>0) && limit[0]<10){//残り10日未満 赤
       document.getElementById("nokori").classList.add("red");
@@ -399,7 +400,7 @@ function Password(){
   para = str;
 
   //アドレスバーにid表示
-  //history.replaceState(null,null, "?id=" + para ) ;
+  //history.replaceState(null,null, "?id=" + para) ;
 
   console.log(para);
   tweet(text);
