@@ -188,7 +188,7 @@ function makeTable(){
       break;
 
       default:
-      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
+      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><span><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></span><span>"+ rare[n] +"</span><span><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></span></caption></table>"
       break;
     }
     document.getElementById("main").insertAdjacentHTML('beforeend',t);
