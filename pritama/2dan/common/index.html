@@ -3,7 +3,7 @@
 <style></style>
 <head>
   <link rel="shortcut icon" href="https://mteikou.github.io/prichan/common/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://mteikou.github.io/prichan/common/list.css">
+  <link rel="stylesheet" href="../../../common/list.css">
   <title>PrichanChecker</title>
   <script type="text/javascript" src="data.js"></script>
   <script type="text/javascript" src="../../../common/function.js"></script>
@@ -19,39 +19,40 @@
     t.ready = function(f) {t._e.push(f);};
     return t;
   }(document, "script", "twitter-wjs"));</script>
-<!--#include virtual="../../../common/header.html" -->
+  <!--#include virtual="../../../common/header.html" -->
 </head>
 
 <body>
-  <div class="inline"><!-- 1段目 タイトル -->
-    <span id="link" class="left font2"></span>
-    <span id="title" class="font1 center naka"></span>
-    <span id="reset" class="right font2"></span>
+  <div id="top" class="inline"><!-- 1段目 タイトル -->
+
   </div>
 
-  <div id = "schedule" class="center"><!-- 2段目 期間 -->
-    <span id="kikan" class="font2"></span> <span id="finish" class="font3"></span>
+  <div id = "schedule"><!-- 2段目 期間 -->
+    <span id="kikan" class="font2"></span>
+    <span id="finish" class="font3"></span>
   </div>
 
-  <div id = "schedule2" class="center"><!-- 3段目 期間(2) -->
-    <span id="kikan2" class="font2"></span> <span id="finish2" class="font3"></span>
+  <!-- 3段目 期間(2)
+  <div id = "schedule2" class="center">
+  <span id="kikan2" class="font2"></span> <span id="finish2" class="font3"></span>
+</div>
+-->
+
+<div id="collect"><!-- 4段目 取得率（合計） -->
+  <span id="total" class="font2"></span>
+  <span id="twitter"></span>
+</div>
+
+<div class="center"><!-- 5段目 取得率（個別） -->
+  <span id="each"><span>
   </div>
 
-  <div id="collect" class="center"><!-- 4段目 取得率（合計） -->
-    <span id="total" class="font2"></span>
-    <span id="twitter"></span>
+  <div id="restore" class="center"> <!-- 6段目 フォーム -->
   </div>
 
-  <div class="center"><!-- 5段目 取得率（個別） -->
-    <span id="each"><span>
-    </div>
+  <div id="main"></div>
 
-    <div id="restore" class="center"> <!-- 6段目 フォーム -->
-    </div>
+  <div id = "disable"><noscript><font size=7>Javascriptを有効にしてください。</font></noscript></div>
 
-    <div id="main"></div>
-
-    <div id = "disable"><noscript><font size=7>Javascriptを有効にしてください。</font></noscript></div>
-
-  </body>
-  </html>
+</body>
+</html>
