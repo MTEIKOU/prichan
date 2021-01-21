@@ -3,10 +3,13 @@
   --bgcolor: mistyrose;
 }
 
-.icon{
-  width:1em;
-  height:1em;
+body{
+  background-color:var(--bgcolor);
+  font-family:sans-serif;
+  text-align: center;
 }
+
+img{width:100%;}
 
 caption{
   font-family:Impact;
@@ -14,43 +17,26 @@ caption{
   font-size:3em;
 }
 
-body{
-  background-color:var(--bgcolor);
-  font-family:sans-serif;
-}
-
 table{
-  width: 100%;
   background-color: white;
-}
-
-.table{
-  empty-cells : hide;
   border-collapse: collapse;
 }
 
-.three{
-  width:33%;
-}
+.three{width:33%;}
+td:not([class="three"]){width:25%;}
 
-td:not([class="three"]){
-  width:25%;
-}
 
-img{
-  width:100%;
-}
+.icon{width:1em;height:1em;}
+
+.item:active{background-color: #c0c0c0;}
 
 .item{
   text-align: center;
-  width:2em;
-  height:2em;
-  border:2px solid #ff8080;
+  border:2px solid #f33;
   font-size: 1.5em;
   /*font-weight: bold;*/
 }
 
-.center{text-align: center;}
 
 .font1{
   font-size: 2em;
@@ -58,32 +44,24 @@ img{
 }
 
 .font2{
-  font-weight: bold;
-  text-align: center;
   font-size: 1.5em;
+  font-weight: bold;
 }
 
 .font3{
-  font-weight: bold;
-  text-align: center;
   font-size: 1em;
+  font-weight: bold;
 }
-
-.reset{height:inherit;}
-.big{font-size: 1.5em;}
 
 .inline{
-  display: -webkit-flex;
   display: flex;
-  -webkit-justify-content: space-between;
+  align-items:center;
   justify-content: space-between;
-  align-items:stretch;
 }
 
-.left{width: 100px}
-.naka{flex: 1}
-.right{width: 100px}
-
+.item1{flex-basis: 50%; /* flexアイテムの幅を割合で指定 */}
+.item2{flex-basis: 25%; /* flexアイテムの幅を割合で指定 */}
+.item3{flex-basis: 10%; /* flexアイテムの幅を割合で指定 */}
 
 .red{color:red}
 

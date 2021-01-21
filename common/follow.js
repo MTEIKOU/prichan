@@ -7,9 +7,9 @@ var coord=[];
 var data=[];
 
 /*
-const name= ['mirai','emo','rinka','anna','sara','meru','anjyu','aira','maria','suzu','daia','naru','a-daia','kirachu','merupan','lovily','yui','alice','soruru'];
+const name= ['mirai','emo','rinka','anna','sara','meru','anjyu','aira','maria','suzu','daia','naru','a-daia','kirachu','merupan','lovily','yui','alice','soruru','eve','ruruna'];
 */
-const color=['fcc',  'ff9','9cf',  'f66', '6f6', 'c9f', 'cff',  'f99', 'ff6',  'ccc', '9cf', 'f9c', 'c9c',   'fcc',    '9cf',    '9f9',   'fcc','fc6',  'cff'];
+const color=['fcc',  'ff9','9cf',  'f66', '6f6', 'c9f', 'cff',  'f99', 'ff6',  'ccc', '9cf', 'f9c', 'c9c',   'fcc',    '9cf',    '9f9',   'fcc','fc6',  'cff',   'ccc', 'ff9'];
 
 function print(){
 

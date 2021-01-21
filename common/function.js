@@ -36,18 +36,23 @@ function remove(){
 }
 
 function settitle(){
-  document.getElementById("link").innerHTML="<a href ='https://mteikou.github.io/prichan/index.html'><<戻る</a>";
-  document.getElementById("title").innerHTML=title;
+  //document.getElementById("link").innerHTML="<a href ='https://mteikou.github.io/prichan/index.html'><<戻る</a>";
+  //document.getElementById("title").innerHTML=title;
   document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
 
+  var t="";
+  t+="<a href ='https://mteikou.github.io/prichan/index.html'><font class='font2 item2'><<ＴＯＰ</font></a>";
+  t+="<font class='font1 item1'>"+title+"</font>";
+  t+="<input type='button' class='item3' value='リセット' onClick='Reset()'>"
+  document.getElementById("top").innerHTML=t;
   /*
   document.getElementById("kikan").innerHTML="[期間1] " +kikanStr(start1) + "～" + kikanStr(end1);
   document.getElementById("kikan2").innerHTML="[期間2] " +kikanStr(start2) + "～" + kikanStr(end2);
   document.getElementById("finish2").innerHTML="終了まで<text id ='nokori2' class='big'>" +"</text>日";
   */
 
-  document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
-  document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='big'>" +"</text>日";
+  //document.getElementById("reset").innerHTML="<input type='button' value='リセット' onClick='Reset()'>"
+  document.getElementById("finish").innerHTML="終了まで<text id ='nokori' class='font2'>" +"</text>日";
   setForm();
 }
 
@@ -206,32 +211,41 @@ function makeTable(){
 
         else{
 
-          /*
-          if(rare[x]=="WR"){
-          t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-          t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
+          //          if(rare[x]=="WR"){
+          //          t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+          //          t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
+          //        }
+          //        else{
+          //        t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
+          //      }
+
+          var tag='';
+
+          if(img[x][y][z]==0){tag = "<img class='img' src="+url+">"}
+          else{
+            if(rare[x]=="WR"){
+              //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+
+
+              tag = "<img class='img gray' src='img/"+img[x][y][z]+".png'>"
+
+            }
+            else{
+              tag="<img class='img' src='img/Item_ID"+img[x][y][z]+".png'>"
+            }
+          }
+
+
+          t += "<td id='"+id[x][y][z]+"' class='item'>" +tag+ "</br>" +id[x][y][z]+ "</td>"
+
         }
-        else{
-        t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
       }
-      */
-
-      if(rare[x]=="WR"){
-        //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-        t += "<td id='"+id[x][y][z]+"' class='item'><img class='img gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z]+"</td>"
-      }
-      else{
-        t += "<td id='"+id[x][y][z]+"' class='item'><img class='img' src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z]+ "</td>"
-      }
-
+      t += "</tr>"
     }
-  }
-  t += "</tr>"
-}
 
-let tbl = document.getElementById(rare[x]);
-tbl.insertAdjacentHTML('afterbegin',t);
-}
+    let tbl = document.getElementById(rare[x]);
+    tbl.insertAdjacentHTML('beforeend',t);
+  }
 }
 
 function imgChange(){
@@ -386,8 +400,6 @@ function Password(){
 
       }
 
-      console.log(temp);
-
       //セット揃ってたら表示をFに変更
       if(temp.every(value => value != 0)){n=15;}
       str += n.toString(16);
@@ -441,7 +453,6 @@ function Restore(){
     for(let n=0; n<l; n++){
       input += "0";
     }
-    console.log(input);
   }
 
   document.forms.form.text.value = input;
@@ -479,7 +490,7 @@ function Restore(){
     }
   }
   data.sort();
-  console.log(data);
+  //console.log(data);
   localStorage.setItem(keyname,JSON.stringify(data));
   //location.reload();
 
