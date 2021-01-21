@@ -48,7 +48,14 @@ function print(){
     for(j=0;j<4;j++){
       t += "<td class='item' id='" +i+j + "'>" + coord[i*4+j].slice(1) +"</td></tr>";
     }
-    t += "<table><br>";
+    t += "<table>";
+
+    if(i != 0 && i%2==0){
+      t+="<br>"
+    }
+    else{
+      t+="<br>"
+    }
     document.getElementById('main').insertAdjacentHTML('beforeend',t);
   }
 }
