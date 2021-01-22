@@ -52,7 +52,11 @@ function print(){
     }
     t += "</table>";
 
-    if(i%2!=0){t+="</div><br>";}
+    if(i==chara.length-1){
+      t+="<table class='box'></table>"
+    }
+
+    if(i%2!=0){t+="</div>";}
     //else{t+="<span>"+""+"</span>"}
 
   }    document.getElementById('main').insertAdjacentHTML('beforeend',t);
