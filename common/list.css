@@ -3,6 +3,14 @@
   --bgcolor: mistyrose;
 }
 
+@font-face {
+  font-family: "stick";
+  font-style: normal;
+  font-weight: 400;
+  src: url("font/stick.woff") format("woff");
+  font-display: swap;
+}
+
 body{
   background-color:var(--bgcolor);
   font-family:sans-serif;
@@ -27,7 +35,7 @@ table{
 td:not([class="three"]){width:25%;}
 td{  background-color: white;}
 
-.icon{width:1.5em;height:1.5em;}
+.icon{width:1em;height:1em;}
 
 .item:active{background-color: #c0c0c0;}
 
@@ -37,6 +45,10 @@ td{  background-color: white;}
   /*font-weight: bold;*/
 }
 
+.stick{
+  font-family: "stick",sans-serif;
+  font-weight: 400;
+}
 
 .font1{
   font-size: 2em;

@@ -43,21 +43,19 @@ function print(){
   var t='';
 
   for(let i in chara){
-    t = "<table border='3'><tr><td colspan='2' style='background-color:#"+ color[(i%color.length)] +"' class='h2 bold'>" + chara[i] +"</td></tr>";
+    if(i%2==0){t+="<div class='colums'>";}
+
+    t += "<table class='box'><tr><td colspan='2' style='background-color:#"+ color[(i%color.length)] +"' class='h2 bold'>" + chara[i] +"</td></tr>";
     t += "<tr><td rowspan='4' style='background-color:#"+ color[(i%color.length)] +"' class='chara' width='20%'><img src='img/fc_" + name[i] +".png' width='100%'></td>";
     for(j=0;j<4;j++){
       t += "<td class='item' id='" +i+j + "'>" + coord[i*4+j].slice(1) +"</td></tr>";
     }
-    t += "<table>";
+    t += "</table>";
 
-    if(i != 0 && i%2==0){
-      t+="<br>"
-    }
-    else{
-      t+="<br>"
-    }
-    document.getElementById('main').insertAdjacentHTML('beforeend',t);
-  }
+    if(i%2!=0){t+="</div><br>";}
+    //else{t+="<span>"+""+"</span>"}
+
+  }    document.getElementById('main').insertAdjacentHTML('beforeend',t);
 }
 
 function event(){
