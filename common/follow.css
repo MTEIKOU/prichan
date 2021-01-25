@@ -1,9 +1,7 @@
 body{background-color: lightyellow;}
 
 table{
-  margin-top:5px;
-  margin-bottom:5px;
-  margin-right:5px;
+  margin:5px;
   border: 3px solid gray;
   border-collapse: collapse;
   background-color: white;
@@ -29,18 +27,21 @@ table{width: 50%;text-align: center;}
 .br-pc { display:none; }
 }
 */
-
-@media screen and (min-width: 480px){
-  .colums{
-    display: flex;
-    margin:5px;
-  }
-  .box{width: 50%;}
+.colums{
+  display: flex;
 }
-@media screen and (max-width: 480px){
+
+@media screen and (min-width: 960px){
+
+  .box{width: 50%;}
+  .colums{flex-wrap: nowrap;}
+}
+@media screen and (max-width: 960px){
   .box{width: 100%;}
+  .colums{flex-wrap: wrap;}
 }
 
 .h1{font-size: 32px;}
 .h2{font-size: 24px;}
 .bold{font-weight: bold;}
+.item:active{background-color: #ccc;}
