@@ -11,18 +11,16 @@
   font-display: swap;
 }
 
-#main{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+@media screen and (min-width: 481px){
+  #main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+    #main table{width:48%; margin:1%;}
+
 }
 
-@media screen and (min-width: 960px){
-  #main table{width:48%; padding:1%;}
-}
-@media screen and (max-width: 959px){
-  #main table{width: 98%; padding:1%;}
-}
 
 body{
   background-color:var(--bgcolor);
@@ -36,13 +34,11 @@ caption{
   font-family:Impact;
   font-weight: bold;
   font-size:3em;
+
+  border:1px solid #999;
 }
 
-table{
-
-  border-collapse: collapse;
-  /*  box-sizing: border-box;*/
-}
+table{border-collapse: collapse;}
 
 .three{width:33%;}
 td:not([class="three"]){width:25%;}
@@ -53,8 +49,8 @@ td{  background-color: white;}
 .item:active{background-color: #c0c0c0;}
 
 .item{
-  border:2px solid #f33;
   font-size: 1.5em;
+  border:1px solid #f33;
   /*font-weight: bold;*/
 }
 
