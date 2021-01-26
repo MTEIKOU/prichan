@@ -29,39 +29,37 @@ function print(){
     }
   }
 
-/*
+  /*
   for(let i=0; i<chara.length;i++){
-    var temp=[];
-    for(let j=0; j<4; j++){
-      temp.push(chara[i]+coord[i*4+j]);
-    }
-    list.push(temp);
-  }
-  console.log(list);
+  var temp=[];
+  for(let j=0; j<4; j++){
+  temp.push(chara[i]+coord[i*4+j]);
+}
+list.push(temp);
+}
+console.log(list);
 */
 
-  var t='';
+var t='';
 
-  for(let i in chara){
-    //if(i%2==0){t+="<div class='colums'>";}
+for(let i in chara){
+  //if(i%2==0){t+="<div class='colums'>";}
 
-    t += "<div id='"+ name[i] +"'>"
-    t += "<table><tr><td colspan='2' style='background-color:#"+ color[(i%color.length)] +"' class='h2 bold'>" + chara[i] +"</td></tr>";
-    t += "<tr><td rowspan='4' style='background-color:#"+ color[(i%color.length)] +"' class='chara' width='20%'><img src='img/fc_" + name[i] +".png' width='100%'></td>";
-    for(j=0;j<4;j++){
-      t += "<td class='item' id='" +i+j + "'>" + coord[i*4+j].slice(1) +"</td></tr>";
-    }
-    t += "</table>";
+  t += "<div id='"+ name[i] +"'>"
+  t += "<table><tr><td colspan='2' style='background-color:#"+ color[(i%color.length)] +"' class='h2 bold'>" + chara[i] +"</td></tr>";
+  t += "<tr><td rowspan='4' style='background-color:#"+ color[(i%color.length)] +"' class='chara' width='20%'><img src='img/fc_" + name[i] +".png' width='100%'></td>";
+  for(j=0;j<4;j++){
+    t += "<td class='item' id='" +i+j + "'>" + coord[i*4+j].slice(1) +"</td></tr>";
+  }
+  t += "</table>";
+  t += "</div>"
+}
 
-    if(i==chara.length-1){
-      t+="<table class='box'></table>"
-    }
+if(chara.length%2==1){
+  t+="<div id='empty'></div>";
+}
 
-    t += "</div>"
-    //if(i%2!=0){t+="</div>";}
-    //else{t+="<span>"+""+"</span>"}
-
-  }    document.getElementById('main').insertAdjacentHTML('beforeend',t);
+document.getElementById('main').insertAdjacentHTML('beforeend',t);
 }
 
 function event(){
