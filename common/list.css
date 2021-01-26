@@ -11,6 +11,19 @@
   font-display: swap;
 }
 
+#main{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 960px){
+  #main table{width:48%; padding:1%;}
+}
+@media screen and (max-width: 959px){
+  #main table{width: 98%; padding:1%;}
+}
+
 body{
   background-color:var(--bgcolor);
   font-family:sans-serif;
