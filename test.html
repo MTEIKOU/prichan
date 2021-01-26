@@ -5,20 +5,89 @@
   <link rel="shortcut icon" href="common/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    table{  border: 3px solid gray; border-collapse:collapse;}
-    td{  border: 1px solid gray;border-collapse:collapse;}
+  table{width:100%; background-color: #369; border: 3px solid gray; border-collapse:collapse;}
+  td{  border: 1px solid gray;border-collapse:collapse;}
+
+  /* Common Styles */
+  .content {
+    color: #fff;
+    font: 100 24px/100px sans-serif;
+    text-align: center;
+  }
+
+  .content div{
+    width: 45%;
+    padding:5px;
+  }
+
+
+  /* Flexbox Styles */
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
   </style>
 </head>
 
 <body>
 
-  <p>タイトル</p>
-  <div>
-    <table>
-      <caption>caption</caption>
-      <tr><td>１</td><td>２</td><td>３</td></tr>
-      <tr><td>４</td><td>５</td><td>６</td></tr>
-    </table>
+  <h4>This is an example for flex-wrap:wrap </h4>
+  <div class="content">
+
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">The table header</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The table body</td>
+          </tr>
+          <tr>
+            <td>with two columns</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">The table header</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The table body</td>
+            <td>with two columns</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">The table header</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The table body</td>
+            <td>with two columns</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+
+
+
 </body>
 </html>

@@ -1,44 +1,34 @@
-body{background-color: lightyellow;}
+body{
+  background-color: lightyellow;
+  text-align: center;
+}
+
+div{  padding:1%;}
 
 table{
-  margin:5px;
   border: 3px solid gray;
   border-collapse: collapse;
   background-color: white;
 }
 
+td{  border: 1px solid gray;}
 
-td{
-  border: 1px solid gray;
+#main{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 img{width:100%;}
-body{text-align: center;}
+
 .have{background-color: #999;}
 
-/*
-@media screen and (min-width: 480px){
-.br-sp { display:none; }
-.br-pc { display:block; }
-table{width: 50%;text-align: center;}
-}
-@media screen and (max-width: 480px){
-.br-sp { display:block; }
-.br-pc { display:none; }
-}
-*/
-.colums{
-  display: flex;
-}
 
 @media screen and (min-width: 960px){
-
-  .box{width: 50%;}
-  .colums{flex-wrap: nowrap;}
+  #main div{width:48%;}
 }
 @media screen and (max-width: 960px){
-  .box{width: 100%;}
-  .colums{flex-wrap: wrap;}
+  #main div{width: 90%;}
 }
 
 .h1{font-size: 32px;}
