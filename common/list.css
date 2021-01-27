@@ -11,16 +11,19 @@
   font-display: swap;
 }
 
-@media screen and (min-width: 481px){
-  #main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-    #main table{width:48%; margin:1%;}
+/* ??px以上で2段表示 */
+@media screen and (min-width: 480px){
+
+  #main div{width:48%;}
 
 }
 
+#main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#main div{margin:1%;}
 
 body{
   background-color:var(--bgcolor);
@@ -35,14 +38,15 @@ caption{
   font-weight: bold;
   font-size:3em;
 
-  border:1px solid #999;
+  border:2px solid #999;
 }
 
-table{border-collapse: collapse;}
+table{border-collapse: collapse;
+margin:1%;}
 
 .three{width:33%;}
 td:not([class="three"]){width:25%;}
-td{  background-color: white;}
+.item:not(.have){  background-color: white;}
 
 .icon{width:1em;height:1em;}
 
@@ -100,6 +104,6 @@ td{  background-color: white;}
 .EVENT{background-color: pink;}
 .HR{background-color: palegreen;}
 
-.empty{background-color: var(--bgcolor)}
+/*.empty{background-color: var(--bgcolor)}*/
 .have{background-color: gray;}
 /*.nohave{background-color: white;}

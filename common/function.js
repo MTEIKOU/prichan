@@ -177,7 +177,7 @@ function makeTable(){
 
   //make rare caption
   for(let n=0;n<rare.length;n++){
-    let t='';
+    let t="<div class='"+rare[n]+"'>";
     switch(rare[n]){
       case "WR":
       t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
@@ -191,6 +191,7 @@ function makeTable(){
       t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><span><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></span><span>"+ rare[n] +"</span><span><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></span></caption></table>"
       break;
     }
+    t+="</div>";
     document.getElementById("main").insertAdjacentHTML('beforeend',t);
   }
 
