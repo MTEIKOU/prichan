@@ -13,10 +13,21 @@
 
 /* ??px以上で2段表示 */
 @media screen and (min-width: 480px){
-
-  #main div{width:48%;}
-
+  #main div{width:98%;}
 }
+
+
+/* ??px以上で2段表示 */
+/*
+@media screen and (min-width: 600px) and (max-width: 1280px){
+  #main div{width:48%;}
+}
+*/
+@media screen and (min-width: 960px){
+  #main div{width:33%;}
+}
+
+
 
 #main{
   display: flex;
@@ -42,7 +53,7 @@ caption{
 }
 
 table{border-collapse: collapse;
-margin:1%;}
+margin:2%;}
 
 .three{width:33%;}
 td:not([class="three"]){width:25%;}
@@ -53,7 +64,6 @@ td:not([class="three"]){width:25%;}
 .item:active{background-color: #c0c0c0;}
 
 .item{
-  font-size: 1.5em;
   border:1px solid #f33;
   /*font-weight: bold;*/
 }
