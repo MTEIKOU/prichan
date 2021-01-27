@@ -12,20 +12,26 @@
 }
 
 /* ??px以上で2段表示 */
-@media screen and (max-width: 480px){
-  #main div{width:98%;}
+@media screen and (max-width: 600px){
+  #main div{width:99%;}
+}
+
+@media screen and (min-width: 600px){
+  #main div{width:49%;}
+}
+
+@media screen and (min-width: 1280px){
+  #main div{width:24%;}
 }
 
 
 /* ??px以上で2段表示 */
 /*
 @media screen and (min-width: 600px) and (max-width: 1280px){
-  #main div{width:48%;}
+#main div{width:48%;}
 }
 */
-@media screen and (min-width: 480px){
-  #main div{width:48%;}
-}
+
 
 
 
@@ -33,8 +39,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
 }
-#main div{margin:2%;}
+
+#main div{margin:0.5%;}
+table{margin:2%;}
+
+
+table{
+  border-collapse: collapse;
+}
 
 body{
   background-color:var(--bgcolor);
@@ -52,8 +66,6 @@ caption{
   border:2px solid #999;
 }
 
-table{border-collapse: collapse;
-margin:2%;}
 
 .three{width:33%;}
 td:not([class="three"]){width:25%;}
@@ -100,11 +112,37 @@ td:not([class="three"]){width:25%;}
 
 .red{color:red}
 
-.IR{background-color: pink;}
-.WR{background-color: pink;}
+
+.IR{
+  background: linear-gradient(to right,#f99,#f9c,#f9f,#c9f,#99f,#9cf,#9ff,#9fc,#9f9,#cf9,#ff9,#fc9);
+}
+
+.IR caption{
+  color:white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: gray;
+  -webkit-text-fill-color: white;
+}
+
+.ER caption{
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: gray;
+  -webkit-text-fill-color: silver;
+}
+
+.WR{
+  background: linear-gradient(to right,
+  black,gold,black
+  );}
 .gray{filter: grayscale(100%);}
-.ER{background-color: gold;}
-.FR{background-color: lightgray;}
+.ER{
+  background: linear-gradient(to right,
+  pink,#f36,pink
+  );}
+.FR{
+  background: linear-gradient(to right,
+  blue 10%,silver 50%,blue
+  );}
 .PR{background-color: lightblue;}
 .SR{background-color: gold;}
 .R{background-color: lightgray;}
