@@ -141,7 +141,7 @@ td:not([class="three"]){width:25%;}
   );}
 .FR{
   background: linear-gradient(to right,
-  blue 10%,silver 50%,blue
+  blue,silver,blue
   );}
 .PR{background-color: lightblue;}
 .SR{background-color: gold;}
