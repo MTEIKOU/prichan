@@ -29,17 +29,6 @@ function print(){
     }
   }
 
-  /*
-  for(let i=0; i<chara.length;i++){
-  var temp=[];
-  for(let j=0; j<4; j++){
-  temp.push(chara[i]+coord[i*4+j]);
-}
-list.push(temp);
-}
-console.log(list);
-*/
-
 var t='';
 
 for(let i in chara){

@@ -145,7 +145,7 @@ function makeTable(){
     let t='';
     switch(rare[n]){
       case "WR":
-      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
+      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://yoppyy.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://yoppyy.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
       break;
 
       case "ITEM":
@@ -153,7 +153,7 @@ function makeTable(){
       break;
 
       default:
-      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
+      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><img class = 'icon' src='https://yoppyy.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'>"+ rare[n] +"<img class = 'icon' src='https://yoppyy.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></caption></table>"
       break;
     }
     document.getElementById("main").insertAdjacentHTML('beforeend',t);
@@ -172,7 +172,7 @@ function makeTable(){
         }
         else{
           if(rare[x]=="WR"){
-            t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
+            t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://yoppyy.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
           }
           else{
             t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"

@@ -17,7 +17,8 @@ let data=[];
 let text='';
 let para='';
 let rep='';
-const url = 'https://mteikou.github.io/prichan/common/img/Item_Question.png';
+const url = 'https://yoppyy.github.io/prichan/common/img/Item_Question.png';
+const imgpass='https://yoppyy.github.io/prichan/common/img'
 
 function DataLoad(){
   if(localStorage.getItem(keyname)) {
@@ -180,7 +181,7 @@ function makeTable(){
     let t="<div class='"+rare[n]+"'>";
     switch(rare[n]){
       case "WR":
-      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'>WR<img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_Q.png'></caption></table>"
+      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='"+imgpass+ "'/PT_rarity_Q.png'>WR<img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'></caption></table>"
       break;
 
       case "ITEM":
@@ -188,7 +189,7 @@ function makeTable(){
       break;
 
       default:
-      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><span><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></span><span>"+ rare[n] +"</span><span><img class = 'icon' src='https://mteikou.github.io/prichan/common/img/PT_rarity_" + rare[n] +".png'></span></caption></table>"
+      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><span><img class = 'icon' src='"+imgpass+"/PT_rarity_" + rare[n] +".png'></span><span>"+ rare[n] +"</span><span><img class = 'icon' src='"+imgpass+"/PT_rarity_" + rare[n] +".png'></span></caption></table>"
       break;
     }
     t+="</div>";
