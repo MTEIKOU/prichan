@@ -29,6 +29,7 @@ img{width:100%;}
 }
 @media screen and (max-width: 960px){
   #main div{width: 90%;}
+  .item caption{font-size:16px;}
 }
 
 .h1{font-size: 32px;}

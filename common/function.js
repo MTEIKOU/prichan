@@ -42,7 +42,7 @@ function settitle(){
   document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
 
   var t="";
-  t+="<a href ='https://mteikou.github.io/prichan/index.html'><font class='font2 item2'><<ＴＯＰ</font></a>";
+  t+="<a href ='https://yoppyy.github.io/prichan/index.html'><font class='font2 item2'><<ＴＯＰ</font></a>";
   t+="<font class='font1 item1'>"+title+"</font>";
   t+="<input type='button' class='item3' value='リセット' onClick='Reset()'>"
   document.getElementById("top").innerHTML=t;
@@ -181,7 +181,7 @@ function makeTable(){
     let t="<div class='"+rare[n]+"'>";
     switch(rare[n]){
       case "WR":
-      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='"+imgpass+ "'/PT_rarity_Q.png'>WR<img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'></caption></table>"
+      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'>WR<img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'></caption></table>"
       break;
 
       case "ITEM":
@@ -212,14 +212,6 @@ function makeTable(){
         }
 
         else{
-
-          //          if(rare[x]=="WR"){
-          //          t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
-          //          t += "<td id='"+id[x][y][z]+"' class='item'><img class='gray' src='img/"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
-          //        }
-          //        else{
-          //        t += "<td id='"+id[x][y][z]+"' class='item'><img src='img/Item_ID"+img[x][y][z]+".png'></br>" +id[x][y][z] +"</td>"
-          //      }
 
           var tag='';
 

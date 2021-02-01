@@ -27,18 +27,39 @@
     t.ready = function(f) {t._e.push(f);};
     return t;
   }(document, "script", "twitter-wjs"));</script>
-
-</head>
+  
 
 <body>
+  <div id="top" class="inline"><!-- 1段目 タイトル -->
 
-  <script>
-    //共通パーツ読み込み
-    $(function() {
-         $("#body").load("../../../common/include/body.html");
-  });
-  </script>
-  <div id="body"></div>
+  </div>
+
+  <div id = "schedule"><!-- 2段目 期間 -->
+    <span id="kikan" class="font2"></span>
+    <span id="finish" class="font3"></span>
+  </div>
+
+  <!-- 3段目 期間(2)
+  <div id = "schedule2" class="center">
+  <span id="kikan2" class="font2"></span> <span id="finish2" class="font3"></span>
+</div>
+-->
+
+<div id="collect"><!-- 4段目 取得率（合計） -->
+  <span id="total" class="font2"></span>
+  <span id="twitter"></span>
+</div>
+
+<div class="center"><!-- 5段目 取得率（個別） -->
+  <span id="each"><span>
+  </div>
+
+  <div id="restore" class="center"> <!-- 6段目 フォーム -->
+  </div>
+
+  <div id="main"></div>
+
+  <div id = "disable"><noscript><font size=7>Javascriptを有効にしてください。</font></noscript></div>
 
 </body>
 </html>
