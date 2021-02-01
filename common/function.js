@@ -42,7 +42,7 @@ function settitle(){
   document.getElementById("kikan").innerHTML=kikanStr(start) + "～" + kikanStr(end);
 
   var t="";
-  t+="<a href ='https://yoppyy.github.io/prichan/index.html'><font class='font2 item2'><<ＴＯＰ</font></a>";
+  t+="<a href ='https://yoppyy.github.io/prichan/top/index.html'><font class='font2 item2'><<ＴＯＰ</font></a>";
   t+="<font class='font1 item1'>"+title+"</font>";
   t+="<input type='button' class='item3' value='リセット' onClick='Reset()'>"
   document.getElementById("top").innerHTML=t;
