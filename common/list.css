@@ -14,14 +14,17 @@
 /* ??px以上で2段表示 */
 @media screen and (max-width: 600px){
   #main div{width:99%;}
+
 }
 
 @media screen and (min-width: 600px){
   #main div{width:49%;}
+
 }
 
 @media screen and (min-width: 1280px){
   #main div{width:24%;}
+
 }
 
 
@@ -63,7 +66,7 @@ caption{
   font-weight: bold;
   font-size:3em;
 
-  border:2px solid #999;
+
 }
 
 
@@ -113,8 +116,8 @@ td:not([class="three"]){width:25%;}
 .red{color:red}
 
 
-.IR{
-  background: linear-gradient(to right,#f99,#f9c,#f9f,#c9f,#99f,#9cf,#9ff,#9fc,#9f9,#cf9,#ff9,#fc9);
+.IR:not(caption){
+  background: linear-gradient(to right,#f99,#f9c,#f9f,#c9f,#99f,#9cf,#9ff,#9fc,#9f9,#cf9,#ff9,#fc9,#f99);
 }
 
 .IR caption{
