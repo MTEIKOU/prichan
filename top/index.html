@@ -4,8 +4,10 @@
   <script src="../common/jquery-3.5.1.min.js"></script>
 
   <script>
+  $.ajaxSetup({async: false});
   $.getScript("schedule.js");
   $.getScript("index.js");
+    $.ajaxSetup({async: true});
   //共通パーツ読み込み
     $(function() {
          $("#header").load("header.html");
