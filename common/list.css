@@ -45,6 +45,7 @@ div .ITEM{width:99%;}
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  /*flex-direction: column;*/
 }
 
 #box{
