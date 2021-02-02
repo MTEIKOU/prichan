@@ -175,26 +175,29 @@ return true;
 }*/
 
 function makeTable(){
-
+  let b="<div id='box'>";
   //make rare caption
   for(let n=0;n<rare.length;n++){
-    let t="<div class='"+rare[n]+"'>";
+    let t="";
+
     switch(rare[n]){
       case "WR":
-      t += "<table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'>WR<img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'></caption></table>"
+      b += "<div class='"+rare[n]+"'><table id='WR' class = 'table'><caption class='WR'><img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'>WR<img class = 'icon' src='"+imgpass+"/PT_rarity_Q.png'></caption></table></div>"
       break;
 
       case "ITEM":
-      t += "<table id='ITEM' class = 'table'><caption class='ITEM'>パシャっとアイテム</caption></table>"
+      b += "<div class='"+rare[n]+"'><table id='ITEM' class = 'table'><caption class='ITEM'>パシャっとアイテム</caption></table></div>"
       break;
 
       default:
-      t += "<table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><span><img class = 'icon' src='"+imgpass+"/PT_rarity_" + rare[n] +".png'></span><span>"+ rare[n] +"</span><span><img class = 'icon' src='"+imgpass+"/PT_rarity_" + rare[n] +".png'></span></caption></table>"
+      t += "<div class='"+rare[n]+"'><table id='" + rare[n] + "'class = 'table'><caption class='" +rare[n]+"'><span><img class = 'icon' src='"+imgpass+"/PT_rarity_" + rare[n] +".png'></span><span>"+ rare[n] +"</span><span><img class = 'icon' src='"+imgpass+"/PT_rarity_" + rare[n] +".png'></span></caption></table></div>"
+      document.getElementById("main").insertAdjacentHTML('beforeend',t);
       break;
     }
-    t+="</div>";
-    document.getElementById("main").insertAdjacentHTML('beforeend',t);
   }
+  b+="</div>";
+  document.getElementById("main").insertAdjacentHTML('beforeend',b);
+
 
   //make table
   for(let x=0;x<rare.length;x++){

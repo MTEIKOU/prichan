@@ -13,20 +13,22 @@
 
 /* ??px以上で2段表示 */
 @media screen and (max-width: 600px){
-  #main div{width:99%;}
+  #main>div{width:99%;}
 
 }
 
 @media screen and (min-width: 600px){
-  #main div{width:49%;}
+  #main>div{width:49%;}
 
 }
 
 @media screen and (min-width: 1280px){
-  #main div{width:24%;}
+  #main>div{width:24%;}
 
 }
 
+div .WR{width:99%;}
+div .ITEM{width:99%;}
 
 /* ??px以上で2段表示 */
 /*
@@ -43,6 +45,14 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+}
+
+#box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
 }
 
 #main div{margin:0.5%;}
@@ -64,10 +74,8 @@ img{width:100%;}
 caption{
   font-family:Impact;
   font-weight: bold;
-  font-size:3em;
-
-
 }
+caption:not(.ITEM){font-size:3em;}
 
 
 .three{width:33%;}
@@ -77,7 +85,7 @@ td:not([class="three"]){width:25%;}
 .icon{width:1em;height:1em;}
 
 .item:active{background-color: #c0c0c0;}
-
+caption.ITEM{font-size:1.5em;}
 .item{
   border:1px solid #f33;
   /*font-weight: bold;*/
@@ -133,16 +141,16 @@ td:not([class="three"]){width:25%;}
   -webkit-text-fill-color: silver;
 }
 
-.WR{
+.WR:not(caption){
   background: linear-gradient(to right,
   black,gold,black
   );}
 .gray{filter: grayscale(100%);}
-.ER{
+.ER:not(caption){
   background: linear-gradient(to right,
   pink,#f36,pink
   );}
-.FR{
+.FR:not(caption){
   background: linear-gradient(to right,
   blue,silver,blue
   );}
