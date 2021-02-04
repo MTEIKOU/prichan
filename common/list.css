@@ -85,7 +85,7 @@ td:not([class="three"]){width:25%;}
 
 .icon{width:1em;height:1em;}
 
-.item:active{background-color: #c0c0c0;}
+/*.item:active{background-color: #c0c0c0;}*/
 caption.ITEM{font-size:1.5em;}
 .item{
   border:1px solid #f33;

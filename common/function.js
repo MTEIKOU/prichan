@@ -223,7 +223,6 @@ function makeTable(){
             if(rare[x]=="WR"){
               //t += "<td id='"+id[x][y][z]+"' class='item'><img src='https://mteikou.github.io/prichan/common/img/Item_Question.png'></br>" +id[x][y][z] +"</td>"
 
-
               tag = "<img class='img gray' src='img/"+img[x][y][z]+".png'>"
 
             }
