@@ -79,7 +79,7 @@ img{
   justify-content: space-around;
 }
 
-#main div{width:48%;}
+#main div{width:80%;}
 
 .left{width: 100px}
 .naka{flex: 1}
