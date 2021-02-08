@@ -135,7 +135,7 @@ function makeTable(){
 
 
   var t = "<table id='"+rare+"' class = 'table'><caption class='caption event'>" + rare + "</caption></table>"
-  document.getElementById("main").insertAdjacentHTML('beforeend',t);
+  document.getElementById("box").insertAdjacentHTML('beforeend',t);
 
 
   //make table
