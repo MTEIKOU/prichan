@@ -1,4 +1,4 @@
-let title = "FR（復刻）"
+let title = "ファンタジーレア（復刻）"
 let keyname = "Kikan-FR"
 //let kikan = "12/3(木)～"
 const start = [2020,2,4];
