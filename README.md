@@ -1,3 +1,3 @@
 # prichan
 
-https://mteikou.github.io/prichan/
+https://yoppyy.github.io/prichan/
