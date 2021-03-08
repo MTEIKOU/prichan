@@ -1,0 +1,16 @@
+body{
+  text-align: center;
+}
+
+table,tr,.count{
+  border:1px solid black;
+  border-collapse: collapse;
+}
+
+img{
+  width:66px;
+}
+
+div,table{
+  width:100%;
+}
