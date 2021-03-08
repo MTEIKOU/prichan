@@ -2,7 +2,7 @@ body{
   text-align: center;
 }
 
-table,tr,.count{
+table,tr,caption,.count{
   border:1px solid black;
   border-collapse: collapse;
 }
@@ -15,6 +15,6 @@ div,table{
   width:100%;
 }
 
-.item{
-  background-color: gray;
+table{
+  background-color: lightblue;
 }

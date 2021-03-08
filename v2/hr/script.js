@@ -64,7 +64,7 @@ t+="</tr>";
 document.getElementById('body').insertAdjacentHTML('beforeend',t);
 }
 */
-document.getElementById("div").innerHTML="<table id='table'></table>";
+document.getElementById("div").innerHTML="<table id='table'><caption>HR</caption></table>";
 
 for(var i in queue){
   //出力
@@ -88,9 +88,8 @@ for(var i in queue){
     default:
 
   }
-  var t="<tr>"
-  t+="<td>"+queue[i].id+"</td><td class='item'><img src='img/Item_ID"+queue[i].img+".png'></td><td>"+queue[i].name+type+"</td><td class='count'>"+"-"+"</td><td class='count'>"+"0"+"</td><td class='count'>"+"+"+"</td>"
-  t+="</tr>"
+  var t='';
+  t+="<tr><td>"+queue[i].id+"</td><td class='img'><img src='img/Item_ID"+queue[i].img+".png'></td><td>"+queue[i].name+type+"</td><td class='count'>"+"-"+"</td><td class='count'>"+"0"+"</td><td class='count'>"+"+"+"</td></tr>";
   document.getElementById("table").insertAdjacentHTML('beforeend',t);
 }
 
