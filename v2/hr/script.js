@@ -89,7 +89,7 @@ for(var i in queue){
 
   }
   var t="<tr>"
-  t+="<td>"+queue[i].id+"</td><td><img src='img/Item_ID"+queue[i].img+".png'></td><td>"+queue[i].name+type+"</td><td class='count'>"+"-"+"</td><td class='count'>"+"0"+"</td><td class='count'>"+"+"+"</td>"
+  t+="<td>"+queue[i].id+"</td><td class='item'><img src='img/Item_ID"+queue[i].img+".png'></td><td>"+queue[i].name+type+"</td><td class='count'>"+"-"+"</td><td class='count'>"+"0"+"</td><td class='count'>"+"+"+"</td>"
   t+="</tr>"
   document.getElementById("table").insertAdjacentHTML('beforeend',t);
 }

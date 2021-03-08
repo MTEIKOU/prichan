@@ -14,3 +14,7 @@ img{
 div,table{
   width:100%;
 }
+
+.item{
+  background-color: gray;
+}
