@@ -1,6 +1,7 @@
 body{
   text-align: center;
 -webkit-text-size-adjust: 100%;
+background-color: lightpink;
 }
 
 table,tr,caption{
@@ -17,7 +18,7 @@ div,table{
   width:100%;
 }
 
-table{
+table,caption{
   background-color: lightgreen;
 }
 
@@ -31,7 +32,7 @@ table{
 .t1,.t3,.t5,caption{font-weight: bold;}
 .t1,.t3,.t5{font-size: 1em;}
 
-caption{font-size: 2em;}
+caption{font-size: 1em;}
 
 button{
   width:80%;

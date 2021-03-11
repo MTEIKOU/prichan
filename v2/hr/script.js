@@ -31,9 +31,9 @@ let data=[
   {id:'HC-94', img:72985, name:'ホロスコープ/ふたござ', type:'W'},
   {id:'HC-95', img:72986, name:'ホロスコープ/ふたござ', type:'S'},
   {id:'HC-96', img:72987, name:'ホロスコープ/ふたござ', type:'H'},
-
 ];
 
+let title={name:'ハッピーレア大量発生チャンネル', kikan:'3月4日（木）～3月31日（水）'};
 
 window.addEventListener('load', function(){Load()})
 
@@ -66,10 +66,11 @@ t+="</tr>";
 document.getElementById('body').insertAdjacentHTML('beforeend',t);
 }
 */
+document.getElementById("div").insertAdjacentHTML('beforebegin',"<div id='title'>"+title.name+"</div>");
+document.getElementById("div").insertAdjacentHTML('beforebegin',"<div id='kikan'>"+title.kikan+"</div>");
 document.getElementById("div").innerHTML="<table id='table'><caption>HR</caption></table>";
 
 for(var i in data){
-  //出力
   var type='';
   switch (data[i].type) {
     case 'H':
@@ -94,12 +95,9 @@ for(var i in data){
 
 
   //DataLoad
-  var n;
-  if(!localStorage.getItem(data[i].id)){n=0;}
-  else{n = parseInt(localStorage.getItem(data[i].id),10);}
+  var n = DataLoad(data[i].id);
 
   //TableSet
-
   var rep = data[i].name.replace('/','<br>') ; // 改行置き換え
   var t='';
   t+="<tr>"
@@ -113,24 +111,15 @@ for(var i in data){
   document.getElementById("table").insertAdjacentHTML('beforeend',t);
 
   //ColorSet
-  if(parseInt(localStorage.getItem(data[i].id),10)>0){
-    document.getElementById(data[i].id).classList.add("have");
-  }
+  ColorSet(data[i].id);
 }
 
 }
 
 function func(get,val){
 
-  var n;
-
-  if(!localStorage.getItem(get)){
-    console.log("null");
-    n=0;
-  }
-  else{
-    n = parseInt(localStorage.getItem(get),10);
-  }
+  //所持数を本文から参照
+  var n = parseInt(document.getElementById(get).textContent);
 
   //CountUp or CountDown
   var r=n+val;
@@ -138,12 +127,31 @@ function func(get,val){
     localStorage.setItem(get,r);
     document.getElementById(get).innerHTML=r;
   }
+  if(r==0){localStorage.removeItem(get);}
+  ColorSet(get);
+}
+
+
+function DataLoad(id){
+  var n;
+  // 0だったらlocalstrage削除 -> 0
+  if(localStorage.getItem(id)==0){ localStorage.removeItem(id)}
+  // nullだったら0
+  if(!localStorage.getItem(id)){n=0}
+  else{n = parseInt(localStorage.getItem(id),10);}
+  return n;
+}
+
+function ColorSet(id){
   //ColorCheck
-  if(parseInt(localStorage.getItem(get),10)>0){
-    document.getElementById(get).classList.add("have");
+  if(parseInt(localStorage.getItem(id),10)>0){
+    document.getElementById(id).classList.add("have");
   }
   else{
-    document.getElementById(get).classList.remove("have");
+    document.getElementById(id).classList.remove("have");
   }
+}
 
+function Achieve(){
+  //
 }
