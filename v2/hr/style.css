@@ -30,7 +30,8 @@ table,caption{
 .t6{width:10%}
 
 .t1,.t3,.t5,caption{font-weight: bold;}
-.t1,.t3,.t5{font-size: 1em;}
+.t1,.t5{font-size: 1em;}
+.t3{font-size:0.9em;}
 
 caption{font-size: 1em;}
 
