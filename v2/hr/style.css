@@ -1,5 +1,6 @@
 body{
   text-align: center;
+-webkit-text-size-adjust: 100%;
 }
 
 table,tr,caption{
@@ -9,7 +10,7 @@ table,tr,caption{
 table,tr,td{height: 100%;}
 
 img{
-  width:100px;
+  width:80px;
 }
 
 div,table{
@@ -28,7 +29,7 @@ table{
 .t6{width:10%}
 
 .t1,.t3,.t5,caption{font-weight: bold;}
-.t1,.t3,.t5{font-size: 1.1em;}
+.t1,.t3,.t5{font-size: 1em;}
 
 caption{font-size: 2em;}
 
