@@ -23,9 +23,9 @@ table{
 
 .t1{width:15%}
 .t2{width:15%}
-.t3{width:40%}
+.t3{width:auto}
 .t4{width:10%}
-.t5{width:10%}
+.t5{width:5%}
 .t6{width:10%}
 
 .t1,.t3,.t5,caption{font-weight: bold;}
