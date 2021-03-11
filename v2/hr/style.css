@@ -23,15 +23,15 @@ table,caption{
 }
 
 .t1{width:15%}
-.t2{width:15%}
-.t3{width:auto}
+.t2{width:10%}
+.t3{width:50%}
 .t4{width:10%}
 .t5{width:5%}
 .t6{width:10%}
 
 .t1,.t3,.t5,caption{font-weight: bold;}
 .t1,.t5{font-size: 1em;}
-.t3{font-size:0.9em;}
+.t3{font-size:0.8em;}
 
 caption{font-size: 1em;}
 
