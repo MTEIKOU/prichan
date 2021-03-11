@@ -2,13 +2,13 @@ body{
   text-align: center;
 }
 
-table,tr,caption,.count{
+table,tr,caption{
   border:1px solid black;
   border-collapse: collapse;
 }
 
 img{
-  width:66px;
+  width:100px;
 }
 
 div,table{
@@ -16,5 +16,24 @@ div,table{
 }
 
 table{
-  background-color: lightblue;
+  background-color: lightgreen;
+}
+
+.t1{width:15%}
+.t2{width:15%}
+.t3{width:40%}
+.t4{width:10%}
+.t5{width:10%}
+.t6{width:10%}
+
+.t1,.t3,.t5,caption{font-weight: bold;}
+
+button{
+   padding: 1em;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+.have{
+  color:red;
 }

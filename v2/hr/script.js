@@ -1,58 +1,60 @@
 let data=[
-  {id:'HC-65', img:72955, name:'シンデレラプリンセスブルー', type:'W'},
-  {id:'HC-66', img:72956, name:'シンデレラプリンセスブルー', type:'S'},
-  {id:'HC-67', img:72957, name:'シンデレラプリンセスブルー', type:'H'},
-  {id:'HC-68', img:72958, name:'シンデレラプリンセスピンク', type:'W'},
-  {id:'HC-69', img:72959, name:'シンデレラプリンセスピンク', type:'S'},
-  {id:'HC-70', img:72960, name:'シンデレラプリンセスピンク', type:'H'},
-  {id:'HC-71', img:72961, name:'シンデレラプリンスブルー', type:'W'},
-  {id:'HC-72', img:72962, name:'シンデレラプリンスブルー', type:'S'},
-  {id:'HC-73', img:72963, name:'シンデレラプリンスブルー', type:'H'},
-  {id:'HC-74', img:72964, name:'シンデレラプリンスピンク', type:'W'},
-  {id:'HC-75', img:72965, name:'シンデレラプリンスピンク', type:'S'},
-  {id:'HC-76', img:72966, name:'シンデレラプリンスピンク', type:'H'},
-  {id:'HC-77', img:72968, name:'にんぎょひめ', type:'T'},
-  {id:'HC-78', img:72969, name:'にんぎょひめ', type:'B'},
-  {id:'HC-79', img:72970, name:'にんぎょひめ', type:'S'},
-  {id:'HC-80', img:72971, name:'にんぎょひめ', type:'H'},
-  {id:'HC-81', img:72972, name:'にんぎょひめターコイズ', type:'T'},
-  {id:'HC-82', img:72973, name:'にんぎょひめターコイズ', type:'B'},
-  {id:'HC-83', img:72974, name:'にんぎょひめターコイズ', type:'S'},
-  {id:'HC-84', img:72975, name:'にんぎょひめターコイズ', type:'H'},
-  {id:'HC-85', img:72976, name:'ホロスコープみずがめざ', type:'W'},
-  {id:'HC-86', img:72977, name:'ホロスコープみずがめざ', type:'S'},
-  {id:'HC-87', img:72978, name:'ホロスコープみずがめざ', type:'H'},
-  {id:'HC-88', img:72979, name:'ホロスコープかにざ', type:'W'},
-  {id:'HC-89', img:72980, name:'ホロスコープかにざ', type:'S'},
-  {id:'HC-90', img:72981, name:'ホロスコープかにざ', type:'H'},
-  {id:'HC-91', img:72982, name:'ホロスコープうおざ', type:'W'},
-  {id:'HC-92', img:72983, name:'ホロスコープうおざ', type:'S'},
-  {id:'HC-93', img:72984, name:'ホロスコープうおざ', type:'H'},
-  {id:'HC-94', img:72985, name:'ホロスコープふたござ', type:'W'},
-  {id:'HC-95', img:72986, name:'ホロスコープふたござ', type:'S'},
-  {id:'HC-96', img:72987, name:'ホロスコープふたござ', type:'H'},
+  {id:'HC-65', img:72955, name:'シンデレラプリンセス/ブルー', type:'W'},
+  {id:'HC-66', img:72956, name:'シンデレラプリンセス/ブルー', type:'S'},
+  {id:'HC-67', img:72957, name:'シンデレラプリンセス/ブルー', type:'H'},
+  {id:'HC-68', img:72958, name:'シンデレラプリンセス/ピンク', type:'W'},
+  {id:'HC-69', img:72959, name:'シンデレラプリンセス/ピンク', type:'S'},
+  {id:'HC-70', img:72960, name:'シンデレラプリンセス/ピンク', type:'H'},
+  {id:'HC-71', img:72961, name:'シンデレラプリンス/ブルー', type:'W'},
+  {id:'HC-72', img:72962, name:'シンデレラプリンス/ブルー', type:'S'},
+  {id:'HC-73', img:72963, name:'シンデレラプリンス/ブルー', type:'H'},
+  {id:'HC-74', img:72964, name:'シンデレラプリンス/ピンク', type:'W'},
+  {id:'HC-75', img:72965, name:'シンデレラプリンス/ピンク', type:'S'},
+  {id:'HC-76', img:72966, name:'シンデレラプリンス/ピンク', type:'H'},
+  {id:'HC-77', img:72968, name:'にんぎょひめ/', type:'T'},
+  {id:'HC-78', img:72969, name:'にんぎょひめ/', type:'B'},
+  {id:'HC-79', img:72970, name:'にんぎょひめ/', type:'S'},
+  {id:'HC-80', img:72971, name:'にんぎょひめ/', type:'H'},
+  {id:'HC-81', img:72972, name:'にんぎょひめ/ターコイズ', type:'T'},
+  {id:'HC-82', img:72973, name:'にんぎょひめ/ターコイズ', type:'B'},
+  {id:'HC-83', img:72974, name:'にんぎょひめ/ターコイズ', type:'S'},
+  {id:'HC-84', img:72975, name:'にんぎょひめ/ターコイズ', type:'H'},
+  {id:'HC-85', img:72976, name:'ホロスコープ/みずがめざ', type:'W'},
+  {id:'HC-86', img:72977, name:'ホロスコープ/みずがめざ', type:'S'},
+  {id:'HC-87', img:72978, name:'ホロスコープ/みずがめざ', type:'H'},
+  {id:'HC-88', img:72979, name:'ホロスコープ/かにざ', type:'W'},
+  {id:'HC-89', img:72980, name:'ホロスコープ/かにざ', type:'S'},
+  {id:'HC-90', img:72981, name:'ホロスコープ/かにざ', type:'H'},
+  {id:'HC-91', img:72982, name:'ホロスコープ/うおざ', type:'W'},
+  {id:'HC-92', img:72983, name:'ホロスコープ/うおざ', type:'S'},
+  {id:'HC-93', img:72984, name:'ホロスコープ/うおざ', type:'H'},
+  {id:'HC-94', img:72985, name:'ホロスコープ/ふたござ', type:'W'},
+  {id:'HC-95', img:72986, name:'ホロスコープ/ふたござ', type:'S'},
+  {id:'HC-96', img:72987, name:'ホロスコープ/ふたござ', type:'H'},
 
 ];
 
 
-window.addEventListener('load', function(){setting()})
+window.addEventListener('load', function(){Load()})
 
-function setting(){
+function Load(){
   //キュー作成
-  var queue=[];
-  for(var i in data){
-    queue[i]=data[i];
-  }
   /*
-  while(queue.length>0){
+  var data=[];
+  for(var i in data){
+  data[i]=data[i];
+}
 
-  var row =[];
+while(data.length>0){
 
-  //列データ作成
-  var temp = queue.shift();
-  row.push(temp);
-  while(queue.length>0 && temp.name == queue[0].name){
-  row.push(queue.shift());
+var row =[];
+
+//列データ作成
+//名前変わったら改行
+var temp = data.shift();
+row.push(temp);
+while(data.length>0 && temp.name == data[0].name){
+row.push(data.shift());
 }
 
 //出力
@@ -66,10 +68,10 @@ document.getElementById('body').insertAdjacentHTML('beforeend',t);
 */
 document.getElementById("div").innerHTML="<table id='table'><caption>HR</caption></table>";
 
-for(var i in queue){
+for(var i in data){
   //出力
   var type='';
-  switch (queue[i].type) {
+  switch (data[i].type) {
     case 'H':
     type='ヘアアクセ';
     break;
@@ -86,11 +88,62 @@ for(var i in queue){
     type='シューズ';
     break;
     default:
+    break;
 
   }
+
+
+  //DataLoad
+  var n;
+  if(!localStorage.getItem(data[i].id)){n=0;}
+  else{n = parseInt(localStorage.getItem(data[i].id),10);}
+
+  //TableSet
+
+  var rep = data[i].name.replace('/','<br>') ; // 改行置き換え
   var t='';
-  t+="<tr><td>"+queue[i].id+"</td><td class='img'><img src='img/Item_ID"+queue[i].img+".png'></td><td>"+queue[i].name+type+"</td><td class='count'>"+"-"+"</td><td class='count'>"+"0"+"</td><td class='count'>"+"+"+"</td></tr>";
+  t+="<tr>"
+  t+="<td class='t1'>"+data[i].id+"</td>"
+  t+="<td class='t2'><img src='img/Item_ID"+data[i].img+".png'></td>"
+  t+="<td class='t3'>"+rep+type+"</td>"
+  t+="<td class='t4'>"+"<button onclick='func(\""+data[i].id+"\",-1)'>-</button>"+"</td>"
+  t+="<td class='t5' id='"+data[i].id+"'>"+n+"</td>"
+  t+="<td class='t6'>"+"<button onclick='func(\""+data[i].id+"\",1)'>+</button>"+"</td>"
+  t+="</tr>"
   document.getElementById("table").insertAdjacentHTML('beforeend',t);
+
+  //ColorSet
+  if(parseInt(localStorage.getItem(data[i].id),10)>0){
+    document.getElementById(data[i].id).classList.add("have");
+  }
 }
+
+}
+
+function func(get,val){
+
+  var n;
+
+  if(!localStorage.getItem(get)){
+    console.log("null");
+    n=0;
+  }
+  else{
+    n = parseInt(localStorage.getItem(get),10);
+  }
+
+  //CountUp or CountDown
+  var r=n+val;
+  if( r >= 0 && r <10 ){ //0~9
+    localStorage.setItem(get,r);
+    document.getElementById(get).innerHTML=r;
+  }
+  //ColorCheck
+  if(parseInt(localStorage.getItem(get),10)>0){
+    document.getElementById(get).classList.add("have");
+  }
+  else{
+    document.getElementById(get).classList.remove("have");
+  }
 
 }
